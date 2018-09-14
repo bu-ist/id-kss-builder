@@ -1,7 +1,7 @@
 {
   "name": "id-kss-builder",
-  "version": "1.0.0",
-  "description": "The default builder for kss-node.",
+  "version": "0.0.1",
+  "description": "The default builder for Boston University Interactive Design frontend documentation.",
   "main": "builder.js",
   "devDependencies": {
     "grunt": "~1.0.3",
