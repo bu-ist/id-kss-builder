@@ -15,7 +15,11 @@
 <body id="id-kss-node" {{#if template.isItem}}class="id-kss-fullscreen-mode"{{/if}}>
 
 <header class="id-kss-header">
-	<h1 class="id-kss-doc-title">{{options.title}}</h1>
+	<h1 class="id-kss-doc-title">
+		<a href="./">
+			{{options.title}}
+		</a>
+	</h1>
 	<div class="id-kss-header-wrapper">
 		<nav class="id-kss-main-nav">
 			<a href="#" class="id-kss-main-nav-link active">Utilities</a>
@@ -31,11 +35,6 @@
 <div class="id-kss-sidebar id-kss-style">
 	<nav class="id-kss-nav" aria-label="Style Guide">
 		<ul class="id-kss-nav-menu">
-			<li class="id-kss-nav-menu-item">
-				<a class="id-kss-nav-menu-link" href="./">
-					<span class="id-kss-nav__name">Overview</span>
-				</a>
-			</li>
 		{{#each menu}}
 			<li class="id-kss-nav-menu-item">
 				<a class="id-kss-nav-menu-link id-kss-nav-menu-parent" href="section-{{referenceURI}}.html">
