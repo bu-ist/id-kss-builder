@@ -11,7 +11,16 @@ $font-family-base: $font-family-sans-serif;
 @import 'burf-base/typography';
 @import 'vs2015';
 
+.id-kss-fullscreen-mode {
+	.id-kss-sidebar,
+	.id-kss-section:not(.is-fullscreen),
+	.id-kss-github {
+		display: none;
+	}
+}
+
 @import 'header';
+@import 'sidebar';
 
 // ------------------------------------------------------------------------------
 //   Variables - Colors, Fonts, etc.

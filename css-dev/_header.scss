@@ -5,6 +5,11 @@ $id-kss-colors-background: #29436f;
 	padding: $padding-small;
 	background: linear-gradient( to right, darken( $id-kss-colors-background, 10% ), $id-kss-colors-background );
 	display: flex;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 2;
 }
 
 .id-kss-doc-title {
