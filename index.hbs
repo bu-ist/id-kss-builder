@@ -38,21 +38,19 @@
 			</li>
 		{{#each menu}}
 			<li class="id-kss-nav-menu-item">
-				<a class="id-kss-nav-menu-link" href="section-{{referenceURI}}.html">
+				<a class="id-kss-nav-menu-link id-kss-nav-menu-parent" href="section-{{referenceURI}}.html">
 					<span class="id-kss-nav__name">{{header}}</span>
 				</a>
-				{{#if isActive}}
-					{{#if children}}
-						<ul class="id-kss-nav-menu-child">
-						{{#each children}}
-							<li class="id-kss-nav-menu-item">
-								<a class="id-kss-nav-menu-link" href="section-{{../referenceURI}}.html#kssref-{{referenceURI}}">
-									<span class="id-kss-nav__name">{{header}}</span>
-								</a>
-							</li>
-						{{/each}}
-						</ul>
-					{{/if}}
+				{{#if children}}
+					<ul class="id-kss-nav-menu-child">
+					{{#each children}}
+						<li class="id-kss-nav-menu-item">
+							<a class="id-kss-nav-menu-link" href="section-{{../referenceURI}}.html#kssref-{{referenceURI}}">
+								<span class="id-kss-nav__name">{{header}}</span>
+							</a>
+						</li>
+					{{/each}}
+					</ul>
 				{{/if}}
 			</li>
 		{{/each}}
