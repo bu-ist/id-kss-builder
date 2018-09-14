@@ -13,7 +13,7 @@ module.exports = function(grunt) {
 			},
 			styles: {
 				files: [
-					'bower_components/responsive-foundation/css-dev/**/*.scss',
+					'node_modules/responsive-foundation/css-dev/**/*.scss',
 					'css-dev/**/*.scss',
 				],
 				tasks: [ 'styles' ],
@@ -31,6 +31,9 @@ module.exports = function(grunt) {
 				precision: '5',
 				includePaths: [
 					'node_modules/responsive-foundation/css-dev',
+					'node_modules/normalize-scss/sass',
+					'node_modules/mathsass/dist/',
+					'node_modules/highlight.js/styles/',
 					'css-dev/'
 				],
 				bundleExec: true,

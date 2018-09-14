@@ -1,0 +1,44 @@
+$id-kss-colors-background: #29436f;
+
+.id-kss-header {
+	background: $id-kss-colors-background;
+	padding: $padding-small;
+	background: linear-gradient( to right, darken( $id-kss-colors-background, 10% ), $id-kss-colors-background );
+	display: flex;
+}
+
+.id-kss-doc-title {
+	@extend %font-size-5;
+	color: $color-grayscale-f;
+	font-family: $font-family-sans-serif;
+	margin-bottom: 0;
+}
+
+.id-kss-header-wrapper {
+	flex-grow: 1;
+}
+
+.id-kss-main-nav {
+	text-align: right;
+}
+
+.id-kss-main-nav-link {
+	color: $color-grayscale-f;
+	margin: 0 $margin-small;
+	position: relative;
+	text-decoration: none;
+
+	&.active {
+		&::after {
+			background: $color-grayscale-f;
+			bottom: -8px;
+			content: '';
+			display: block;
+			left: 50%;
+			height: 3px;
+			margin-left: -15px;
+			position: absolute;
+			width: 30px;
+		}
+	}
+}
