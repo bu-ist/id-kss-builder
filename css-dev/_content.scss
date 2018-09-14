@@ -17,3 +17,29 @@ iframe {
 	border: 1px dashed lightblue;
 	width: 100%;
 }
+
+.id-kss-modifier-heading {
+	display: flex;
+	font-weight: 700;
+	align-items: center;
+	margin-left: -$margin;
+	margin-right: -$margin;
+	border-bottom: 1px solid $color-grayscale-d;
+	border-top: 1px solid $color-grayscale-d;
+	padding: $padding-small/2 $padding;
+	margin-bottom: $margin;
+}
+
+.id-kss-source {
+	@extend %icon-github;
+	@extend %font-size-minimum;
+	color: $color-grayscale-0;
+	font-weight: 700;
+	margin-left: auto;
+	text-decoration: none;
+
+	&::before {
+		margin-right: 0.25em;
+		margin-top: -2px;
+	}
+}

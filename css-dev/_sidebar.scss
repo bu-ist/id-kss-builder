@@ -21,7 +21,9 @@
 }
 
 .id-kss-nav-menu-link {
+	@extend %font-size-secondary;
 	color: #285ebd;
+	display: block;
 	text-decoration: none;
 
 	&:visited {
@@ -33,6 +35,7 @@
 	@extend %font-size-4;
 	color: $color-grayscale-0;
 	font-weight: 700;
+	margin-bottom: $margin-small;
 
 	&:visited {
 		color: $color-grayscale-0;
