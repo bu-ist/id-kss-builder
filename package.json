@@ -2,6 +2,11 @@
   "name": "id-kss-builder",
   "version": "0.0.1",
   "description": "The default builder for Boston University Interactive Design frontend documentation.",
+  "repository": "https://github.com/bu-ist/id-kss-builder/",
+  "contributors": [
+    "Dakota Chichester <acketon@bu.edu>",
+    "Ashley Kolodziej <kolodz10@bu.edu>"
+  ],
   "main": "builder.js",
   "devDependencies": {
     "grunt": "~1.0.3",
