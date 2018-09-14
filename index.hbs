@@ -33,14 +33,13 @@
 		<ul class="id-kss-nav-menu">
 			<li class="id-kss-nav-menu-item">
 				<a class="id-kss-nav-menu-link" href="./">
-					<span class="id-kss-nav__ref">0</span
-					><span class="id-kss-nav__name">Overview</span>
+					<span class="id-kss-nav__name">Overview</span>
 				</a>
 			</li>
 		{{#each menu}}
 			<li class="id-kss-nav-menu-item">
 				<a class="id-kss-nav-menu-link" href="section-{{referenceURI}}.html">
-					<span class="id-kss-nav__ref">{{referenceNumber}}</span><span class="id-kss-nav__name">{{header}}</span>
+					<span class="id-kss-nav__name">{{header}}</span>
 				</a>
 				{{#if isActive}}
 					{{#if children}}
@@ -48,8 +47,7 @@
 						{{#each children}}
 							<li class="id-kss-nav-menu-item">
 								<a class="id-kss-nav-menu-link" href="section-{{../referenceURI}}.html#kssref-{{referenceURI}}">
-									<span class="id-kss-nav__ref {{#if isGrandChild}}id-kss-nav__ref-child{{/if}}">{{referenceNumber}}</span
-									><span class="id-kss-nav__name">{{header}}</span>
+									<span class="id-kss-nav__name">{{header}}</span>
 								</a>
 							</li>
 						{{/each}}
