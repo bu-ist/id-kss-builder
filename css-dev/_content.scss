@@ -1,0 +1,8 @@
+.id-kss-main {
+	padding: $padding;
+	padding-top: $padding + 50px;
+
+	@include breakpoint( $toggle-desktop-layout ) {
+		padding-left: $sidebar-width + 3%;
+	}
+}
