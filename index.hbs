@@ -221,12 +221,12 @@
 </main>
 
 <!-- SCRIPTS -->
-<script src="id-kss-assets/kss.js"></script>
-<script src="id-kss-assets/scrollspy.js"></script>
-<script src="id-kss-assets/id-kss-fullscreen.js"></script>
-<script src="id-kss-assets/id-kss-guides.js"></script>
-<script src="id-kss-assets/id-kss-markup.js"></script>
-<script src="id-kss-assets/jquery.js"></script>
+<script src="kss-assets/kss.js"></script>
+<script src="kss-assets/scrollspy.js"></script>
+<script src="kss-assets/kss-fullscreen.js"></script>
+<script src="kss-assets/kss-guides.js"></script>
+<script src="kss-assets/kss-markup.js"></script>
+<script src="kss-assets/jquery.js"></script>
 <script>
 	var spy = new ScrollSpy('#id-kss-node', {
 		nav: '.id-kss-nav-menu-child > li > a',
@@ -282,7 +282,7 @@ $( document ).ready(function() {
 		//add jquery to the iframe
 		var jquery = $iframe[0].contentWindow.document.createElement("script");
 			jquery.type = "text/javascript";
-			jquery.src = "id-kss-assets/jquery.js";
+			jquery.src = "kss-assets/jquery.js";
 			$iframe[0].contentWindow.document.head.appendChild(jquery);
 
 
@@ -291,7 +291,7 @@ $( document ).ready(function() {
 				//after jquery is loaded add the iframe scripts js file
 				var script = $iframe[0].contentWindow.document.createElement("script");
 				script.type = "text/javascript";
-				script.src = "id-kss-assets/iframe-scripts.js";
+				script.src = "kss-assets/iframe-scripts.js";
 				$iframe[0].contentWindow.document.body.appendChild(script);
 			};
 
@@ -316,10 +316,10 @@ $( document ).ready(function() {
 {{#if options.demo}}
 	<footer class="id-kss-github">
 		<!-- https://github.com/blog/273-github-ribbons -->
-		<a href="https://github.com/id-kss-node/id-kss-node"><img src="id-kss-assets/github-fork--black.png" alt="Fork me on GitHub"></a>
+		<a href="https://github.com/id-kss-node/id-kss-node"><img src="kss-assets/github-fork--black.png" alt="Fork me on GitHub"></a>
 	</footer>
 {{/if}}
 
-<!-- Automatically built using <a href="https://github.com/id-kss-node/id-kss-node">id-kss-node</a>. -->
+<!-- Automatically built using <a href="https://github.com/kss-node/kss-node">kss-node</a>. -->
 </body>
 </html>

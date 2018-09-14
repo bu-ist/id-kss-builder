@@ -4,6 +4,7 @@
 
 $font-family-sans-serif:                    "Benton-Sans", "Helvetica", sans-serif;
 $font-family-base: $font-family-sans-serif;
+$color-code-bg: transparent;
 
 @import 'burf-base/normalize';
 @import 'burf-base/mixins';
