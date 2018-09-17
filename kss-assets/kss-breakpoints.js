@@ -10,16 +10,25 @@
   KssBreakpoints.prototype.init = function () {
     var self = this;
     // Initialize all guides toggle buttons.
-    var elementList = document.querySelectorAll('id-kss-breakpoints-control-button');
+    var elementList = document.getElementsByClassName('id-kss-breakpoints-control-button');
     for (var button of elementList) {
       button.onclick = self.updateBreakpoints.bind(self);
     }
   };
 
   // Toggle the guides mode.
-  KssBreakpoints.prototype.updateBreakpoints = function () {
+  KssBreakpoints.prototype.updateBreakpoints = function (self) {
     document.getElementsByTagName('body')[0].classList.toggle(this.bodyClass);
-    this.classList.toggle('some-class');
+
+    var active = document.getElementsByClassName('id-kss-breakpoints-control-active');
+
+    for (var button of active) {
+      button.classList.remove('id-kss-breakpoints-control-active')
+    }
+
+    console.log(self);
+
+    self.explicitOriginalTarget.classList.add('id-kss-breakpoints-control-active');
   };
 
   // Export to DOM global space.
