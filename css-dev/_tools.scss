@@ -1,0 +1,32 @@
+.id-kss-breakpoints-control {
+	align-items: center;
+	display: flex;
+	margin-right: $margin-small;
+}
+
+.id-kss-toolbar-label {
+	@extend %font-size-minimum;
+	color: $color-grayscale-0;
+	display: inline-block;
+	font-weight: 700;
+	margin-right: $margin-small;
+}
+
+.id-kss-breakpoints-control-button {
+	background: $color-grayscale-f;
+	border: 1px solid $color-grayscale-d;
+	border-bottom-width: 5px;
+	display: block;
+	height: 30px;
+	overflow: hidden;
+	text-indent: 100%;
+	width: 30px;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	input {
+		//display: none;
+	}
+}
