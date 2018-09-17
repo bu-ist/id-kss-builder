@@ -19,6 +19,7 @@
 	display: block;
 	height: 30px;
 	overflow: hidden;
+	position: relative;
 	text-indent: 100%;
 	width: 30px;
 
@@ -26,7 +27,37 @@
 		cursor: pointer;
 	}
 
+	&::before {
+		color: $color-grayscale-9;
+		display: block;
+		font-size: 0.75em;
+		height: 30px;
+		left: 0;
+		line-height: 20px;
+		position: absolute;
+		text-align: center;
+		text-indent: 0;
+		top: 0;
+		width: 28px;
+	}
+
 	input {
 		//display: none;
 	}
+}
+
+.id-kss-breakpoints-control-xs {
+	@extend %icon-smartphone;
+}
+
+.id-kss-breakpoints-control-sm {
+	@extend %icon-tablet;
+}
+
+.id-kss-breakpoints-control-md {
+	@extend %icon-laptop;
+}
+
+.id-kss-breakpoints-control-lg {
+	@extend %icon-desktop;
 }
