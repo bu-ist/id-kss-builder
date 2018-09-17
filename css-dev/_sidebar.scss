@@ -1,0 +1,43 @@
+.id-kss-sidebar {
+	border-bottom: 1px solid $color-grayscale-d;
+	padding: $padding;
+	padding-top: $padding + 50px;
+
+	@include breakpoint( $toggle-desktop-layout ) {
+		@include box-shadow( 0px 0px 30px 0px rgba( 0, 0, 0, 0.15 ) );
+		position: fixed;
+		width: $sidebar-width;
+		height: 100%;
+		overflow: auto;
+		border-bottom: 0;
+	}
+}
+
+.id-kss-nav-menu,
+.id-kss-nav-menu-child {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+
+.id-kss-nav-menu-link {
+	@extend %font-size-secondary;
+	color: #285ebd;
+	display: block;
+	text-decoration: none;
+
+	&:visited {
+		color: #285ebd;
+	}
+}
+
+.id-kss-nav-menu-parent {
+	@extend %font-size-4;
+	color: $color-grayscale-0;
+	font-weight: 700;
+	margin-bottom: $margin-small;
+
+	&:visited {
+		color: $color-grayscale-0;
+	}
+}
