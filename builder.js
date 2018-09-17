@@ -62,15 +62,13 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
         group: 'Colors:',
         string: true,
         multiple: false,
-        describe: 'Primary Color for this Styleguide',
-        default: '#cc0000'
+        describe: 'Primary Color for this Styleguide'
       },
       colorSecondary: {
         group: 'Colors:',
         string: true,
         multiple: false,
-        describe: 'Secondary Color for this Styleguide',
-        default: '#57564E'
+        describe: 'Secondary Color for this Styleguide'
       }
     });
   }
