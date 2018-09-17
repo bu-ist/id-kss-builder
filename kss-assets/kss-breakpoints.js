@@ -25,11 +25,19 @@
 
     // Initialize all guides toggle buttons.
     var elementList = document.getElementsByClassName('id-kss-breakpoints-control-button');
-    elementList[0].classList.add('id-kss-breakpoints-control-active');
-    elementList[0].childNodes.checked = true;
 
     for (var button of elementList) {
       button.onclick = self.updateBreakpoints.bind(self);
+    }
+
+    // Simulate click on the first breakpoint control to set defaults.
+    elementList[0].classList.add('id-kss-breakpoints-control-active');
+    elementList[0].childNodes.checked = true;
+
+    var examples = document.getElementsByClassName('id-kss-example-wrapper');
+
+    for (var example of examples) {
+      example.style.width = elementList[0].childNodes[0].value + 'px';
     }
   };
 
@@ -42,7 +50,7 @@
     }
   };
 
-  // Toggle the guides mode.
+  // Update breakpoints when button is pressed.
   KssBreakpoints.prototype.updateBreakpoints = function (self) {
     document.getElementsByTagName('body')[0].classList.toggle(this.bodyClass);
 
