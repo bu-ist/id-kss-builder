@@ -53,6 +53,13 @@
     }
 
     self.explicitOriginalTarget.classList.add('id-kss-breakpoints-control-active');
+
+    // Update iframes to appropriate width
+    var examples = document.getElementsByClassName('id-kss-example-wrapper');
+
+    for (var example of examples) {
+      example.style.width = self.target.value + 'px';
+    }
   };
 
   // Export to DOM global space.
