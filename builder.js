@@ -57,8 +57,46 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
         multiple: false,
         describe: 'Title of the style guide',
         default: 'KSS Style Guide'
+      },
+      colorPrimary: {
+        group: 'Builder Colors:',
+        string: true,
+        multiple: false,
+        describe: 'Primary Color for this Styleguide'
+      },
+      colorSecondary: {
+        group: 'Builder Colors:',
+        string: true,
+        multiple: false,
+        describe: 'Secondary Color for this Styleguide'
       }
     });
+  }
+
+  /***************************************************************************************
+
+  Added Sept 17, 2018:
+
+  Add in custom properties so they don't
+  have to be defined in the custom child
+  theme gruntfile that this builder and template
+  supports.
+
+  Git-Source: url to github
+  Status: Current, Planned, Deprecated, Front-End Ready, Back-end Ready, Tested
+
+  ***************************************************************************************/
+
+  normalizeOptions(keys) {
+
+    if (this.options.custom) {
+      this.options.custom = Array.from(new Set(this.options.custom.concat([
+        'git-source',
+        'status'
+      ])))
+    }
+
+    return super.normalizeOptions(keys)
   }
 
   /**
