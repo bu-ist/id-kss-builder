@@ -82,13 +82,7 @@
 	{{else}}
 
 	<div id="id-kss-toolbar">
-		<div class="id-kss-breakpoints-control">
-			<span class="id-kss-toolbar-label">View examples as:</span>
-			<button>Mobile</button>
-			<button>Tablet</button>
-			<button>Small Laptop</button>
-			<button>Desktop</button>
-		</div>
+		<div id="id-kss-breakpoints-control" class="id-kss-breakpoints-control"></div>
 		<div class="id-kss-sidebar-control">
 			<span class="id-kss-toolbar-label">Sidebar</span>
 			<input type="checkbox" name="Sidebar">
@@ -240,6 +234,7 @@
 <script src="kss-assets/kss-fullscreen.js"></script>
 <script src="kss-assets/kss-guides.js"></script>
 <script src="kss-assets/kss-markup.js"></script>
+<script src="kss-assets/kss-breakpoints.js"></script>
 <script src="kss-assets/jquery.js"></script>
 <script>
 	var spy = new ScrollSpy('#id-kss-node', {
@@ -253,6 +248,9 @@
 	});
 	var kssGuides = new KssGuides({
 		bodyClass: 'id-kss-guides-mode'
+	});
+	var kssBreakpoints = new KssBreakpoints({
+		bodyClass: 'id-kss-breakpoint-xs'
 	});
 	var kssMarkup = new KssMarkup({
 		bodyClass: 'id-kss-markup-mode',

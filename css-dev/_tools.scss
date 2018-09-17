@@ -1,0 +1,82 @@
+.id-kss-breakpoints-control {
+	align-items: center;
+	display: flex;
+	margin-right: $margin-small;
+}
+
+.id-kss-toolbar-label {
+	@extend %font-size-minimum;
+	color: $color-grayscale-0;
+	display: inline-block;
+	font-weight: 700;
+	margin-right: $margin-small;
+}
+
+.id-kss-breakpoints-control-button {
+	background: $color-grayscale-f;
+	border: 1px solid $color-grayscale-d;
+	border-bottom-width: 5px;
+	display: block;
+	height: 30px;
+	overflow: hidden;
+	position: relative;
+	text-indent: 100%;
+	width: 30px;
+
+	&:hover {
+		cursor: pointer;
+	}
+
+	&::before {
+		color: $color-grayscale-9;
+		display: block;
+		font-size: 0.75em;
+		height: 30px;
+		left: 0;
+		line-height: 20px;
+		position: absolute;
+		text-align: center;
+		text-indent: 0;
+		top: 0;
+		width: 28px;
+	}
+
+	input {
+		//display: none;
+	}
+}
+
+.id-kss-breakpoints-control-active {
+	background: lighten($id-kss-colors-background, 10%);
+	border-color: darken($id-kss-colors-background, 10%);
+
+	&::before {
+		color: $color-grayscale-f;
+	}
+}
+
+.id-kss-breakpoints-control-min {
+	@extend %icon-smartphone;
+}
+
+.id-kss-breakpoints-control-xs {
+	@extend %icon-tablet;
+}
+
+.id-kss-breakpoints-control-sm {
+	@extend %icon-tablet;
+
+	&::before {
+		left: 2px;
+		top: -3px;
+		transform: rotate(-90deg);
+	}
+}
+
+.id-kss-breakpoints-control-md {
+	@extend %icon-laptop;
+}
+
+.id-kss-breakpoints-control-lg {
+	@extend %icon-desktop;
+}
