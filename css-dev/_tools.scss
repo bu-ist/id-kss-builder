@@ -55,12 +55,22 @@
 	}
 }
 
-.id-kss-breakpoints-control-xs {
+.id-kss-breakpoints-control-min {
 	@extend %icon-smartphone;
+}
+
+.id-kss-breakpoints-control-xs {
+	@extend %icon-tablet;
 }
 
 .id-kss-breakpoints-control-sm {
 	@extend %icon-tablet;
+
+	&::before {
+		left: 2px;
+		top: -3px;
+		transform: rotate(-90deg);
+	}
 }
 
 .id-kss-breakpoints-control-md {
