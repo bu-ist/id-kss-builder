@@ -13,7 +13,11 @@
 
 </head>
 <body id="id-kss-node" {{#if template.isItem}}class="id-kss-fullscreen-mode"{{/if}}>
-
+<script type="text/javascript">
+{{{json menu}}}
+{{{json options}}}
+{{{json styleGuide}}}
+</script>
 <header class="id-kss-header" {{#if options.colorPrimary}}style="background-color:{{options.colorPrimary}};"{{/if}}>
 	<h1 class="id-kss-doc-title">
 		<a href="./">
@@ -38,22 +42,31 @@
 	<nav class="id-kss-nav" aria-label="Style Guide">
 		<ul class="id-kss-nav-menu">
 		{{#each menu}}
-			<li class="id-kss-nav-menu-item">
-				<a class="id-kss-nav-menu-link id-kss-nav-menu-parent" href="section-{{referenceURI}}.html">
-					<span class="id-kss-nav__name">{{header}}</span>
-				</a>
-				{{#if children}}
-					<ul class="id-kss-nav-menu-child">
-					{{#each children}}
-						<li class="id-kss-nav-menu-item">
-							<a class="id-kss-nav-menu-link" href="section-{{../referenceURI}}.html#kssref-{{referenceURI}}">
-								<span class="id-kss-nav__name">{{header}}</span>
-							</a>
-						</li>
-					{{/each}}
-					</ul>
-				{{/if}}
-			</li>
+			{{#if isActive}}
+				<li class="id-kss-nav-menu-item">
+					<a class="id-kss-nav-menu-link id-kss-nav-menu-parent" href="section-{{referenceURI}}.html">
+						<span class="id-kss-nav__name">{{header}}</span>
+					</a>
+					{{#if children}}
+						<ul class="id-kss-nav-menu-child">
+						{{#each children}}
+							<li class="id-kss-nav-menu-item">
+								<a class="id-kss-nav-menu-link" href="section-{{../referenceURI}}.html#kssref-{{referenceURI}}">
+								{{#if status}}
+									<span class="id-kss-status id-kss-status-{{{slug status}}}">
+										{{status}}
+									</span>
+								{{/if}}
+									<span class="id-kss-nav__name">
+										{{splitTitle reference depth }}
+									</span>
+								</a>
+							</li>
+						{{/each}}
+						</ul>
+					{{/if}}
+				</li>
+			{{/if}}
 		{{/each}}
 		</ul>
 	</nav>
