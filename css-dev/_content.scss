@@ -54,6 +54,10 @@ iframe {
 	padding: 0.1em 0.5em;
 }
 
+.id-kss-modifier-description {
+	@extend %font-size-secondary;
+}
+
 .id-kss-markup {
 	margin-top: $margin;
 }
