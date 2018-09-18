@@ -60,7 +60,9 @@
       button.classList.remove('id-kss-breakpoints-control-active')
     }
 
-    self.explicitOriginalTarget.classList.add('id-kss-breakpoints-control-active');
+    console.log(self);
+
+    self.srcElement.parentElement.classList.add('id-kss-breakpoints-control-active');
 
     // Update iframes to appropriate width
     var examples = document.getElementsByClassName('id-kss-example-wrapper');

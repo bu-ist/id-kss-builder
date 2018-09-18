@@ -39,10 +39,11 @@
 		text-indent: 0;
 		top: 0;
 		width: 28px;
+		z-index: 2;
 	}
 
 	input {
-		//display: none;
+		display: none;
 	}
 }
 
