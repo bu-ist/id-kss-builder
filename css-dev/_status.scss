@@ -1,7 +1,12 @@
+$status-unknown:                     $color-grayscale-9;
+$status-problem:                     #f95656;
+$status-warning:                     #eca51c;
+$status-good:                        #68ab4d;
+
 .id-kss-status {
 	&::before {
 		@include border-radius( 50% );
-		background: $color-grayscale-c;
+		background: $status-unknown;
 		content: '';
 		display: inline-block;
 		height: 10px;
@@ -13,17 +18,41 @@
 }
 
 .id-kss-status-planned::before {
-	background: $color-grayscale-c;
+	background: $status-unknown;
 }
 
 .id-kss-status-in-progress::before {
-	background: #ffbf42;
+	background: $status-warning;
 }
 
 .id-kss-status-ready::before {
-	background: #68ab4d;
+	background: $status-good;
 }
 
 .id-kss-status-bug::before {
-	background: #f95656;
+	background: $status-problem;
+}
+
+.id-kss-status-deprecation-planned,
+.id-kss-status-deprecated,
+.id-kss-status-removed {
+	@include icon( 'delete' );
+
+	&::before {
+		background: transparent;
+		font-size: 12px;
+		top: -3px;
+	}
+}
+
+.id-kss-status-deprecation-planned::before {
+	color: $status-warning;
+}
+
+.id-kss-status-deprecated::before {
+	color: $status-problem;
+}
+
+.id-kss-status-removed::before {
+	color: $status-unknown;
 }
