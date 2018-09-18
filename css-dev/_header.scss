@@ -10,7 +10,7 @@ $id-kss-colors-background: #29436f;
 	position: fixed;
 	top: 0;
 	width: 100%;
-	z-index: 2;
+	z-index: $z-index-primarynav;
 }
 
 .id-kss-doc-title {
@@ -38,6 +38,10 @@ $id-kss-colors-background: #29436f;
 	margin: 0 $margin-small;
 	position: relative;
 	text-decoration: none;
+
+	&:visited {
+		color: $color-grayscale-f;
+	}
 
 	&.active {
 		&::after {
