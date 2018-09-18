@@ -4,6 +4,8 @@ $status-warning:                     #eca51c;
 $status-good:                        #68ab4d;
 
 .id-kss-status {
+	position: relative;
+
 	&::before {
 		@include border-radius( 50% );
 		background: $status-unknown;
@@ -12,8 +14,20 @@ $status-good:                        #68ab4d;
 		height: 10px;
 		margin-right: 3px;
 		position: relative;
-		top: -1px;
+		top: 0;
+		left: 0;
 		width: 10px;
+	}
+
+	.id-kss-nav-menu-link & {
+		display: inline-block;
+		height: 10px;
+		overflow: hidden;
+		width: 11px;
+
+		&::before {
+			position: absolute;
+		}
 	}
 }
 
@@ -42,6 +56,10 @@ $status-good:                        #68ab4d;
 		background: transparent;
 		font-size: 12px;
 		top: -3px;
+	}
+
+	.id-kss-nav-menu-link & {
+		color: $color-grayscale-f;
 	}
 }
 
