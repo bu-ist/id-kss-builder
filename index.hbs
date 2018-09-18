@@ -99,23 +99,30 @@
 		<{{#if @first}}div{{else}}section{{/if}} id="kssref-{{referenceURI}}" class="id-kss-section id-kss-section--depth-{{depth}} {{#if @root.template.isItem}}is-fullscreen{{/if}}">
 
 			<div class="id-kss-style">
-				<h2 class="id-kss-title id-kss-title--level-{{depth}}">
-					<span class="id-kss-title-section" style="display:block;font-size:12px;">{{splitTitle reference 2}}</span>
-					<a class="id-kss-title__permalink" href="#kssref-{{referenceURI}}">
-						{{header}}
-					</a>
-				</h2>
-				<span class="id-kss-title__ref">
-					{{referenceNumber}}
-					<span class="id-kss-title__permalink-hash">
-						{{#if @root.hasNumericReferences}}
-							#permalink
-						{{else}}
-							#{{reference}}
-						{{/if}}
-					</span>
-				</span>
+				<header id="id-kss-title-block">
+					<h2 class="id-kss-title id-kss-title--level-{{depth}}">
+						<span class="id-kss-title-section" style="display:block;font-size:12px;">{{splitTitle reference 2}}</span>
+						<a class="id-kss-title__permalink" href="#kssref-{{referenceURI}}">
+							{{header}}
+						</a>
+					</h2>
+					{{#if status}}
+						<span class="id-kss-status id-kss-status-{{{slug status}}}">
+							{{status}}
+						</span>
+					{{/if}}
 
+					<span class="id-kss-title__ref">
+						{{referenceNumber}}
+						<span class="id-kss-title__permalink-hash">
+							{{#if @root.hasNumericReferences}}
+								#permalink
+							{{else}}
+								#{{reference}}
+							{{/if}}
+						</span>
+					</span>
+				</header>
 				{{#if description}}
 					<div class="id-kss-description">
 						{{{description}}}
