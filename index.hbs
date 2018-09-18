@@ -45,7 +45,7 @@
 			{{#if isActive}}
 				<li class="id-kss-nav-menu-item">
 					<a class="id-kss-nav-menu-link id-kss-nav-menu-parent" href="section-{{referenceURI}}.html">
-						<span class="id-kss-nav__name">{{header}}</span>
+						<span class="id-kss-nav-name">{{header}}</span>
 					</a>
 					{{#if children}}
 						<ul class="id-kss-nav-menu-child">
@@ -57,7 +57,7 @@
 										{{status}}
 									</span>
 								{{/if}}
-									<span class="id-kss-nav__name">
+									<span class="id-kss-nav-name id-kss-nav-name-child">
 										{{splitTitle reference depth }}
 									</span>
 								</a>

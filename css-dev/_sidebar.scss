@@ -24,6 +24,7 @@
 	@extend %font-size-secondary;
 	color: #285ebd;
 	display: block;
+	margin-bottom: $margin-small/2;
 	text-decoration: none;
 
 	&:visited {
@@ -40,4 +41,8 @@
 	&:visited {
 		color: $color-grayscale-0;
 	}
+}
+
+.id-kss-nav-name-child:first-child {
+	padding-left: 15px;
 }
