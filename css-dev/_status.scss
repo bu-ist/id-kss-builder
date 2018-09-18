@@ -1,0 +1,29 @@
+.id-kss-status {
+	&::before {
+		@include border-radius( 50% );
+		background: $color-grayscale-c;
+		content: '';
+		display: inline-block;
+		height: 10px;
+		margin-right: 3px;
+		position: relative;
+		top: -1px;
+		width: 10px;
+	}
+}
+
+.id-kss-status-planned::before {
+	background: $color-grayscale-c;
+}
+
+.id-kss-status-in-progress::before {
+	background: #ffbf42;
+}
+
+.id-kss-status-ready::before {
+	background: #68ab4d;
+}
+
+.id-kss-status-bug::before {
+	background: #f95656;
+}
