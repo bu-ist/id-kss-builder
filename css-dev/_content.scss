@@ -19,7 +19,7 @@ iframe {
 	width: 100%;
 }
 
-.id-kss-modifier-heading {
+.id-kss-docs-heading {
 	display: flex;
 	font-weight: 700;
 	align-items: center;
@@ -44,3 +44,26 @@ iframe {
 		margin-top: -2px;
 	}
 }
+
+.id-kss-info-wrapper {
+	margin-bottom: $margin;
+}
+
+.id-kss-class-name {
+	background: #1E1E1E;
+	color: #D69D85;
+	display: inline-block;
+	font-family: "Consolas", "Liberation Mono", Courier, monospace;
+	margin-bottom: $margin-small;
+	padding: 0.1em 0.5em;
+}
+
+.id-kss-modifier-description {
+	@extend %font-size-secondary;
+	margin-bottom: $margin-small;
+}
+
+.id-kss-markup {
+	margin-top: $margin;
+}
+

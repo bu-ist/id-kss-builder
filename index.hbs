@@ -165,54 +165,58 @@
 
 			{{#if example}}
 				<div class="id-kss-modifier__wrapper">
-					<div class="id-kss-modifier-heading id-kss-style">
-						Examples {{#if modifiers}}s{{/if}}
+					<div class="id-kss-modifier-heading id-kss-docs-heading id-kss-style">
+						Example{{#if modifiers}}s{{/if}}
 
 						{{#if source.filename}}
-							<a class="id-kss-source id-kss-style" href="https://github.com/bu-ist/r-editorial/blob/tree/master/{{source.filename}}L#{{source.line}}">
+							<a class="id-kss-source id-kss-style" href="https://github.com/bu-ist/r-editorial/blob/tree/master/css-dev/{{source.filename}}L#{{source.line}}">
 								View Source
 							</a>
 						{{/if}}
 					</div>
 
-					<code>Github Source URL: https://github.com/REPO-OWNER/REPO-NAME/blob/tree/master/{{source.filename}}L#{{source.line}}</code>
+					<p>Github Source URL: https://github.com/REPO-OWNER/REPO-NAME/blob/tree/master/{{source.filename}}L#{{source.line}}</p>
 
-					{{#if modifiers}}
-						<div class="id-kss-modifier__default-name id-kss-style">
-							Default styling
-						</div>
-					{{/if}}
+					<div class="id-kss-info-wrapper">
+						{{#if modifiers}}
+							<div class="id-kss-class-name id-kss-modifier-default-name id-kss-style">
+								Default styling
+							</div>
+						{{/if}}
 
-					<div class="id-kss-modifier__example">
-						<div class="id-kss-example-wrapper">
-							<iframe class="id-kss-example-iframe" scrolling="no"></iframe>
-							<div class="id-kss-example-markup">{{{example}}}</div>
+						<div class="id-kss-modifier-example">
+							<div class="id-kss-example-wrapper">
+								<iframe class="id-kss-example-iframe" scrolling="no"></iframe>
+								<div class="id-kss-example-markup">{{{example}}}</div>
+							</div>
+							<div class="id-kss-modifier-example-footer"></div>
 						</div>
-						<div class="id-kss-modifier__example-footer"></div>
 					</div>
 
 					{{#each modifiers}}
-						<div class="id-kss-modifier__name id-kss-style">
-							{{name}}
-						</div>
-						<div class="id-kss-modifier__description id-kss-style">
-							{{{description}}}
-						</div>
-						<div class="id-kss-modifier__example">
-							<div class="id-kss-example-wrapper">
-								<iframe class="id-kss-example-iframe" scrolling="no"></iframe>
-								<div class="id-kss-example-markup">{{{markup}}}</div>
+						<div class="id-kss-info-wrapper">
+							<div class="id-kss-class-name id-kss-modifier-name id-kss-style">
+								{{name}}
 							</div>
-							<div class="id-kss-modifier__example-footer"></div>
+							<p class="id-kss-modifier-description id-kss-style">
+								{{{description}}}
+							</p>
+							<div class="id-kss-modifier-example">
+								<div class="id-kss-example-wrapper">
+									<iframe class="id-kss-example-iframe" scrolling="no"></iframe>
+									<div class="id-kss-example-markup">{{{markup}}}</div>
+								</div>
+								<div class="id-kss-modifier-example-footer"></div>
+							</div>
 						</div>
 					{{/each}}
 				</div>
 
 				{{#if markup}}
-					<details class="id-kss-markup id-kss-style">
-						<summary>
+					<details class="id-kss-markup id-kss-style" open="">
+						<summary class="id-kss-docs-heading">
 							{{#if markupFile }}
-								Markup: <code>{{markupFile}}</code>
+								Markup <code>{{markupFile}}</code>
 							{{else}}
 								Markup
 							{{/if}}
