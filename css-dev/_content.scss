@@ -19,6 +19,25 @@ iframe {
 	width: 100%;
 }
 
+.id-kss-example-wrapper {
+	position:relative;
+}
+
+.id-kss-example-iframe-handle {
+	background:$color-grayscale-e;
+	bottom:0;
+	cursor: col-resize;
+	left:100%;
+	position:absolute;
+	top:0;
+	width:14px;
+	@include transition( background 250ms ease-in-out 0s );
+
+	&:hover {
+		background:$color-grayscale-a;
+	}
+}
+
 .id-kss-docs-heading {
 	display: flex;
 	font-weight: 700;
