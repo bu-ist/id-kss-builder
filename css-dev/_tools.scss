@@ -84,7 +84,12 @@
 }
 
 .id-kss-breakpoints-control-full {
-	text-indent:0;
+	@extend %font-size-minimum;
+	@extend %icon-scaleup;
+	font-weight: 700;
+	line-height: 24px;
+	padding-left: 15px;
 	text-align: center;
-	width:60px;
+	text-indent: 0;
+	width: 60px;
 }
