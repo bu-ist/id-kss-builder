@@ -69,6 +69,12 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
         string: true,
         multiple: false,
         describe: 'Secondary Color for this Styleguide'
+      },
+      gitURL: {
+        group: 'Builder Git',
+        string: true,
+        multiple: false,
+        describe: 'A url to the git repo css-dev folder'
       }
     });
   }
@@ -92,7 +98,8 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
     if (this.options.custom) {
       this.options.custom = Array.from(new Set(this.options.custom.concat([
         'git-source',
-        'status'
+        'status',
+        'hidden'
       ])))
     }
 
