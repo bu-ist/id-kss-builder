@@ -48,6 +48,8 @@
     for (var breakpoint in self.allowedBreakpoints) {
       container.innerHTML += '<label class="id-kss-breakpoints-control-button id-kss-breakpoints-control-' + breakpoint + '"><input type="radio" name="breakpoint" value="' + self.allowedBreakpoints[breakpoint] + '"> ' + breakpoint + '</label>';
     }
+    // add button for "Full Size"
+    container.innerHTML += '<label class="id-kss-breakpoints-control-button id-kss-breakpoints-control-full"><input type="radio" name="breakpoint" value="full">Full</label>';
   };
 
   // Update breakpoints when button is pressed.
@@ -68,7 +70,12 @@
     var examples = document.getElementsByClassName('id-kss-example-wrapper');
 
     for (var example of examples) {
-      example.style.width = self.target.value + 'px';
+      if ( self.target.value == "full" ) {
+        example.style.width = '100%';
+      } else {
+        example.style.width = self.target.value + 'px';
+      }
+
     }
   };
 

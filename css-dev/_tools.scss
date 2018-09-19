@@ -50,6 +50,7 @@
 .id-kss-breakpoints-control-active {
 	background: lighten($id-kss-colors-background, 10%);
 	border-color: darken($id-kss-colors-background, 10%);
+	color: $color-grayscale-f;
 
 	&::before {
 		color: $color-grayscale-f;
@@ -80,4 +81,10 @@
 
 .id-kss-breakpoints-control-lg {
 	@extend %icon-desktop;
+}
+
+.id-kss-breakpoints-control-full {
+	text-indent:0;
+	text-align: center;
+	width:60px;
 }
