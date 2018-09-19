@@ -14,6 +14,11 @@
 </head>
 <body id="id-kss-node" {{#if template.isItem}}class="id-kss-fullscreen-mode"{{/if}}>
 <script type="text/javascript">
+	//load the theme stylesheet as a variable to be used
+	//by iframe.js to add stylesheets to each iframe example
+	var themeStylesheetURL = '{{{options.css}}}';
+</script>
+<script type="text/javascript">
 {{{json menu}}}
 {{{json options}}}
 {{{json styleGuide}}}
