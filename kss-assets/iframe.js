@@ -56,7 +56,10 @@
 
 
 			//inject the example markup into the iframe body
-			$iframeWindow.contents().find( 'body' ).html( "<div class='iframe-wrapper' id='" + newID + "'>" + markup + "</div>" );
+			$iframeWindow
+				.contents()
+				.find( 'body' )
+				.html( "<div class='iframe-wrapper' id='" + newID + "'><div class='wrapper'><main id='main' role='main' class='content'><div class='content-container'>" + markup + "</div></main></div></div>" );
 
 
 			$(this).resizable({
