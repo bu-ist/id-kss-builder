@@ -79,32 +79,6 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
     });
   }
 
-  /***************************************************************************************
-
-  Added Sept 17, 2018:
-
-  Add in custom properties so they don't
-  have to be defined in the custom child
-  theme gruntfile that this builder and template
-  supports.
-
-  Git-Source: url to github
-  Status: Current, Planned, Deprecated, Front-End Ready, Back-end Ready, Tested
-
-  ***************************************************************************************/
-
-  normalizeOptions(keys) {
-
-    if (this.options.custom) {
-      this.options.custom = Array.from(new Set(this.options.custom.concat([
-        'git-source',
-        'status',
-        'hidden'
-      ])))
-    }
-
-    return super.normalizeOptions(keys)
-  }
 
   /**
    * Allow the builder to preform pre-build tasks or modify the KssStyleGuide
@@ -185,6 +159,34 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
 
     return super.prepareExtend(templateEngine);
   }
+
+    /***************************************************************************************
+
+  Added Sept 17, 2018:
+
+  Add in custom properties so they don't
+  have to be defined in the custom child
+  theme gruntfile that this builder and template
+  supports.
+
+  Git-Source: url to github
+  Status: Current, Planned, Deprecated, Front-End Ready, Back-end Ready, Tested
+
+  ***************************************************************************************/
+
+
+  normalizeOptions(keys) {
+    if (this.options.custom) {
+      this.options.custom = Array.from(new Set(this.options.custom.concat([
+        'status',
+        'hidden',
+        'git-source'
+      ])))
+    }
+
+    return super.normalizeOptions(keys)
+  }
+
 }
 
 module.exports = KssBuilderHandlebars;
