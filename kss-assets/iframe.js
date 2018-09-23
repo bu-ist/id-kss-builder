@@ -20,7 +20,7 @@
 
 
 		$('.id-kss-example-wrapper').each(function(){
-			console.log("test");
+
 			var newID = uniqId();
 
 			$(this).attr("id", newID ); // add a unique ID
