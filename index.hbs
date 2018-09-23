@@ -19,10 +19,50 @@
 	var themeStylesheetURL = '{{{options.css}}}';
 </script>
 <script type="text/javascript">
+//menu
 {{{json menu}}}
+</script>
+<script type="text/javascript">
+//nestedmenu
+{{{json (nestedMenu menu)}}}
+</script>
+<script type="text/javascript">
 {{{json options}}}
+</script>
+<script type="text/javascript">
 {{{json styleGuide}}}
 </script>
+{{#* inline "list-item"}}
+	<li class="id-kss-nav-menu-item">
+		{{#if ischild}}
+			{{! child menu}}
+			<a class="id-kss-nav-menu-link id-kss-nav-menu-child {{#if children}}id-kss-nav-menu-has-children{{/if}}" href="section-{{sectionreferenceURI}}.html#kssref-{{referenceURI}}">
+		{{else}}
+			{{! parent}}
+			<a class="id-kss-nav-menu-link id-kss-nav-menu-parent" href="section-{{sectionreferenceURI}}.html#kssref-{{referenceURI}}">
+		{{/if}}
+				{{#if status}}
+					<span class="id-kss-status id-kss-status-{{{slug status}}}">
+						{{status}}
+					</span>
+				{{/if}}
+				<span class="id-kss-nav-name">
+					{{splitTitle reference depth }}
+				</span>
+			</a>
+		{{#if children}}
+			<ul class="id-kss-nav-menu-child-section">
+				{{> list}}
+			</ul>
+		{{/if}}
+	</li>
+{{/inline}}
+
+{{#* inline "list"}}
+		{{#each children}}
+		  {{> list-item ischild="true"}}
+		{{/each}}
+{{/inline}}
 <header class="id-kss-header" {{#if options.colorPrimary}}style="background-color:{{options.colorPrimary}};"{{/if}}>
 	<div class="id-kss-header-bar">
 	<h1 class="id-kss-doc-title">
@@ -43,6 +83,7 @@
 		<div id="id-kss-search"></div>
 	</div>
 	</div>
+	{{#unless @root.template.isHomepage}}
 	<div id="id-kss-toolbar">
 		<div id="id-kss-breakpoints-control" class="id-kss-breakpoints-control"></div>
 		<div class="id-kss-sidebar-control">
@@ -50,49 +91,46 @@
 			<input type="checkbox" name="sidebar" checked>
 		</div>
 	</div>
+	{{/unless}}
 </header>
-
+{{#unless @root.template.isHomepage}}
 <div class="id-kss-sidebar id-kss-style">
 	<nav class="id-kss-nav" aria-label="Style Guide">
-		<ul class="id-kss-nav-menu">
-		{{#each menu}}
-			{{#if isActive}}
-				<li class="id-kss-nav-menu-item">
-					<!--<a class="id-kss-nav-menu-link id-kss-nav-menu-parent" href="section-{{referenceURI}}.html">
-						<span class="id-kss-nav-name">{{header}}</span>
-					</a>-->
-					{{#if children}}
-						<ul class="id-kss-nav-menu-child-section">
-						{{#each children}}
-							<li class="id-kss-nav-menu-item">
-								<a class="id-kss-nav-menu-link {{#if isGrandChild}}id-kss-nav-menu-grand-child{{else}}id-kss-nav-menu-child{{/if}}" href="section-{{../referenceURI}}.html#kssref-{{referenceURI}}">
-
-
-								{{#if status}}
-									<span class="id-kss-status id-kss-status-{{{slug status}}}">
-										{{status}}
-									</span>
-								{{/if}}
-									<span class="id-kss-nav-name">
-										{{splitTitle reference depth }}
-									</span>
-								</a>
-							</li>
-						{{/each}}
-						</ul>
-					{{/if}}
-				</li>
-			{{/if}}
-		{{/each}}
-		</ul>
+		{{#with (activeMenu menu)}}
+			<ul class="id-kss-nav-menu">
+			  {{#each children}}
+				{{> list-item}}
+			  {{/each}}
+			</ul>
+		{{/with}}
 	</nav>
 </div>
+{{/unless}}
 <main class="id-kss-main" aria-label="Content">
 	<article>
 	{{#if template.isHomepage}}
 		{{#if homepage}}
-			<div id="kssref-0" class="id-kss-section id-kss-section--depth-0 id-kss-overview id-kss-style">
-				{{{homepage}}}
+			<div class="id-kss-homepage">
+				<div class="id-homepage-content">
+					<h1>
+						{{options.title}}
+					</h1>
+					{{{homepage}}}
+
+					<input type="text" />
+				</div>
+
+
+				<nav class="id-kss-nav id-homepage-nav" aria-label="Style Guide">
+
+
+					<ul class="id-kss-nav-menu">
+						{{#each (nestedMenu menu)}}
+							{{> list-item}}
+						{{/each}}
+					</ul>
+
+				</nav>
 			</div>
 		{{/if}}
 	{{else}}
