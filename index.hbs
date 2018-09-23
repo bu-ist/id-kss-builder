@@ -49,20 +49,22 @@
 		{{#each menu}}
 			{{#if isActive}}
 				<li class="id-kss-nav-menu-item">
-					<a class="id-kss-nav-menu-link id-kss-nav-menu-parent" href="section-{{referenceURI}}.html">
+					<!--<a class="id-kss-nav-menu-link id-kss-nav-menu-parent" href="section-{{referenceURI}}.html">
 						<span class="id-kss-nav-name">{{header}}</span>
-					</a>
+					</a>-->
 					{{#if children}}
-						<ul class="id-kss-nav-menu-child">
+						<ul class="id-kss-nav-menu-child-section">
 						{{#each children}}
 							<li class="id-kss-nav-menu-item">
-								<a class="id-kss-nav-menu-link" href="section-{{../referenceURI}}.html#kssref-{{referenceURI}}">
+								<a class="id-kss-nav-menu-link {{#if isGrandChild}}id-kss-nav-menu-grand-child{{else}}id-kss-nav-menu-child{{/if}}" href="section-{{../referenceURI}}.html#kssref-{{referenceURI}}">
+
+
 								{{#if status}}
 									<span class="id-kss-status id-kss-status-{{{slug status}}}">
 										{{status}}
 									</span>
 								{{/if}}
-									<span class="id-kss-nav-name id-kss-nav-name-child">
+									<span class="id-kss-nav-name">
 										{{splitTitle reference depth }}
 									</span>
 								</a>
@@ -101,23 +103,27 @@
 		the "#if @first" block as seen below.
 	}}
 	{{#each sections}}
-		<{{#if @first}}div{{else}}section{{/if}} id="kssref-{{referenceURI}}" class="id-kss-section id-kss-section--depth-{{depth}} {{#if @root.template.isItem}}is-fullscreen{{/if}}">
 
-			<div class="id-kss-style">
-				<header id="id-kss-title-block">
-					<h2 class="id-kss-title id-kss-title--level-{{depth}}">
-						<span class="id-kss-title-section" style="display:block;font-size:12px;">{{splitTitle reference 2}}</span>
-						<a class="id-kss-title__permalink" href="#kssref-{{referenceURI}}">
-							{{header}}
-						</a>
-					</h2>
+		{{!
+			Only output this item if it is not set as hidden
+			this is useful so we can hide titles for sub categories or things we don't
+			want visible yet
+		}}
+		{{#unless hidden}}
+		<{{#if @first}}div{{else}}section{{/if}} id="kssref-{{referenceURI}}" class="id-kss-section id-kss-section--depth-{{depth}} {{#if @root.template.isItem}}is-fullscreen{{/if}}">
+			<div class="id-kss-style id-kss-component-content">
+				<header class="id-kss-title-block">
+					<h{{#ifEquals depth '1' }}1{{else}}2{{/ifEquals}} class="id-kss-title id-kss-title--level-{{depth}}">
+						<span class="id-kss-title-section">{{splitTitle reference 2}}</span>
+						<span class="id-kss-title-name">{{header}}<a class="id-kss-title__permalink" href="#kssref-{{referenceURI}}">Link</a></span>
+					</h{{#ifEquals depth '1' }}1{{else}}2{{/ifEquals}}>
 					{{#if status}}
 						<span class="id-kss-status id-kss-status-{{{slug status}}}">
 							{{status}}
 						</span>
 					{{/if}}
 
-					<span class="id-kss-title__ref">
+					<!--<span class="id-kss-title__ref">
 						{{referenceNumber}}
 						<span class="id-kss-title__permalink-hash">
 							{{#if @root.hasNumericReferences}}
@@ -126,7 +132,7 @@
 								#{{reference}}
 							{{/if}}
 						</span>
-					</span>
+					</span>-->
 				</header>
 				{{#if description}}
 					<div class="id-kss-description">
@@ -182,13 +188,17 @@
 						Example{{#if modifiers}}s{{/if}}
 
 						{{#if source.filename}}
-							<a class="id-kss-source id-kss-style" href="https://github.com/bu-ist/r-editorial/blob/tree/master/css-dev/{{source.filename}}L#{{source.line}}">
-								View Source
-							</a>
+							<span class="id-kss-source id-kss-style">
+								Source: <code>{{source.filename}}, line {{source.line}}</code>
+								{{#if @root.options.gitURL}}
+									<a href="{{@root.options.gitURL}}{{source.filename}}#L{{source.line}}">
+										View Source
+									</a>
+								{{/if}}
+							</span>
 						{{/if}}
 					</div>
 
-					<p>Github Source URL: https://github.com/REPO-OWNER/REPO-NAME/blob/tree/master/{{source.filename}}L#{{source.line}}</p>
 
 					<div class="id-kss-info-wrapper">
 						{{#if modifiers}}
@@ -242,6 +252,7 @@
 			{{/if}}
 
 		</{{#if @first}}div{{else}}section{{/if}}>
+		{{/unless}}
 	{{/each}}
 {{/if}}
 </article>

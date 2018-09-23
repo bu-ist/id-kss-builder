@@ -1,3 +1,4 @@
+$status-none: 						 $color-grayscale-d;
 $status-unknown:                     $color-grayscale-9;
 $status-problem:                     #f95656;
 $status-warning:                     #eca51c;
@@ -5,6 +6,7 @@ $status-good:                        #68ab4d;
 
 .id-kss-status {
 	position: relative;
+	text-indent:100%;
 
 	&::before {
 		@include border-radius( 50% );
@@ -24,11 +26,15 @@ $status-good:                        #68ab4d;
 		height: 10px;
 		overflow: hidden;
 		width: 11px;
+		margin-right:5px;
 
 		&::before {
 			position: absolute;
 		}
 	}
+}
+.id-kss-status-none::before {
+	background:$status-none;
 }
 
 .id-kss-status-planned::before {

@@ -7,10 +7,102 @@
 	}
 }
 
+.id-kss-section {
+    border-bottom: 1px solid $color-grayscale-d;
+    margin: 0;
+    padding: 50px 0;
+}
+
+.id-kss-component-content {
+	margin-bottom:50px;
+
+	@include breakpoint( $toggle-desktop-layout ) {
+		//margin-left:auto;
+		//margin-right:auto;
+		width:80%;
+	}
+	@include breakpoint( $md ) {
+		width:70%;
+	}
+	@include breakpoint( $lg ) {
+		width:60%;
+	}
+}
+
+.id-kss-title-block {
+	margin-bottom:$margin;
+}
+
+.id-kss-title {
+	margin:0;
+}
+h1.id-kss-title {
+	font-family: $font-family-serif;
+	font-size:3.8em;
+}
+
+h2.id-kss-title {
+	font-size:3.1em;
+}
+
+
+.id-kss-title-section {
+	color:$color-grayscale-8;
+	display:block;
+	font-size:0.32em;
+	position:relative;
+	top:10px;
+}
+
+
+.id-kss-title-name {
+	position:relative;
+}
+
+.id-kss-title__permalink {
+	display: inline-block;
+	left:5px;
+	overflow:hidden;
+	position: relative;
+	text-indent: 100%;
+	top:34px;
+	width:30px;
+
+	&::before {
+		color: $color-grayscale-9;
+		display: block;
+		font-size: 22px;
+		height: 30px;
+		left: 0;
+		line-height: 20px;
+		position: absolute;
+		text-align: center;
+		text-indent: 0;
+		width: 28px;
+		z-index: 2;
+	}
+
+	&:hover {
+		&::before {
+			color:$color-link;
+		}
+	}
+	h1 & {
+		display:none;
+	}
+
+	@extend %icon-link;
+}
+
 #id-kss-toolbar {
 	display: flex;
 	justify-content: end;
 	margin-bottom: $margin;
+}
+
+.id-kss-modifier__wrapper {
+	margin-top:50px;
+	padding-bottom:$margin;
 }
 
 iframe {
@@ -47,16 +139,24 @@ iframe {
 	border-bottom: 1px solid $color-grayscale-d;
 	border-top: 1px solid $color-grayscale-d;
 	padding: $padding-small/2 $padding;
-	margin-bottom: $margin;
+	margin-bottom: $margin*2;
 }
 
 .id-kss-source {
-	@extend %icon-github;
 	@extend %font-size-minimum;
+	margin-left: auto;
+
+	code {
+		@extend %font-size-minimum;
+	}
+}
+
+.id-kss-source a {
+	@extend %icon-github;
 	color: $color-grayscale-0;
 	font-weight: 700;
-	margin-left: auto;
 	text-decoration: none;
+	margin-left:20px;
 
 	&::before {
 		margin-right: 0.25em;
@@ -86,3 +186,7 @@ iframe {
 	margin-top: $margin;
 }
 
+.id-kss-markup code {
+	position:relative;
+	top:2px;
+}
