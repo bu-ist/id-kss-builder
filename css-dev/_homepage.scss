@@ -1,0 +1,35 @@
+.id-kss-homepage {
+
+	@include breakpoint( $toggle-desktop-layout ) {
+		margin: 0 auto;
+		max-width:1200px;
+		padding-top:100px;
+	}
+
+}
+
+.id-homepage-content {
+	margin:0 20% 50px 20%;
+}
+
+
+.id-homepage-nav .id-kss-nav-menu-parent {
+	@extend %font-size-2;
+	margin-bottom:$margin * 2;
+}
+
+.id-homepage-nav .id-kss-nav-menu-child-section {
+	@extend %clearfix;
+}
+
+.id-homepage-nav .id-kss-nav-menu > .id-kss-nav-menu-item {
+	margin-bottom:$margin * 2;
+}
+
+.id-homepage-nav .id-kss-nav-menu > .id-kss-nav-menu-item > .id-kss-nav-menu-child-section > .id-kss-nav-menu-item {
+
+	@include breakpoint( $toggle-desktop-layout ) {
+		float:left;
+		width:20%;
+	}
+}
