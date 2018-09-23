@@ -1,5 +1,6 @@
 .id-kss-sidebar {
 	border-bottom: 1px solid $color-grayscale-d;
+	display:none;
 	padding: $padding;
 	padding-top: $padding + 50px;
 
@@ -10,7 +11,13 @@
 		height: 100%;
 		overflow: auto;
 		border-bottom: 0;
+
+		.id-kss-sidebar-open & {
+			display:block;
+		}
 	}
+
+
 }
 
 .id-kss-nav-menu-child-section,

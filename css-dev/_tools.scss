@@ -93,3 +93,10 @@
 	text-indent: 0;
 	width: 60px;
 }
+
+.id-kss-sidebar-control {
+	display:none;
+	@include breakpoint( $toggle-desktop-layout ) {
+		display:block;
+	}
+}

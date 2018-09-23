@@ -24,6 +24,7 @@
 {{{json styleGuide}}}
 </script>
 <header class="id-kss-header" {{#if options.colorPrimary}}style="background-color:{{options.colorPrimary}};"{{/if}}>
+	<div class="id-kss-header-bar">
 	<h1 class="id-kss-doc-title">
 		<a href="./">
 			{{options.title}}
@@ -40,6 +41,14 @@
 			{{/each}}
 		</nav>
 		<div id="id-kss-search"></div>
+	</div>
+	</div>
+	<div id="id-kss-toolbar">
+		<div id="id-kss-breakpoints-control" class="id-kss-breakpoints-control"></div>
+		<div class="id-kss-sidebar-control">
+			<span class="id-kss-toolbar-label">Sidebar</span>
+			<input type="checkbox" name="sidebar" checked>
+		</div>
 	</div>
 </header>
 
@@ -88,13 +97,6 @@
 		{{/if}}
 	{{else}}
 
-	<div id="id-kss-toolbar">
-		<div id="id-kss-breakpoints-control" class="id-kss-breakpoints-control"></div>
-		<div class="id-kss-sidebar-control">
-			<span class="id-kss-toolbar-label">Sidebar</span>
-			<input type="checkbox" name="Sidebar">
-		</div>
-	</div>
 
 	{{!
 		Display each section, in order.
