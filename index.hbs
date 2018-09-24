@@ -36,10 +36,10 @@
 	<li class="id-kss-nav-menu-item">
 		{{#if ischild}}
 			{{! child menu}}
-			<a class="id-kss-nav-menu-link id-kss-nav-menu-child {{#if children}}id-kss-nav-menu-has-children{{/if}}" href="section-{{sectionreferenceURI}}.html#kssref-{{referenceURI}}">
+			<a class="id-kss-nav-menu-link id-kss-nav-menu-child {{#if children}}id-kss-nav-menu-has-children{{/if}}" href="section-{{#if sectionreferenceURI}}{{sectionreferenceURI}}{{else}}{{referenceURI}}{{/if}}.html#kssref-{{referenceURI}}">
 		{{else}}
 			{{! parent}}
-			<a class="id-kss-nav-menu-link id-kss-nav-menu-parent" href="section-{{sectionreferenceURI}}.html#kssref-{{referenceURI}}">
+			<a class="id-kss-nav-menu-link id-kss-nav-menu-parent" href="section-{{#if sectionreferenceURI}}{{sectionreferenceURI}}{{else}}{{referenceURI}}{{/if}}.html#kssref-{{referenceURI}}">
 		{{/if}}
 				{{#if status}}
 					<span class="id-kss-status id-kss-status-{{{slug status}}}">
