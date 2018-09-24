@@ -74,6 +74,12 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
         group: 'Builder Git',
         string: true,
         multiple: false,
+        describe: 'A url to the git repo'
+      },
+      gitURLCSSDEV: {
+        group: 'Builder Git',
+        string: true,
+        multiple: false,
         describe: 'A url to the git repo css-dev folder'
       }
     });
@@ -180,7 +186,9 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
       this.options.custom = Array.from(new Set(this.options.custom.concat([
         'status',
         'hidden',
-        'git-source'
+        'git-source',
+        'is-subheader',
+        'is-header'
       ])))
     }
 
