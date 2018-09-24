@@ -109,14 +109,17 @@
 <main class="id-kss-main" aria-label="Content">
 	<article>
 	{{#if template.isHomepage}}
-		{{#if homepage}}
+
 			<div class="id-kss-homepage">
 				<div class="id-homepage-content">
 					<h1>
 						{{options.title}}
 					</h1>
+					{{#if homepage}}
 					{{{homepage}}}
-
+					{{else}}
+					<p>Add a homepage.md file</p>
+					{{/if}}
 					<input type="text" />
 				</div>
 
@@ -132,7 +135,7 @@
 
 				</nav>
 			</div>
-		{{/if}}
+
 	{{else}}
 
 
