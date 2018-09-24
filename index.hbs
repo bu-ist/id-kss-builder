@@ -120,7 +120,20 @@
 					{{else}}
 					<p>Add a homepage.md file</p>
 					{{/if}}
-					<input type="text" />
+					<form role="search" class="id-kss-search">
+						<fieldset>
+							<legend class="screen-reader-text">
+								<span>Search</span>
+							</legend>
+
+							<label for="q">
+								<span class="screen-reader-text">Search for available components:</span>
+								<input name="q" type="text" aria-label="Search" id="kss-search-field" class="id-kss-search-field" placeholder="Search available components" title="Search for available components:">
+							</label>
+							<button id="kss-search-button" class="id-kss-search-button" type="submit" name="do_search"><span class="screen-reader-text">Search</span></button>
+						</fieldset>
+					</form>
+
 				</div>
 
 
@@ -312,6 +325,8 @@
 <script src="kss-assets/jquery.js"></script>
 <script src="kss-assets/jquery-resizable.js"></script>
 <script src="kss-assets/iframe.js"></script>
+<script src="kss-assets/mark.min.js"></script>
+<script src="kss-assets/kss-search.js"></script>
 
 <script>
 	var spy = new ScrollSpy('#id-kss-node', {
@@ -335,6 +350,11 @@
 	var kssMarkup = new KssMarkup({
 		bodyClass: 'id-kss-markup-mode',
 		detailsClass: 'id-kss-markup'
+	});
+	var kssSearch = new KssSearch({
+		inputID: 'kss-search-field',
+		searchButtonID: 'kss-search-button',
+    	searchAreaClass: '.id-homepage-nav'
 	});
 </script>
 {{{scripts}}}
