@@ -21,6 +21,11 @@
     var self = this,
         breakpointsControlContainer = document.getElementById('id-kss-breakpoints-control');
 
+    if(!breakpointsControlContainer) {
+      //toolbar not present
+      return false;
+    }
+
     self.createBreakpointsControl(self, breakpointsControlContainer);
 
     // Initialize all guides toggle buttons.

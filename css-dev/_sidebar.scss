@@ -34,7 +34,15 @@
 	padding:$padding;
 }
 
-.id-kss-nav-menu-child-section {
+.id-kss-nav-menu > .id-kss-nav-menu-item {
+	padding-top:$padding;
+
+	&:first-child {
+		padding-top:0;
+	}
+}
+
+.id-kss-sidebar .id-kss-nav-menu-child-section {
 	border-bottom:1px solid $color-grayscale-d;
 	margin-left:-$padding;
 	margin-right:-$padding;
@@ -54,18 +62,11 @@
 	}
 }
 
-.id-kss-nav-menu-parent {
-	@extend %font-size-3;
+.id-kss-nav-menu-parent,
+.id-kss-nav-menu-has-children {
+	@extend %font-size-5;
+	font-weight:900;
 	color: $color-grayscale-0;
-	margin-bottom: $margin-small;
-}
-
-
-
-.id-kss-nav-menu-child {
-	@extend %font-size-4;
-	color: $color-grayscale-0;
-	font-weight: 700;
 	margin-bottom: $margin-small;
 
 	&:visited {
@@ -73,6 +74,8 @@
 	}
 }
 
-// .id-kss-nav-name-child:first-child {
-// 	padding-left: 15px;
-// }
+.id-kss-nav-menu-child {
+	//@extend %font-size-4;
+	margin-bottom: 5px;
+}
+

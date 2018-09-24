@@ -16,7 +16,10 @@
     var self = this;
     // Initialize sidebar button.
     var checkbox = document.querySelectorAll('.id-kss-sidebar-control input')[0];
-
+    if(!checkbox) {
+      //toolbar/sidebar not present
+      return false;
+    }
     //set the sidebar class
     self.toggleSidebar( checkbox.checked );
 
