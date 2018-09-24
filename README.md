@@ -52,3 +52,151 @@ out of the box for the following statuses:
 	- Deprecated: styles are deprecated and will be removed soon
 	- Removed: component has been completely removed from this repo
 - Coming soon: pass your own set of breakpoints!
+
+
+
+## Example Comment
+
+```
+// Responsive Video Block
+//
+// A handy block for embedding videos and making them responsive
+//
+// Status: In-Progress
+//
+// Markup:
+// <div class="responsive-video {{modifier_class}}">
+// <div>
+// 	<iframe src="http://www.bu.edu/buniverse/interface/embed/embed.html?v=CSe7S24N" width="550" height="310" frameborder="0"></iframe>
+// </div>
+// </div>
+//
+// .video-large - Makes the video larger
+// .video-small - Makes the video smaller
+//
+// Styleguide Blocks.Global.Video
+```
+
+See KSS Spec for all details: 
+https://github.com/kss-node/kss/blob/spec/SPEC.md
+
+### New Properties:
+
+### Status
+```
+// Status: Planned
+```
+Options: 
+- **Planned**: styles are planned, but not yet started
+- **In Progress**: styles are in progress, but not fully tested and
+completed
+- **Ready**: styles are done, fully tested, and ready to hand off for
+backend functionality
+- **Bug**: styles were ready, but we found a bug that needs to be
+addressed. If you have a `//TODO`, you should use this status.
+- **Deprecation Planned**: styles will soon be deprecated
+- **Deprecated**: styles are deprecated and will be removed soon
+- **Removed**: component has been completely removed from this repo
+
+### Hidden
+```
+// Hidden: true
+```
+Options: 
+- **true**: this is not a boolean, any value will equate to true in handlebars and hide this entire component from the styleguide
+
+### Is-Header
+```
+// Is-Header: true
+```
+Denotes that this entry is a top level section header such as "Blocks", "Templates", "Atoms"
+
+Options: 
+- **true**: this is not a boolean, any value will equate to true in handlebars and activate certain styles and formatting. 
+
+### Is-Subheader
+```
+// Is-Subheader: true
+```
+Denotes that this entry is a sub header such as "Global", or "Homepage" under the "Blocks" section
+
+Options: 
+- **true**: this is not a boolean, any value will equate to true in handlebars and activate certain styles and formatting. 
+
+
+## Controlling Headings
+To have better control over headings intead of KSS autocreating them based on the Styleguide property, you can add a Comment block that controls their appearance, and add a description, or even hide it. 
+
+A possible pattern is to create a kss-headings.scss file in your theme and place all of your top level heading & subheader comments in that file:
+
+```
+// Blocks
+//
+// Blocks are reusable components throughout the theme.
+// Examples may include buttons, audio players, and callouts.
+//
+// Blocks should be further categorized by a sub-category such as:
+// Global, Homepage, Edition, Article corresponding to how they are used
+// and where they are available to users in the theme.
+//
+// Is-Header: true
+//
+// Styleguide Blocks
+
+// Global
+//
+// These are blocks that are available throughout the site on
+// multiple post types and page templates
+//
+// Is-Subheader: true
+//
+// Styleguide Blocks.Global
+
+
+// Edition Post Type
+//
+// These are blocks that are available only on the Edition
+// post type that is used for the homepage of each editorial
+// publication. They cannot be used elsewhere. Each block should
+// have styles for each publication: BU Today, Bostonia, & Research Magazine
+//
+// Is-Subheader: true
+//
+// Styleguide Blocks.Edition
+
+// Components
+//
+// Need to define these
+//
+// Is-Header: true
+//
+// Styleguide Components
+
+
+// Post Types
+//
+// Need to define these
+//
+// Is-Header: true
+//
+// Styleguide Post Types
+
+
+
+// Templates
+//
+// Need to define these
+//
+// Is-Header: true
+//
+// Styleguide Templates
+
+
+// Utilities
+//
+// Need to define these
+//
+// Is-Header: true
+//
+// Styleguide Utilities
+```
