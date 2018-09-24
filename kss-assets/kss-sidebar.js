@@ -23,13 +23,6 @@
     //set the sidebar class
     self.toggleSidebar( checkbox.checked );
 
-    if (checkbox.checked == true) {
-      console.log("true");
-
-    } else {
-      console.log("not checked");
-    }
-
     // setup an event listener on the checkbox
     checkbox.addEventListener('change', function(event) {
       console.log(event.target.checked);

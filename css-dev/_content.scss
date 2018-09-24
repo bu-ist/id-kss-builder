@@ -40,20 +40,26 @@
 .id-kss-title {
 	margin:0;
 }
-h1.id-kss-title {
-	font-family: $font-family-serif;
-	font-size:3.8em;
+h1.id-kss-title .id-kss-title-name {
+	font-family: "TiemposHeadline", $font-family-serif;
+	font-size:1.9em;
+	font-weight:900;
 }
 
-h2.id-kss-title {
-	font-size:3.1em;
+h2.id-kss-title .id-kss-title-name {
+	font-size:1.5em;
+}
+
+.id-kss-title-subheader .id-kss-title-name {
+	font-family: "TiemposHeadline", $font-family-serif;
+	font-size:1.9em;
 }
 
 
 .id-kss-title-section {
 	color:$color-grayscale-8;
 	display:block;
-	font-size:0.32em;
+	font-size:0.45em;
 	position:relative;
 	top:10px;
 }
@@ -96,6 +102,18 @@ h2.id-kss-title {
 	}
 
 	@extend %icon-link;
+}
+
+.id-kss-title-block .id-kss-status {
+	margin-right:15px;
+	font-size:14px;
+}
+
+.id-kss-open-github-issue {
+
+	.button {
+		@extend %icon-compose;
+	}
 }
 
 #id-kss-toolbar {
