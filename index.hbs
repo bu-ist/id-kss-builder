@@ -169,14 +169,34 @@
 		<{{#if @first}}div{{else}}section{{/if}} id="kssref-{{referenceURI}}" class="id-kss-section id-kss-section--depth-{{depth}} {{#if @root.template.isItem}}is-fullscreen{{/if}}">
 			<div class="id-kss-style id-kss-component-content">
 				<header class="id-kss-title-block">
-					<h{{#ifEquals depth '1' }}1{{else}}2{{/ifEquals}} class="id-kss-title id-kss-title--level-{{depth}}">
+					<h{{#ifEquals depth '1' }}1{{else}}2{{/ifEquals}} class="id-kss-title id-kss-title--level-{{depth}} {{#if is-subheader}}id-kss-title-subheader{{/if}}">
+
+						{{#if is-subheader}}
+						<span class="id-kss-title-section">{{splitTitle reference 1}}</span>
+						{{else}}
 						<span class="id-kss-title-section">{{splitTitle reference 2}}</span>
+						{{/if}}
+
 						<span class="id-kss-title-name">{{header}}<a class="id-kss-title__permalink" href="#kssref-{{referenceURI}}">Link</a></span>
 					</h{{#ifEquals depth '1' }}1{{else}}2{{/ifEquals}}>
 					{{#if status}}
 						<span class="id-kss-status id-kss-status-{{{slug status}}}">
 							{{status}}
 						</span>
+					{{/if}}
+
+					{{#if is-header}}
+						{{! do nothing}}
+					{{else}}
+						{{#if is-subheader}}
+							{{! do nothing}}
+						{{else}}
+							{{#if @root.options.gitURL}}
+							<span class="id-kss-open-github-issue">
+								<a href="{{@root.options.gitURL}}/issues/new" class="button button-small" title="Opens a new Issue on Github">New Issue</a>
+							</span>
+							{{/if}}
+						{{/if}}
 					{{/if}}
 
 					<!--<span class="id-kss-title__ref">
@@ -246,8 +266,8 @@
 						{{#if source.filename}}
 							<span class="id-kss-source id-kss-style">
 								Source: <code>{{source.filename}}, line {{source.line}}</code>
-								{{#if @root.options.gitURL}}
-									<a href="{{@root.options.gitURL}}{{source.filename}}#L{{source.line}}">
+								{{#if @root.options.gitURLCSSDEV}}
+									<a href="{{@root.options.gitURLCSSDEV}}{{source.filename}}#L{{source.line}}">
 										View Source
 									</a>
 								{{/if}}
