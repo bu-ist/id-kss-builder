@@ -52,6 +52,7 @@
 			var styles = $iframe[0].contentWindow.document.createElement("link");
 			styles.rel = "stylesheet";
 			styles.href = themeStylesheetURL;
+			styles.type = "text/css";
 			$iframe[0].contentWindow.document.head.appendChild(styles);
 
 
