@@ -1,6 +1,6 @@
 $( document ).ready(function() {
 
-	var $wrapper = $('.iframe-wrapper');
+	var $wrapper = $('html');
 	var height = $wrapper.height();
 	var id = $wrapper.attr("id");
 
