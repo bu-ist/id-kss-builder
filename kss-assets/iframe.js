@@ -48,6 +48,15 @@
 				$iframe[0].contentWindow.document.body.appendChild(script);
 			};
 
+			if( exampleStylesheetURL ) {
+				//lets add the stylesheet from gruntfile options paramter
+				var examplestyles = $iframe[0].contentWindow.document.createElement("link");
+				examplestyles.rel = "stylesheet";
+				examplestyles.href = exampleStylesheetURL;
+				examplestyles.type = "text/css";
+				$iframe[0].contentWindow.document.head.appendChild(examplestyles);
+			}
+
 			//lets add the stylesheet from the WordPress Theme to each iframe
 			var styles = $iframe[0].contentWindow.document.createElement("link");
 			styles.rel = "stylesheet";

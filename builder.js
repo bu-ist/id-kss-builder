@@ -81,7 +81,13 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
         string: true,
         multiple: false,
         describe: 'A url to the git repo css-dev folder'
-      }
+      },
+      exampleStylesheetURL: {
+        group: 'Example Stylesheet',
+        string: true,
+        multiple: false,
+        describe: 'A url to a stylesheet to include in the example iframmes'
+      },
     });
   }
 
