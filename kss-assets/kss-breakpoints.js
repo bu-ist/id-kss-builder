@@ -17,6 +17,8 @@
     this.init();
   };
 
+  var kssStorage = window.localStorage;
+
   KssBreakpoints.prototype.init = function () {
     var self = this,
         breakpointsControlContainer = document.getElementById('id-kss-breakpoints-control');
@@ -28,22 +30,34 @@
 
     self.createBreakpointsControl(self, breakpointsControlContainer);
 
+    var activeElement;
     // Initialize all guides toggle buttons.
     var elementList = document.getElementsByClassName('id-kss-breakpoints-control-button');
 
+
+    //setup event listeners
     for (var button of elementList) {
       button.onclick = self.updateBreakpoints.bind(self);
     }
 
-    // Simulate click on the first breakpoint control to set defaults.
-    elementList[0].classList.add('id-kss-breakpoints-control-active');
-    elementList[0].childNodes.checked = true;
+    //check localstorage for a saved breakpoint classlist
+    if( kssStorage.getItem( 'breakpoint' ) ) {
+      activeElement = document.getElementsByClassName( kssStorage.getItem( 'breakpoint' ) )[0];
+    } else {
+      activeElement = document.getElementsByClassName('id-kss-breakpoints-control-button')[0];
+    }
+
+
+    // Simulate click on the active (saved or first) breakpoint control to set defaults.
+    activeElement.classList.add('id-kss-breakpoints-control-active');
+    activeElement.childNodes.checked = true;
 
     var examples = document.getElementsByClassName('id-kss-example-wrapper');
 
     for (var example of examples) {
-      example.style.width = elementList[0].childNodes[0].value + 'px';
+      example.style.width = activeElement.childNodes[0].value + 'px';
     }
+
   };
 
   // Create breakpoint controls
@@ -67,7 +81,8 @@
       button.classList.remove('id-kss-breakpoints-control-active')
     }
 
-    console.log(self);
+    //store the active button classlist in local storage
+    kssStorage.setItem( 'breakpoint', self.srcElement.parentElement.classList );
 
     self.srcElement.parentElement.classList.add('id-kss-breakpoints-control-active');
 
@@ -82,6 +97,8 @@
       }
 
     }
+
+
   };
 
   // Export to DOM global space.
