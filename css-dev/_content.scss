@@ -226,3 +226,35 @@ iframe {
 	position:relative;
 	top:2px;
 }
+
+
+.id-kss-colors {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 1px 1px;
+    grid-template-areas: ". . . ." ". . . ." ". . . .";
+    margin: 0 -10px;
+    padding: 0;
+    grid-auto-rows: 1fr;
+
+	li {
+		list-style-type: none;
+    	float: left;
+    	padding: 10px;
+	}
+	.id-kss-color {
+    	width: 200px;
+    	height:100%;
+    	border: 1px solid #d8d8d8;
+	}
+	.id-kss-color-figure {
+    	display: block;
+    	width: 100%;
+    	height: 100px;
+	}
+	.id-kss-color-caption {
+    	padding: 15px;
+	}
+}
