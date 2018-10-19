@@ -228,6 +228,39 @@ iframe {
 }
 
 
+.id-kss-example-tabs {
+	border:1px solid $color-grayscale-d;
+	border-width:0 1px 1px 1px;
+
+	nav {
+		background:$color-grayscale-e;
+		border-bottom:1px solid $color-grayscale-d;
+
+		a {
+			display:inline-block;
+			padding:10px 15px;
+			color:#fff;
+			font-weight:bold;
+			text-decoration: none;
+			background:$color-grayscale-a;
+
+			&.active,
+			&:hover {
+				background-color:#375994;
+			}
+		}
+	}
+
+	.id-kss-example-tab {
+		display:none;
+		padding:15px;
+
+		&:first-child {
+			display:block;
+		}
+	}
+}
+
 .id-kss-colors {
     display: grid;
     height: 100%;
