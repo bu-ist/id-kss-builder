@@ -70,9 +70,7 @@
 			//inject the example markup into the iframe body
 			$iframeWindow
 				.contents()
-				.find( 'body' ).remove();
-			$iframeWindow
-				.contents()
+				.find( 'body' )
 				//.html( "<div class='iframe-wrapper' id='" + newID + "'><div class='wrapper'><main id='main' role='main' class='content'><div class='content-container'>" + markup + "</div></main></div></div>" );
 				.append( markup )
 				.find('.iframe-wrapper').attr("id", newID );
@@ -107,7 +105,6 @@
 
 	    	tabs.children('nav').children('a').each(function(){
 	    		var slug = $(this).attr("href").split('#')[1];
-	    		console.log(slug);
 	    		$(this).on('click', function(e){
 	    			e.preventDefault();
 
