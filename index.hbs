@@ -277,41 +277,19 @@
 					</div>
 
 
-					<div class="id-kss-info-wrapper">
-						{{#if modifiers}}
-							<div class="id-kss-class-name id-kss-modifier-default-name id-kss-style">
-								Default styling
-							</div>
+
+
+						{{#if @root.options.themes}}
+							{{>example-tabs-header}}
+							{{>example-loop-tabs}}
+							</div><!--./id-kss-example-tabs -->
+						{{else}}
+
+							{{>example-base modifiers=modifiers example=example}}
+
+							{{>example-modifiers modifiers=modifiers markup=markup}}
 						{{/if}}
 
-						<div class="id-kss-modifier-example">
-							<div class="id-kss-example-wrapper">
-								<iframe class="id-kss-example-iframe" scrolling="no"></iframe>
-								<div class="id-kss-example-markup">{{{example}}}</div>
-								<div class="id-kss-example-iframe-handle"></div>
-							</div>
-							<div class="id-kss-modifier-example-footer"></div>
-						</div>
-					</div>
-
-					{{#each modifiers}}
-						<div class="id-kss-info-wrapper">
-							<div class="id-kss-class-name id-kss-modifier-name id-kss-style">
-								{{name}}
-							</div>
-							<p class="id-kss-modifier-description id-kss-style">
-								{{{description}}}
-							</p>
-							<div class="id-kss-modifier-example">
-								<div class="id-kss-example-wrapper">
-									<iframe class="id-kss-example-iframe" scrolling="no"></iframe>
-									<div class="id-kss-example-markup">{{{markup}}}</div>
-									<div class="id-kss-example-iframe-handle"></div>
-								</div>
-								<div class="id-kss-modifier-example-footer"></div>
-							</div>
-						</div>
-					{{/each}}
 				</div>
 
 				{{#if markup}}
@@ -334,7 +312,6 @@
 {{/if}}
 </article>
 </main>
-
 <!-- SCRIPTS -->
 <script src="kss-assets/kss.js"></script>
 <script src="kss-assets/scrollspy.js"></script>
@@ -349,7 +326,7 @@
 <script src="kss-assets/mark.min.js"></script>
 <script src="kss-assets/kss-search.js"></script>
 
-<script>
+<script type="text/javascript">
 	var spy = new ScrollSpy('#id-kss-node', {
 		nav: '.id-kss-nav-menu-child > li > a',
 		className: 'is-in-viewport'
@@ -377,6 +354,7 @@
 		searchButtonID: 'kss-search-button',
     	searchAreaClass: '.id-homepage-nav'
 	});
+
 </script>
 {{{scripts}}}
 
