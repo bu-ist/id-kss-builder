@@ -1,0 +1,11 @@
+{{#each @root.options.themes}}
+	<div class="id-kss-example-tab" id="{{this.slug}}">
+		<h2>{{this.name}}</h2>
+
+		{{>example-base modifiers=../modifiers example=../example classes=this.classes}}
+
+		{{>example-modifiers modifiers=../modifiers markup=../markup classes=this.classes}}
+
+
+	</div>
+{{/each}}
