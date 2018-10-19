@@ -97,9 +97,10 @@ module.exports = function(grunt) {
 	grunt.loadNpmTasks( 'grunt-sass' );
 	grunt.loadNpmTasks( 'grunt-kss' );
 	grunt.loadNpmTasks( 'grunt-browser-sync' );
+	grunt.loadNpmTasks( 'grunt-contrib-copy' );
 
 	// 4. Where we tell Grunt what to do when we type "grunt" into the terminal.
-	grunt.registerTask( 'styles',   [ 'sass', 'kss' ] );
-	grunt.registerTask( 'build',    [ 'styles', 'kss' ] );
+	grunt.registerTask( 'styles',   [ 'sass', 'kss', 'copy:css' ] );
+	grunt.registerTask( 'build',    [ 'styles', 'kss', 'copy:css' ] );
 	grunt.registerTask( 'default',  [ 'kss','browserSync','watch' ] );
 };
