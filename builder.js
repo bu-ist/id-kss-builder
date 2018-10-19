@@ -88,6 +88,12 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
         multiple: false,
         describe: 'A url to a stylesheet to include in the example iframmes'
       },
+      themes: {
+        group: 'Themes',
+        string: false,
+        multiple: true,
+        describe: 'Setup Themes within a styleguide'
+      }
     });
   }
 
