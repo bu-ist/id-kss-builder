@@ -52,7 +52,7 @@ module.exports = function(grunt) {
 			prod: {
 				files: {
 					'kss-assets/kss.css': 'css-dev/style.scss',
-					'demo/src/demo.css': 'demo/src/css-dev/demo.css'
+					'demo/src/demo.css': 'demo/src/css-dev/demo.scss'
 
 				}
 			}
@@ -62,15 +62,20 @@ module.exports = function(grunt) {
 				title: 'BU KSS Demo Style Guide',
 				builder: 'builder.js',
 				css: [
-				  "/style.css",
+				  "demo.css",
 				],
 				// js: [
 				//   "/script.js",
 				// ],
-				extend: 'extend',
+				extend: 'demo/src/extend',
 				gitURL: 'https://github.com/bu-ist/id-kss-builder/',
 				gitURLCSSDEV: 'https://github.com/bu-ist/id-kss-builder/tree/master/src',
-				exampleStylesheetURL: 'https://www.bu.edu/wp-content/themes/responsive-framework-2-x/style.min.css'
+				exampleStylesheetURL: 'https://www.bu.edu/wp-content/themes/responsive-framework-2-x/style.min.css',
+				themes: [
+					{ name: 'BU Today', slug: 'bu-today', classes: 'publication-butoday' },
+					{ name: 'Bostonia', slug: 'bostonia', classes: 'publication-bostonia' },
+					{ name: 'Research Magazine', slug: 'research', classes: 'publication-research' },
+				]
 			},
 			dist: {
 				src: [
@@ -78,6 +83,15 @@ module.exports = function(grunt) {
 				],
 				dest: 'demo/_styleguide'
 			}
+		},
+		copy: {
+			css: {
+				options: {
+					mode: true
+				},
+				src: 'demo/src/demo.css',
+				dest: 'demo/_styleguide/demo.css'
+			},
 		},
 		browserSync: {
 			bsFiles: {
