@@ -8,7 +8,7 @@ $( document ).ready(function() {
 
 	function setHeight( height ){
 		var $parent = $(window.parent.document).find('#'+id);//find iframe parent div by id
-		$parent.height( height ); //set the new height;
+		$parent.height( Math.ceil( height ) ); //set the new height;
 	}
 
 	$(window).on('resize', function(e){
