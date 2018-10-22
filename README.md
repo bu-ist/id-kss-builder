@@ -200,3 +200,54 @@ A possible pattern is to create a kss-headings.scss file in your theme and place
 //
 // Styleguide Utilities
 ```
+
+
+## Colors
+```
+// Colors
+//
+// Lets establish a color palette
+//
+// Colors:
+// ColorName: #fad - color description
+// $name-can-be-variable: white - description and name are optional
+// #000
+//
+// Styleguide Utilities.Global.Color
+```
+: to separe color name and color code.
+- to separe code from description
+The color code is the only one requirement, name and description are optional
+
+# GruntFile Options
+
+It helps to use a copy task in grunt to copy your compiled css, and js files into the styleguide folder AFTER kss has run.
+```
+kss: {
+	options: {
+		title: 'BU KSS Demo Style Guide',
+		builder: 'node_modules/id-kss-builder/builder.js', //path to id-kss-builder
+		css: [
+		  "style.css", //path to your theme/project stylesheet that you want attached to the styleguide
+		],
+		js: [
+		  "script.js", //path to your script.js file you want attached to the styleguide
+		],
+		extend: 'demo/src/extend', //path to your extend folder locally. Can be used to override .hbs files in the builder
+		gitURL: 'https://github.com/bu-ist/id-kss-builder/', //path to your github repo
+		gitURLCSSDEV: 'https://github.com/bu-ist/id-kss-builder/tree/master/src', //path to the css folder in the repo
+		exampleStylesheetURL: 'https://www.bu.edu/wp-content/themes/responsive-framework-2-x/style.min.css', //optional, add a stylesheet to load before your project stylesheet. Useful for plugins, etc that add onto the Responsive Framework
+		themes: [
+			{ name: 'BU Today', slug: 'bu-today', classes: 'publication-butoday' },
+			{ name: 'Bostonia', slug: 'bostonia', classes: 'publication-bostonia' },
+			{ name: 'Research Magazine', slug: 'research', classes: 'publication-research' },
+		] // setup "themes" in the example iframes for each component. The classes string is added as a string of classes around example markup. This will apply to all examples and creates a "tabbed" wrapping component
+	},
+	dist: {
+		src: [
+			['demo/src']
+		],
+		dest: 'demo/_styleguide'
+	}
+},
+```
