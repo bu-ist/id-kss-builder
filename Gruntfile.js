@@ -72,9 +72,9 @@ module.exports = function(grunt) {
 				gitURLCSSDEV: 'https://github.com/bu-ist/id-kss-builder/tree/master/src',
 				exampleStylesheetURL: 'https://www.bu.edu/wp-content/themes/responsive-framework-2-x/style.min.css',
 				themes: [
-					{ name: 'BU Today', slug: 'bu-today', classes: 'publication-butoday' },
-					{ name: 'Bostonia', slug: 'bostonia', classes: 'publication-bostonia' },
-					{ name: 'Research Magazine', slug: 'research', classes: 'publication-research' },
+					{ name: 'BU Today', slug: 'bu-today', classes: 'publication-butoday', hideclass: ['bostonia', 'research'] },
+					{ name: 'Bostonia', slug: 'bostonia', classes: 'publication-bostonia', hideclass: ['butoday', 'research'] },
+					{ name: 'Research Magazine', slug: 'research', classes: 'publication-research', hideclass: ['butoday', 'bostonia'] },
 				]
 			},
 			dist: {
