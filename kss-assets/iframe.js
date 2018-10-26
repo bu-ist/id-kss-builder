@@ -50,6 +50,14 @@
 				$iframe[0].contentWindow.document.head.appendChild(script);
 			};
 
+			if( themeScriptsURL ) {
+				//lets add the theme scripts js file
+				var themescript = $iframe[0].contentWindow.document.createElement("script");
+				themescript.type = "text/javascript";
+				themescript.src = themeScriptsURL;
+				$iframe[0].contentWindow.document.head.appendChild(themescript);
+			}
+
 			if( exampleStylesheetURL ) {
 				//lets add the stylesheet from gruntfile options paramter
 				var examplestyles = $iframe[0].contentWindow.document.createElement("link");
