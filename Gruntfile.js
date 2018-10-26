@@ -65,7 +65,7 @@ module.exports = function(grunt) {
 				  "demo.css",
 				],
 				// js: [
-				//   "/script.js",
+				//   "script.js",
 				// ],
 				extend: 'demo/src/extend',
 				gitURL: 'https://github.com/bu-ist/id-kss-builder/',
