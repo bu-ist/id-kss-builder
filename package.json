@@ -21,5 +21,8 @@
     "fs": "0.0.1-security",
     "hbs": "^4.0.1"
   },
-  "dependencies": {}
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "hbs": "^4.0.1"
+  }
 }
