@@ -95,6 +95,12 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
         string: false,
         multiple: true,
         describe: 'Setup Themes within a styleguide'
+      },
+      partialsDir: {
+        group: 'Partials',
+        string: true,
+        multiple: false,
+        describe: 'Path to look for hbs partials in'
       }
     });
   }
