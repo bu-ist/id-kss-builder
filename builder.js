@@ -176,6 +176,52 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
         });
       }
 
+
+
+      //
+      //
+      // Look for partials in directories
+      //
+      var partialsDir = this.options.extend;
+      partialsDir.push( __dirname + '/extend/partials' );
+
+      //add the directory supplied in gruntfile.js from child theme for instance
+      //this should be a base directory like 'css-dev' that we want to search for
+      //.hbs partial files
+      if ( this.options.partialsDir ) {
+        partialsDir.push( process.cwd() + '/' + this.options.partialsDir );
+      }
+
+      //the Wax module requires the file extension and **/* pattern to be
+      //added to the end of each path so lets loop through the array
+      //and add it to each directory path
+      for(var i=0;i<partialsDir.length;i++){
+          partialsDir[i] = partialsDir[i]+"/**/*.hbs";
+      }
+
+
+      var wax = handlebarsWax(this.Handlebars, { bustCache: true })
+          // Partials
+          .partials(partialsDir, {
+              parsePartialName: function(options, file) {
+                  // options.handlebars
+                  // file.cwd
+                  // file.base
+                  // file.path
+                  // file.exports
+
+                  //instead of using a long partial name that
+                  //incorporates the file path, lets set it to
+                  //just the filename
+                  var filename = file.path.replace(/^.*[\\\/]/, '')
+                  filename = filename.split('.')[0];//get filename without extension
+                  return filename;
+              }
+          });
+
+
+
+
       return Promise.resolve(styleGuide);
     });
   }
