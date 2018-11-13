@@ -21,6 +21,6 @@
   },
   "dependencies": {
     "fs": "0.0.1-security",
-    "hbs": "^4.0.1"
+    "handlebars-wax": "^6.1.0"
   }
 }
