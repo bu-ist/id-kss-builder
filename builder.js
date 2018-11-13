@@ -17,7 +17,7 @@
  */
 
 const path = require('path');
-const hbs = require('hbs');
+const handlebarsWax = require('handlebars-wax');
 const fs = require('fs');
 
 // We want to extend kss-node's Handlebars builder so we can add options that
@@ -130,32 +130,6 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
     // Since it returns a Promise, we do our prep work in a then().
     return super.prepare(styleGuide).then(styleGuide => {
       // Load this builder's extra Handlebars helpers.
-
-        //
-        //
-        // Look for partials in directories
-        //
-        var partialsDir = this.options.extend;
-        partialsDir.push( __dirname + '/extend/partials' );
-        var h = this.Handlebars;
-
-        partialsDir.forEach(function (dir) {
-
-
-          var filenames = fs.readdirSync(dir);
-
-          filenames.forEach(function (filename) {
-            var matches = /^([^.]+).hbs$/.exec(filename);
-            if (!matches) {
-              return;
-            }
-            var name = matches[1];
-            var template = fs.readFileSync(dir + '/' + filename, 'utf8');
-            h.registerPartial(name, template);
-            //
-          });
-        });
-
 
 
       // Allow a builder user to override the {{section [reference]}} helper
