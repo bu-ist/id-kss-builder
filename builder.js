@@ -17,7 +17,7 @@
  */
 
 const path = require('path');
-const hbs = require('hbs');
+const handlebarsWax = require('handlebars-wax');
 const fs = require('fs');
 
 // We want to extend kss-node's Handlebars builder so we can add options that
@@ -95,6 +95,12 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
         string: false,
         multiple: true,
         describe: 'Setup Themes within a styleguide'
+      },
+      partialsDir: {
+        group: 'Partials',
+        string: true,
+        multiple: false,
+        describe: 'Path to look for hbs partials in'
       }
     });
   }
@@ -124,32 +130,6 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
     // Since it returns a Promise, we do our prep work in a then().
     return super.prepare(styleGuide).then(styleGuide => {
       // Load this builder's extra Handlebars helpers.
-
-        //
-        //
-        // Look for partials in directories
-        //
-        var partialsDir = this.options.extend;
-        partialsDir.push( __dirname + '/extend/partials' );
-        var h = this.Handlebars;
-
-        partialsDir.forEach(function (dir) {
-
-
-          var filenames = fs.readdirSync(dir);
-
-          filenames.forEach(function (filename) {
-            var matches = /^([^.]+).hbs$/.exec(filename);
-            if (!matches) {
-              return;
-            }
-            var name = matches[1];
-            var template = fs.readFileSync(dir + '/' + filename, 'utf8');
-            h.registerPartial(name, template);
-            //
-          });
-        });
-
 
 
       // Allow a builder user to override the {{section [reference]}} helper
@@ -195,6 +175,52 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
           return buffer;
         });
       }
+
+
+
+      //
+      //
+      // Look for partials in directories
+      //
+      var partialsDir = this.options.extend;
+      partialsDir.push( __dirname + '/extend/partials' );
+
+      //add the directory supplied in gruntfile.js from child theme for instance
+      //this should be a base directory like 'css-dev' that we want to search for
+      //.hbs partial files
+      if ( this.options.partialsDir ) {
+        partialsDir.push( process.cwd() + '/' + this.options.partialsDir );
+      }
+
+      //the Wax module requires the file extension and **/* pattern to be
+      //added to the end of each path so lets loop through the array
+      //and add it to each directory path
+      for(var i=0;i<partialsDir.length;i++){
+          partialsDir[i] = partialsDir[i]+"/**/*.hbs";
+      }
+
+
+      var wax = handlebarsWax(this.Handlebars, { bustCache: true })
+          // Partials
+          .partials(partialsDir, {
+              parsePartialName: function(options, file) {
+                  // options.handlebars
+                  // file.cwd
+                  // file.base
+                  // file.path
+                  // file.exports
+
+                  //instead of using a long partial name that
+                  //incorporates the file path, lets set it to
+                  //just the filename
+                  var filename = file.path.replace(/^.*[\\\/]/, '')
+                  filename = filename.split('.')[0];//get filename without extension
+                  return filename;
+              }
+          });
+
+
+
 
       return Promise.resolve(styleGuide);
     });
