@@ -295,8 +295,9 @@ iframe {
 
 
 .hljs {
-	overflow-y:auto;
 	max-height:500px;
+	overflow-y:auto;
+
 	code {
 		white-space:inherit;
 	}
@@ -305,8 +306,8 @@ iframe {
 
 .id-kss-description code {
     background: rgba(0,0,0,0.05);
-    color: #D0254D;
     border:1px solid rgba(0,0,0,0.1);
     border-radius:2px;
+    color: #D0254D;
     padding:0.2em 0.4em 0.1em 0.4em;
 }
