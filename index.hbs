@@ -19,20 +19,13 @@
 	var themeStylesheetURL = '{{{options.css}}}';
 	var exampleStylesheetURL = '{{{options.exampleStylesheetURL}}}';
 	var themeScriptsURL = '{{{options.js}}}';
-</script>
-<script type="text/javascript">
-//menu
-{{{json menu}}}
-</script>
-<script type="text/javascript">
-//nestedmenu
-{{{json (nestedMenu menu)}}}
-</script>
-<script type="text/javascript">
-{{{json options}}}
-</script>
-<script type="text/javascript">
-{{{json styleGuide}}}
+
+	//used for dev testing of the id-kss-builder template
+	var dev = {};
+	dev.menu = {{{json menu}}};
+	dev.nestedmenu = {{{json (nestedMenu menu)}}};
+	dev.options = {{{json options}}};
+	dev.styleguide = {{{json styleGuide}}};
 </script>
 {{#* inline "list-item"}}
 	<li class="id-kss-nav-menu-item">
