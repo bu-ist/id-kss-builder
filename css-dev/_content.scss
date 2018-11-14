@@ -292,3 +292,21 @@ iframe {
     	padding: 15px;
 	}
 }
+
+
+.hljs {
+	overflow-y:auto;
+	max-height:500px;
+	code {
+		white-space:inherit;
+	}
+}
+
+
+.id-kss-description code {
+    background: rgba(0,0,0,0.05);
+    color: #D0254D;
+    border:1px solid rgba(0,0,0,0.1);
+    border-radius:2px;
+    padding:0.2em 0.4em 0.1em 0.4em;
+}
