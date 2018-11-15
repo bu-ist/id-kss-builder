@@ -44,7 +44,21 @@
 	{{else}}
 
 	{{#if template.isSection}}
-	<h1>section</h1>
+		{{#each sections}}
+
+		{{!
+			Only output this item if it is not set as hidden
+			this is useful so we can hide titles for sub categories or things we don't
+			want visible yet
+		}}
+		{{#ifEquals depth '1'}}
+			{{>builder-section-item }}
+		{{else}}
+			{{#ifEquals depth '2'}}
+				{{>builder-section-item }}
+			{{/ifEquals}}
+		{{/ifEquals}}
+	{{/each}}
 	{{/if}}
 
 	{{#if template.isItem}}
@@ -55,7 +69,7 @@
 			The "root" element comes first in this loop, and can be detected using
 			the "#if @first" block as seen below.
 		}}
-		{{>builder-item}}
+		{{>builder-item }}
 	{{/if}}
 
 {{/if}}
