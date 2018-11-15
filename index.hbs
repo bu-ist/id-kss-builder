@@ -12,297 +12,66 @@
 
 
 </head>
-<body id="id-kss-node" {{#if template.isItem}}class="id-kss-fullscreen-mode"{{/if}}>
+<body id="id-kss-node">
 <script type="text/javascript">
 	//load the theme stylesheet as a variable to be used
 	//by iframe.js to add stylesheets to each iframe example
 	var themeStylesheetURL = '{{{options.css}}}';
 	var exampleStylesheetURL = '{{{options.exampleStylesheetURL}}}';
 	var themeScriptsURL = '{{{options.js}}}';
-
-	//used for dev testing of the id-kss-builder template
-	var dev = {};
-	dev.menu = {{{json menu}}};
-	dev.nestedmenu = {{{json (nestedMenu menu)}}};
-	dev.options = {{{json options}}};
-	dev.styleguide = {{{json styleGuide}}};
 </script>
-{{#* inline "list-item"}}
-	<li class="id-kss-nav-menu-item">
-		{{#if ischild}}
-			{{! child menu}}
-			<a class="id-kss-nav-menu-link id-kss-nav-menu-child {{#if children}}id-kss-nav-menu-has-children{{/if}}" href="section-{{#if sectionreferenceURI}}{{sectionreferenceURI}}{{else}}{{referenceURI}}{{/if}}.html#kssref-{{referenceURI}}">
-		{{else}}
-			{{! parent}}
-			<a class="id-kss-nav-menu-link id-kss-nav-menu-parent" href="section-{{#if sectionreferenceURI}}{{sectionreferenceURI}}{{else}}{{referenceURI}}{{/if}}.html#kssref-{{referenceURI}}">
-		{{/if}}
-				{{#if status}}
-					<span class="id-kss-status id-kss-status-{{{slug status}}}">
-						{{status}}
-					</span>
-				{{/if}}
-				<span class="id-kss-nav-name">
-					{{splitTitle reference depth }}
-				</span>
-			</a>
-		{{#if children}}
-			<ul class="id-kss-nav-menu-child-section">
-				{{> list}}
-			</ul>
-		{{/if}}
-	</li>
-{{/inline}}
 
-{{#* inline "list"}}
-		{{#each children}}
-		  {{> list-item ischild="true"}}
-		{{/each}}
-{{/inline}}
-<header class="id-kss-header" {{#if options.colorPrimary}}style="background-color:{{options.colorPrimary}};"{{/if}}>
-	<div class="id-kss-header-bar">
-	<h1 class="id-kss-doc-title">
-		<a href="./">
-			{{options.title}}
-		</a>
-	</h1>
-	<div class="id-kss-header-wrapper">
-		<nav class="id-kss-main-nav">
-			{{#each menu}}
-				{{#if isActive}}
-					<a href="section-{{referenceURI}}.html" class="id-kss-main-nav-link active">{{header}}</a>
-				{{else}}
-					<a href="section-{{referenceURI}}.html" class="id-kss-main-nav-link">{{header}}</a>
-				{{/if}}
-			{{/each}}
-		</nav>
-		<div id="id-kss-search"></div>
-	</div>
-	</div>
-	{{#unless @root.template.isHomepage}}
-	<div id="id-kss-toolbar">
-		<div id="id-kss-breakpoints-control" class="id-kss-breakpoints-control"></div>
-		<div class="id-kss-sidebar-control">
-			<span class="id-kss-toolbar-label">Sidebar</span>
-			<input type="checkbox" name="sidebar" checked>
-		</div>
-	</div>
-	{{/unless}}
-</header>
-{{#unless @root.template.isHomepage}}
-<div class="id-kss-sidebar id-kss-style">
-	<nav class="id-kss-nav" aria-label="Style Guide">
-		{{#with (activeMenu menu)}}
-			<ul class="id-kss-nav-menu">
-			  {{#each children}}
-				{{> list-item}}
-			  {{/each}}
-			</ul>
-		{{/with}}
-	</nav>
-</div>
-{{/unless}}
+
+<!-- Debug -->
+{{>builder-dev-output}}
+<!-- /Debug -->
+
+
+<!-- Header -->
+{{>builder-header}}
+<!-- /Header -->
+<!-- Sidebar -->
+{{>builder-sidebar}}
+<!-- /Sidebar -->
 <main class="id-kss-main" aria-label="Content">
 	<article>
 	{{#if template.isHomepage}}
 
-			<div class="id-kss-homepage">
-				<div class="id-homepage-content">
-					<h1>
-						{{options.title}}
-					</h1>
-					{{#if homepage}}
-					{{{homepage}}}
-					{{else}}
-					<p>Add a homepage.md file</p>
-					{{/if}}
-					<form role="search" class="id-kss-search">
-						<fieldset>
-							<legend class="screen-reader-text">
-								<span>Search</span>
-							</legend>
-
-							<label for="q">
-								<span class="screen-reader-text">Search for available components:</span>
-								<input name="q" type="text" aria-label="Search" id="kss-search-field" class="id-kss-search-field" placeholder="Search available components" title="Search for available components:">
-							</label>
-							<button id="kss-search-button" class="id-kss-search-button" type="submit" name="do_search"><span class="screen-reader-text">Search</span></button>
-						</fieldset>
-					</form>
-
-				</div>
-
-
-				<nav class="id-kss-nav id-homepage-nav" aria-label="Style Guide">
-
-
-					<ul class="id-kss-nav-menu">
-						{{#each (nestedMenu menu)}}
-							{{> list-item}}
-						{{/each}}
-					</ul>
-
-				</nav>
-			</div>
+		<!-- Homepage Template -->
+		{{>builder-homepage}}
+		<!-- /homepage -->
 
 	{{else}}
 
-
-	{{!
-		Display each section, in order.
-
-		The "root" element comes first in this loop, and can be detected using
-		the "#if @first" block as seen below.
-	}}
-	{{#each sections}}
+	{{#if template.isSection}}
+		{{#each sections}}
 
 		{{!
 			Only output this item if it is not set as hidden
 			this is useful so we can hide titles for sub categories or things we don't
 			want visible yet
 		}}
-		{{#unless hidden}}
-		<{{#if @first}}div{{else}}section{{/if}} id="kssref-{{referenceURI}}" class="id-kss-section id-kss-section--depth-{{depth}} {{#if @root.template.isItem}}is-fullscreen{{/if}}">
-			<div class="id-kss-style id-kss-component-content">
-				<header class="id-kss-title-block">
-					<h{{#ifEquals depth '1' }}1{{else}}2{{/ifEquals}} class="id-kss-title id-kss-title--level-{{depth}} {{#if is-subheader}}id-kss-title-subheader{{/if}}">
-
-						{{#if is-subheader}}
-						<span class="id-kss-title-section">{{splitTitle reference 1}}</span>
-						{{else}}
-						<span class="id-kss-title-section">{{splitTitle reference 2}}</span>
-						{{/if}}
-
-						<span class="id-kss-title-name">{{header}}<a class="id-kss-title__permalink" href="#kssref-{{referenceURI}}">Link</a></span>
-					</h{{#ifEquals depth '1' }}1{{else}}2{{/ifEquals}}>
-					{{#if status}}
-						<span class="id-kss-status id-kss-status-{{{slug status}}}">
-							{{status}}
-						</span>
-					{{/if}}
-
-					{{#if is-header}}
-						{{! do nothing}}
-					{{else}}
-						{{#if is-subheader}}
-							{{! do nothing}}
-						{{else}}
-							{{#if @root.options.gitURL}}
-							<span class="id-kss-open-github-issue">
-								<a href="{{@root.options.gitURL}}/issues/new" class="button button-small" title="Opens a new Issue on Github">New Issue</a>
-							</span>
-							{{/if}}
-						{{/if}}
-					{{/if}}
-
-					<!--<span class="id-kss-title__ref">
-						{{referenceNumber}}
-						<span class="id-kss-title__permalink-hash">
-							{{#if @root.hasNumericReferences}}
-								#permalink
-							{{else}}
-								#{{reference}}
-							{{/if}}
-						</span>
-					</span>-->
-				</header>
-				{{#if description}}
-					<div class="id-kss-description">
-						{{{description}}}
-					</div>
-				{{/if}}
-
-				{{#if colors }}
-					<ul class="id-kss-colors">
-						{{#each colors}}
-							<li>
-								<figure class="id-kss-color">
-									<div class="id-kss-color-figure" style="background-color:{{color}}"></div>
-									<figcaption class="id-kss-color-caption">
-										{{#if name }}
-											<strong class="id-kss-color-name">{{ color.name }}</strong>
-										{{/if}}
-										<strong class="id-kss-color-name">{{name}}</strong>
-										<code class="id-kss-color-code">{{color}}</code>
-										{{#if description}}
-											<p class="id-kss-color-desc">{{description}}</p>
-										{{/if}}
-									</figcaption>
-								</figure>
-							</li>
-						{{/each}}
-					</ul>
-				{{/if}}
-
-				{{#if parameters}}
-					<div class="id-kss-parameters__title">Parameters:</div>
-					<ul class="id-kss-parameters">
-					{{#each parameters}}
-						<li class="id-kss-parameters__item">
-							<div class="id-kss-parameters__name"><code>{{name}}</code></div>
-							<div class="id-kss-parameters__description">
-								{{{description}}}
-								{{#if defaultValue}}
-									<div class="id-kss-parameters__default-value">
-										Defaults to: <code>{{defaultValue}}</code>
-									</div>
-								{{/if}}
-							</div>
-						</li>
-					{{/each}}
-					</ul>
-				{{/if}}
-			</div>
-
-			{{#if example}}
-				<div class="id-kss-modifier__wrapper">
-					<div class="id-kss-modifier-heading id-kss-docs-heading id-kss-style">
-						Example{{#if modifiers}}s{{/if}}
-
-						{{#if source.filename}}
-							<span class="id-kss-source id-kss-style">
-								Source: <code>{{source.filename}}, line {{source.line}}</code>
-								{{#if @root.options.gitURLCSSDEV}}
-									<a href="{{@root.options.gitURLCSSDEV}}{{source.filename}}#L{{source.line}}">
-										View Source
-									</a>
-								{{/if}}
-							</span>
-						{{/if}}
-					</div>
-
-
-
-
-						{{#if @root.options.themes}}
-							{{>example-tabs-header}}
-							{{>example-loop-tabs}}
-							</div><!--./id-kss-example-tabs -->
-						{{else}}
-
-							{{>example-base modifiers=modifiers example=example}}
-
-							{{>example-modifiers modifiers=modifiers markup=markup}}
-						{{/if}}
-
-				</div>
-
-				{{#if markup}}
-					<details class="id-kss-markup id-kss-style" open="">
-						<summary class="id-kss-docs-heading">
-							{{#if markupFile }}
-								Markup <code>{{markupFile}}</code>
-							{{else}}
-								Markup
-							{{/if}}
-						</summary>
-						<pre class="hljs"><code class="language-handlebars">{{{hljs markup 'handlebars'}}}</code></pre>
-					</details>
-				{{/if}}
-			{{/if}}
-
-		</{{#if @first}}div{{else}}section{{/if}}>
-		{{/unless}}
+		{{#ifEquals depth '1'}}
+			{{>builder-section-item }}
+		{{else}}
+			{{#ifEquals depth '2'}}
+				{{>builder-section-item }}
+			{{/ifEquals}}
+		{{/ifEquals}}
 	{{/each}}
+	{{/if}}
+
+	{{#if template.isItem}}
+
+		{{!
+			Display each section, in order.
+
+			The "root" element comes first in this loop, and can be detected using
+			the "#if @first" block as seen below.
+		}}
+		{{>builder-item }}
+	{{/if}}
+
 {{/if}}
 </article>
 </main>
