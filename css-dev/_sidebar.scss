@@ -35,13 +35,15 @@
 }
 
 .id-kss-nav-menu > .id-kss-nav-menu-item {
-	padding-top:$padding;
+	//padding-top:$padding;
 
 	&:first-child {
 		padding-top:0;
 	}
 }
-
+.id-kss-nav-menu-child-section {
+	margin-bottom:$padding;
+}
 .id-kss-sidebar .id-kss-nav-menu-child-section {
 	border-bottom:1px solid $color-grayscale-d;
 	margin-left:-$padding;
