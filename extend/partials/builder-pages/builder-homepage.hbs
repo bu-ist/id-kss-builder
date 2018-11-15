@@ -1,0 +1,38 @@
+<div class="id-kss-homepage">
+	<div class="id-homepage-content">
+		<h1>
+			{{options.title}}
+		</h1>
+		{{#if homepage}}
+		{{{homepage}}}
+		{{else}}
+		<p>Add a homepage.md file</p>
+		{{/if}}
+		<form role="search" class="id-kss-search">
+			<fieldset>
+				<legend class="screen-reader-text">
+					<span>Search</span>
+				</legend>
+
+				<label for="q">
+					<span class="screen-reader-text">Search for available components:</span>
+					<input name="q" type="text" aria-label="Search" id="kss-search-field" class="id-kss-search-field" placeholder="Search available components" title="Search for available components:">
+				</label>
+				<button id="kss-search-button" class="id-kss-search-button" type="submit" name="do_search"><span class="screen-reader-text">Search</span></button>
+			</fieldset>
+		</form>
+
+	</div>
+
+
+	<nav class="id-kss-nav id-homepage-nav" aria-label="Style Guide">
+
+
+		<ul class="id-kss-nav-menu">
+			{{#each (nestedMenu menu)}}
+				{{> list-item}}
+			{{/each}}
+		</ul>
+
+	</nav>
+</div>
