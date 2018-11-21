@@ -14,9 +14,18 @@
 				<div class="id-kss-example-wrapper">
 					<iframe class="id-kss-example-iframe" scrolling="no"></iframe>
 					<script type="text/template" class="template-iframe">
+					{{#if ../template-override}}
+
+						{{> (slug ../template-override) markup=markup classlist=../classes}}
+
+
+					{{else}}
+
 						{{#>iframetemplate markup=markup classlist=../classes}}
 							{{>iframetemplate-base markup=../markup classlist=../../classes}}
 						{{/iframetemplate}}
+
+					{{/if}}
 					</script>
 
 					<div class="id-kss-example-iframe-handle"></div>
