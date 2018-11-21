@@ -255,7 +255,8 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
         'hidden',
         'git-source',
         'is-subheader',
-        'is-header'
+        'is-header',
+        'template-override'
       ])))
     }
 
