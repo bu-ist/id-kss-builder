@@ -8,11 +8,21 @@
 
 		<div class="id-kss-modifier-example ">
 			<div class="id-kss-example-wrapper">
+
 				<iframe class="id-kss-example-iframe" scrolling="no"></iframe>
 				<script type="text/template" class="template-iframe">
+				{{#if template-override}}
+
+					{{> (lookup . 'template-override') markup=example classlist=classes}}
+
+				{{else}}
+
 					{{#>iframetemplate markup=example classlist=classes}}
 						{{>iframetemplate-base markup=../example classlist=../classes}}
 					{{/iframetemplate}}
+
+				{{/if}}
+
 				</script>
 
 				<div class="id-kss-example-iframe-handle"></div>
