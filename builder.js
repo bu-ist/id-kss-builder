@@ -101,6 +101,12 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
         string: true,
         multiple: false,
         describe: 'Path to look for hbs partials in'
+      },
+      debug: {
+        group: 'Debug Options',
+        string: false,
+        multiple: false,
+        describe: 'If set to "true", debug output of kss data will be printed on each page and stored as a js var'
       }
     });
   }
