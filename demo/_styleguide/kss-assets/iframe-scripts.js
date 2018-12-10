@@ -18,7 +18,8 @@ $( document ).ready(function() {
 	var $wrapper = $('.iframe-wrapper');
 	var height;
 
-	var id = $wrapper.attr("id");
+	//var id = $wrapper.attr("id");
+	var id = iframeID;
 
 	setHeight = function(){
 		height = $wrapper.outerHeight();
