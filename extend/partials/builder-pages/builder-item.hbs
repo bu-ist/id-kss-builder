@@ -20,13 +20,19 @@
 						<span class="id-kss-title-name">{{header}}<a class="id-kss-title__permalink" href="#kssref-{{referenceURI}}">Link</a></span>
 					</h{{#ifEquals depth '1' }}1{{else}}2{{/ifEquals}}>
 					{{#if status}}
-						<span class="id-kss-status id-kss-status-{{{slug status}}}">
-							{{status}}
-						</span>
+						<span class="id-kss-status id-kss-status-{{{slug status}}}">{{status}}</span>
 					{{/if}}
 					{{#if author}}
-						<span class="id-kss-author id-kss-author-{{{slug author}}}">
-							Author: {{author}}
+						<span class="id-kss-author id-kss-author-{{{slug author}}}">Author: {{author}}</span>
+					{{/if}}
+					{{#if since}}
+						<span class="id-kss-since id-kss-since-{{{slug since}}}">
+							Since:
+							{{#if @root.options.gitURL}}
+								<a href="{{@root.options.gitURL}}/releases/tag/{{since}}">{{since}}</a>
+							{{else}}
+								{{since}}
+							{{/if}}
 						</span>
 					{{/if}}
 

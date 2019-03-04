@@ -259,6 +259,7 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
       this.options.custom = Array.from(new Set(this.options.custom.concat([
         'status',
         'author',
+        'since',
         'hidden',
         'git-source',
         'is-subheader',
