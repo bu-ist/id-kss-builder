@@ -104,7 +104,8 @@ h2.id-kss-title .id-kss-title-name {
 	@extend %icon-link;
 }
 
-.id-kss-title-block .id-kss-status {
+.id-kss-title-block .id-kss-status,
+.id-kss-author {
 	margin-right:15px;
 	font-size:14px;
 }
@@ -302,7 +303,6 @@ iframe {
 		white-space:inherit;
 	}
 }
-
 
 .id-kss-description code {
     background: rgba(0,0,0,0.05);

@@ -24,6 +24,11 @@
 							{{status}}
 						</span>
 					{{/if}}
+					{{#if author}}
+						<span class="id-kss-author id-kss-author-{{{slug author}}}">
+							Author: {{author}}
+						</span>
+					{{/if}}
 
 					{{#if is-header}}
 						{{! do nothing}}
