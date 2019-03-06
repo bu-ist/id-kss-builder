@@ -24,9 +24,12 @@ module.exports = function(grunt) {
 			},
 			kss: {
 				files: [
-					'/demo/src/**/*.hbs'
+					'demo/src/**/*.hbs',
+					'extend/partials/*.hbs',
+					'extend/partials/**/*.hbs',
+					'extend/*.js'
 				],
-				tasks: [ 'styles' ],
+				tasks: [ 'build' ],
 				options: {
 					spawn: false
 				}
