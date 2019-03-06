@@ -111,6 +111,10 @@ h2.id-kss-title .id-kss-title-name {
 	font-size:14px;
 }
 
+.id-kss-author {
+	@extend %icon-user;
+}
+
 .id-kss-open-github-issue {
 
 	.button {
