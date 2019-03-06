@@ -154,6 +154,17 @@
 						<pre class="hljs"><code class="language-handlebars">{{{hljs markup 'handlebars'}}}</code></pre>
 					</details>
 				{{/if}}
+			{{else}}
+				{{#if source.filename}}
+					<span class="id-kss-source id-kss-style">
+						Source: <code>{{source.filename}}, line {{source.line}}</code>
+						{{#if @root.options.gitURLCSSDEV}}
+							<a href="{{@root.options.gitURLCSSDEV}}{{source.filename}}#L{{source.line}}">
+								View Source
+							</a>
+						{{/if}}
+					</span>
+				{{/if}}
 			{{/if}}
 
 		</{{#if @first}}div{{else}}section{{/if}}>

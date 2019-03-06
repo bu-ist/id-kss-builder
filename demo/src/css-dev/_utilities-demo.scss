@@ -1,0 +1,15 @@
+// Parameters Example
+//
+// Documents a mixin with parameters.
+//
+// Compatible in IE6+, Firefox 2+, Safari 4+.
+//
+// $start = #000 - The color hex at the top.
+//
+// Status: In-Progress
+//
+// Styleguide Utilities.Mixins.Parameters Example
+
+@mixin default-params-example( $start: #000 ) {
+  background: $start;
+}
