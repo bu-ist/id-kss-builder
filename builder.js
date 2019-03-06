@@ -260,6 +260,7 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
         'status',
         'author',
         'since',
+        'accessibility',
         'hidden',
         'git-source',
         'is-subheader',

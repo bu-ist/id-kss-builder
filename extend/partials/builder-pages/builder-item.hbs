@@ -35,6 +35,9 @@
 							{{/if}}
 						</span>
 					{{/if}}
+					{{#if accessibility}}
+						<a href="https://www.w3.org/TR/WCAG20-TECHS/G183.html" title="Meets WCAG 2.0 {{accessibility}} standards for color contrast" class="id-kss-accessibility id-kss-accessibility-{{{slug accessibility}}}">{{accessibility}}</a>
+					{{/if}}
 
 					{{#if is-header}}
 						{{! do nothing}}
