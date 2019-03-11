@@ -2,6 +2,12 @@
 //
 // Documents a mixin with parameters.
 //
+// ```scss
+// .example {
+// 	@include default-params-example( #fff );
+// }
+// ```
+//
 // Compatible in IE6+, Firefox 2+, Safari 4+.
 //
 // $start = #000 - The color hex at the top.
