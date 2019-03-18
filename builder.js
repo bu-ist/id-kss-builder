@@ -182,7 +182,13 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
         });
       }
 
+      //
+      // Register a lowercase helper
+      //
 
+      this.Handlebars.registerHelper('toLowerCase', function(str) {
+        return str.toLowerCase();
+      });
 
       //
       //
@@ -261,6 +267,8 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
         'author',
         'since',
         'accessibility',
+        'access',
+        'type',
         'hidden',
         'git-source',
         'is-subheader',
