@@ -111,7 +111,8 @@
 .id-kss-title-block .id-kss-status,
 .id-kss-author,
 .id-kss-since,
-.id-kss-accessibility {
+.id-kss-accessibility,
+.id-kss-access {
 	margin-right:15px;
 	font-size:14px;
 
@@ -133,6 +134,17 @@
 	&:active,
 	&:visited {
 		color: #68ab4d;
+	}
+}
+
+.id-kss-access-private {
+	@extend %icon-lock;
+	color: #eca51c;
+
+	&:hover,
+	&:active,
+	&:visited {
+		color: #eca51c;
 	}
 }
 
