@@ -68,17 +68,18 @@
 
 
 .id-kss-title-name {
-	position:relative;
+	position: relative;
 }
 
 .id-kss-title__permalink {
+	@extend %icon-link;
 	display: inline-block;
-	left:5px;
-	overflow:hidden;
+	left: 5px;
+	overflow: hidden;
 	position: relative;
 	text-indent: 100%;
-	top:34px;
-	width:30px;
+	top: 20px;
+	width: 30px;
 
 	&::before {
 		color: $color-grayscale-9;
@@ -94,16 +95,17 @@
 		z-index: 2;
 	}
 
-	&:hover {
-		&::before {
-			color:$color-link;
-		}
+	&:hover::before {
+		color:$color-link;
 	}
+
 	h1 & {
 		display:none;
 	}
 
-	@extend %icon-link;
+	.id-kss-title--level-2 & {
+		top: 44px;
+	}
 }
 
 .id-kss-title-block .id-kss-status,
