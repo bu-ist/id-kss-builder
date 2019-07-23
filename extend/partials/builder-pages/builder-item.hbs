@@ -40,6 +40,8 @@
 					{{/if}}
 					{{#ifEquals access 'Private' }}
 						<a href="https://www.w3.org/TR/WCAG20-TECHS/G183.html" title="This {{#if type}}{{toLowerCase type}} {{/if}}is only intended for internal use and may change at any time." class="id-kss-access id-kss-access-{{{slug access}}}">{{access}}</a>
+					{{else}}
+						{{access}}
 					{{/ifEquals}}
 
 					{{#if is-header}}
