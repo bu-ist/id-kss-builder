@@ -107,6 +107,12 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
         string: false,
         multiple: false,
         describe: 'If set to "true", debug output of kss data will be printed on each page and stored as a js var'
+      },
+      customCSS: {
+        group: 'Custom CSS',
+        string: false,
+        multiple: false,
+        describe: 'Path to a custom stylesheet to tweak builder styles for your project.'
       }
     });
   }
