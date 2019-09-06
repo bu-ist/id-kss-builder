@@ -13,7 +13,14 @@
     "grunt-contrib-watch": "^1.1.0",
     "grunt-sass": "^2.0.0",
     "highlight.js": "^9.12.0",
+    "responsive-foundation": "git@github.com:bu-ist/responsive-foundation.git#develop",
     "slugg": "^1.2.1",
-    "responsive-foundation": "git@github.com:bu-ist/responsive-foundation.git#migrate-off-bower"
+    "grunt-contrib-copy": "^0.8.0",
+    "grunt-kss": "^5.0.1",
+    "grunt-browser-sync": "^2.2.0"
+  },
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "handlebars-wax": "^6.1.0"
   }
 }

@@ -1,16 +1,144 @@
 .id-kss-main {
 	padding: $padding;
-	padding-top: $padding + 50px;
+	padding-top: $padding + 120px;
+
+
+	.id-kss-sidebar-open & {
+		@include breakpoint( $toggle-desktop-layout ) {
+			padding-left: $sidebar-width + 3%;
+			padding-top:$padding + 80px;
+		}
+	}
+}
+
+.id-kss-section {
+    border-bottom: 1px solid $color-grayscale-d;
+    margin: 0;
+    padding: 50px 0;
+}
+
+.id-kss-component-content {
+	margin-bottom:50px;
 
 	@include breakpoint( $toggle-desktop-layout ) {
-		padding-left: $sidebar-width + 3%;
+		//margin-left:auto;
+		//margin-right:auto;
+		width:80%;
+	}
+	@include breakpoint( $md ) {
+		width:70%;
+	}
+	@include breakpoint( $lg ) {
+		width:60%;
+	}
+}
+
+.id-kss-title-block {
+	margin-bottom:$margin;
+}
+
+.id-kss-title {
+	margin:0;
+}
+h1.id-kss-title .id-kss-title-name {
+	font-family: "TiemposHeadline", $font-family-serif;
+	font-size:1.9em;
+	font-weight:900;
+}
+
+h2.id-kss-title .id-kss-title-name {
+	font-size:1.5em;
+}
+
+.id-kss-title-subheader .id-kss-title-name {
+	font-family: "TiemposHeadline", $font-family-serif;
+	font-size:1.9em;
+}
+
+
+.id-kss-title-section {
+	color:$color-grayscale-8;
+	display:block;
+	font-size:0.45em;
+	position:relative;
+	top:10px;
+}
+
+
+.id-kss-title-name {
+	position:relative;
+}
+
+.id-kss-title__permalink {
+	display: inline-block;
+	left:5px;
+	overflow:hidden;
+	position: relative;
+	text-indent: 100%;
+	top:34px;
+	width:30px;
+
+	&::before {
+		color: $color-grayscale-9;
+		display: block;
+		font-size: 22px;
+		height: 30px;
+		left: 0;
+		line-height: 20px;
+		position: absolute;
+		text-align: center;
+		text-indent: 0;
+		width: 28px;
+		z-index: 2;
+	}
+
+	&:hover {
+		&::before {
+			color:$color-link;
+		}
+	}
+	h1 & {
+		display:none;
+	}
+
+	@extend %icon-link;
+}
+
+.id-kss-title-block .id-kss-status {
+	margin-right:15px;
+	font-size:14px;
+}
+
+.id-kss-open-github-issue {
+
+	.button {
+		@extend %icon-compose;
 	}
 }
 
 #id-kss-toolbar {
+	background: #fff;
 	display: flex;
 	justify-content: end;
 	margin-bottom: $margin;
+	padding: 10px 25px;
+	position: fixed;
+	width:100%;
+    z-index:1000;
+    @include box-shadow(0px 0px 3px 0px rgba(0, 0, 0, 0.24), 0 0 30px 0 rgba(0,0,0,0.15));
+
+    @include breakpoint( $toggle-desktop-layout ) {
+    	margin-top: $margin;
+		right: 30px;
+		width:auto;
+		@include border-radius(25px);
+	    @include box-shadow(0px 0px 3px 0px rgba(0, 0, 0, 0.24), 0 0 30px 0 rgba(0,0,0,0.15));
+	}
+}
+
+.id-kss-modifier__wrapper {
+	margin-top:50px;
+	padding-bottom:$margin;
 }
 
 iframe {
@@ -19,7 +147,26 @@ iframe {
 	width: 100%;
 }
 
-.id-kss-modifier-heading {
+.id-kss-example-wrapper {
+	position:relative;
+}
+
+.id-kss-example-iframe-handle {
+	background:$color-grayscale-e;
+	bottom:0;
+	cursor: col-resize;
+	left:100%;
+	position:absolute;
+	top:0;
+	width:14px;
+	@include transition( background 250ms ease-in-out 0s );
+
+	&:hover {
+		background:$color-grayscale-a;
+	}
+}
+
+.id-kss-docs-heading {
 	display: flex;
 	font-weight: 700;
 	align-items: center;
@@ -28,19 +175,139 @@ iframe {
 	border-bottom: 1px solid $color-grayscale-d;
 	border-top: 1px solid $color-grayscale-d;
 	padding: $padding-small/2 $padding;
-	margin-bottom: $margin;
+	margin-bottom: $margin*2;
 }
 
 .id-kss-source {
-	@extend %icon-github;
 	@extend %font-size-minimum;
+	margin-left: auto;
+
+	code {
+		@extend %font-size-minimum;
+	}
+}
+
+.id-kss-source a {
+	@extend %icon-github;
 	color: $color-grayscale-0;
 	font-weight: 700;
-	margin-left: auto;
 	text-decoration: none;
+	margin-left:20px;
 
 	&::before {
 		margin-right: 0.25em;
 		margin-top: -2px;
 	}
+}
+
+.id-kss-info-wrapper,
+.id-kss-modifier-example {
+	margin-bottom: $margin;
+}
+
+.id-kss-class-name {
+	background: #1E1E1E;
+	color: #D69D85;
+	display: inline-block;
+	font-family: "Consolas", "Liberation Mono", Courier, monospace;
+	margin-bottom: $margin-small;
+	padding: 0.1em 0.5em;
+}
+
+.id-kss-modifier-description {
+	@extend %font-size-secondary;
+	margin-bottom: $margin-small;
+}
+
+.id-kss-markup {
+	margin-top: $margin;
+}
+
+.id-kss-markup code {
+	position:relative;
+	top:2px;
+}
+
+
+.id-kss-example-tabs {
+	border:1px solid $color-grayscale-d;
+	border-width:0 1px 1px 1px;
+
+	nav {
+		background:$color-grayscale-e;
+		border-bottom:1px solid $color-grayscale-d;
+
+		a {
+			display:inline-block;
+			padding:10px 15px;
+			color:#fff;
+			font-weight:bold;
+			text-decoration: none;
+			background:$color-grayscale-a;
+
+			&.active,
+			&:hover {
+				background-color:#375994;
+			}
+		}
+	}
+
+	.id-kss-example-tab {
+		display:none;
+		padding:15px;
+
+		&:first-child {
+			display:block;
+		}
+	}
+}
+
+.id-kss-colors {
+    display: grid;
+    height: 100%;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-gap: 1px 1px;
+    grid-template-areas: ". . . ." ". . . ." ". . . .";
+    margin: 0 -10px;
+    padding: 0;
+    grid-auto-rows: 1fr;
+
+	li {
+		list-style-type: none;
+    	float: left;
+    	padding: 10px;
+	}
+	.id-kss-color {
+    	width: 200px;
+    	height:100%;
+    	border: 1px solid #d8d8d8;
+	}
+	.id-kss-color-figure {
+    	display: block;
+    	width: 100%;
+    	height: 100px;
+	}
+	.id-kss-color-caption {
+    	padding: 15px;
+	}
+}
+
+
+.hljs {
+	max-height:500px;
+	overflow-y:auto;
+
+	code {
+		white-space:inherit;
+	}
+}
+
+
+.id-kss-description code {
+    background: rgba(0,0,0,0.05);
+    border:1px solid rgba(0,0,0,0.1);
+    border-radius:2px;
+    color: #D0254D;
+    padding:0.2em 0.4em 0.1em 0.4em;
 }

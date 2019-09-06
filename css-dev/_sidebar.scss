@@ -1,5 +1,6 @@
 .id-kss-sidebar {
 	border-bottom: 1px solid $color-grayscale-d;
+	display:none;
 	padding: $padding;
 	padding-top: $padding + 50px;
 
@@ -10,9 +11,16 @@
 		height: 100%;
 		overflow: auto;
 		border-bottom: 0;
+
+		.id-kss-sidebar-open & {
+			display:block;
+		}
 	}
+
+
 }
 
+.id-kss-nav-menu-child-section,
 .id-kss-nav-menu,
 .id-kss-nav-menu-child {
 	list-style-type: none;
@@ -20,10 +28,35 @@
 	padding: 0;
 }
 
+.id-kss-nav-menu {
+	margin-left:-$padding;
+	margin-right:-$padding;
+	padding:$padding;
+}
+
+.id-kss-nav-menu > .id-kss-nav-menu-item {
+	//padding-top:$padding;
+
+	&:first-child {
+		padding-top:0;
+	}
+}
+.id-kss-nav-menu-child-section {
+	margin-bottom:$padding;
+}
+.id-kss-sidebar .id-kss-nav-menu-child-section {
+	border-bottom:1px solid $color-grayscale-d;
+	margin-left:-$padding;
+	margin-right:-$padding;
+	padding:$padding;
+	padding-top:0;
+}
+
 .id-kss-nav-menu-link {
 	@extend %font-size-secondary;
 	color: #285ebd;
 	display: block;
+	margin-bottom: $margin-small/2;
 	text-decoration: none;
 
 	&:visited {
@@ -31,13 +64,20 @@
 	}
 }
 
-.id-kss-nav-menu-parent {
-	@extend %font-size-4;
+.id-kss-nav-menu-parent,
+.id-kss-nav-menu-has-children {
+	@extend %font-size-5;
+	font-weight:900;
 	color: $color-grayscale-0;
-	font-weight: 700;
 	margin-bottom: $margin-small;
 
 	&:visited {
 		color: $color-grayscale-0;
 	}
 }
+
+.id-kss-nav-menu-child {
+	//@extend %font-size-4;
+	margin-bottom: 5px;
+}
+

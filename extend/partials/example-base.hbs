@@ -1,0 +1,33 @@
+<div class="id-kss-info-wrapper">
+	<div class="is-example-default">
+		{{#if modifiers}}
+			<div class="id-kss-class-name id-kss-modifier-default-name id-kss-style">
+				Default styling
+			</div>
+		{{/if}}
+
+		<div class="id-kss-modifier-example ">
+			<div class="id-kss-example-wrapper">
+
+				<iframe class="id-kss-example-iframe" scrolling="no"></iframe>
+				<script type="text/template" class="template-iframe">
+				{{#if template-override}}
+
+					{{> (lookup . 'template-override') markup=example classlist=classes}}
+
+				{{else}}
+
+					{{#>iframetemplate markup=example classlist=classes}}
+						{{>iframetemplate-base markup=../example classlist=../classes}}
+					{{/iframetemplate}}
+
+				{{/if}}
+
+				</script>
+
+				<div class="id-kss-example-iframe-handle"></div>
+			</div>
+			<div class="id-kss-modifier-example-footer"></div>
+		</div>
+	</div>
+</div>

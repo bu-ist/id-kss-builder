@@ -1,16 +1,20 @@
 $id-kss-colors-background: #29436f;
 
 .id-kss-header {
+	left: 0;
+	position: fixed;
+	top: 0;
+	width: 100%;
+	z-index: $z-index-primarynav;
+}
+
+.id-kss-header-bar {
 	@include box-shadow( 0px 0px 40px 0px rgba( 0, 0, 0, 0.25 ) );
 	background: $id-kss-colors-background;
 	background: linear-gradient( to right, darken( $id-kss-colors-background, 10% ), $id-kss-colors-background );
 	display: flex;
-	left: 0;
 	padding: $padding-small $padding;
-	position: fixed;
-	top: 0;
 	width: 100%;
-	z-index: 2;
 }
 
 .id-kss-doc-title {
@@ -38,6 +42,10 @@ $id-kss-colors-background: #29436f;
 	margin: 0 $margin-small;
 	position: relative;
 	text-decoration: none;
+
+	&:visited {
+		color: $color-grayscale-f;
+	}
 
 	&.active {
 		&::after {

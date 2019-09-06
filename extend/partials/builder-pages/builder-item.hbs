@@ -1,0 +1,150 @@
+{{#each sections}}
+
+		{{!
+			Only output this item if it is not set as hidden
+			this is useful so we can hide titles for sub categories or things we don't
+			want visible yet
+		}}
+		{{#unless hidden}}
+		<{{#if @first}}div{{else}}section{{/if}} id="kssref-{{referenceURI}}" class="id-kss-section id-kss-section--depth-{{depth}}">
+			<div class="id-kss-style id-kss-component-content">
+				<header class="id-kss-title-block">
+					<h{{#ifEquals depth '1' }}1{{else}}2{{/ifEquals}} class="id-kss-title id-kss-title--level-{{depth}} {{#if is-subheader}}id-kss-title-subheader{{/if}}">
+
+						{{#if is-subheader}}
+						<span class="id-kss-title-section">{{splitTitle reference 1}}</span>
+						{{else}}
+						<span class="id-kss-title-section">{{splitTitle reference 2}}</span>
+						{{/if}}
+
+						<span class="id-kss-title-name">{{header}}<a class="id-kss-title__permalink" href="#kssref-{{referenceURI}}">Link</a></span>
+					</h{{#ifEquals depth '1' }}1{{else}}2{{/ifEquals}}>
+					{{#if status}}
+						<span class="id-kss-status id-kss-status-{{{slug status}}}">
+							{{status}}
+						</span>
+					{{/if}}
+
+					{{#if is-header}}
+						{{! do nothing}}
+					{{else}}
+						{{#if is-subheader}}
+							{{! do nothing}}
+						{{else}}
+							{{#if @root.options.gitURL}}
+							<span class="id-kss-open-github-issue">
+								<a href="{{@root.options.gitURL}}/issues/new" class="button button-small" title="Opens a new Issue on Github">New Issue</a>
+							</span>
+							{{/if}}
+						{{/if}}
+					{{/if}}
+
+					<!--<span class="id-kss-title__ref">
+						{{referenceNumber}}
+						<span class="id-kss-title__permalink-hash">
+							{{#if @root.hasNumericReferences}}
+								#permalink
+							{{else}}
+								#{{reference}}
+							{{/if}}
+						</span>
+					</span>-->
+				</header>
+				{{#if description}}
+					<div class="id-kss-description">
+						{{{description}}}
+					</div>
+				{{/if}}
+
+				{{#if colors }}
+					<ul class="id-kss-colors">
+						{{#each colors}}
+							<li>
+								<figure class="id-kss-color">
+									<div class="id-kss-color-figure" style="background-color:{{color}}"></div>
+									<figcaption class="id-kss-color-caption">
+										{{#if name }}
+											<strong class="id-kss-color-name">{{ color.name }}</strong>
+										{{/if}}
+										<strong class="id-kss-color-name">{{name}}</strong>
+										<code class="id-kss-color-code">{{color}}</code>
+										{{#if description}}
+											<p class="id-kss-color-desc">{{description}}</p>
+										{{/if}}
+									</figcaption>
+								</figure>
+							</li>
+						{{/each}}
+					</ul>
+				{{/if}}
+
+				{{#if parameters}}
+					<div class="id-kss-parameters__title">Parameters:</div>
+					<ul class="id-kss-parameters">
+					{{#each parameters}}
+						<li class="id-kss-parameters__item">
+							<div class="id-kss-parameters__name"><code>{{name}}</code></div>
+							<div class="id-kss-parameters__description">
+								{{{description}}}
+								{{#if defaultValue}}
+									<div class="id-kss-parameters__default-value">
+										Defaults to: <code>{{defaultValue}}</code>
+									</div>
+								{{/if}}
+							</div>
+						</li>
+					{{/each}}
+					</ul>
+				{{/if}}
+			</div>
+
+			{{#if example}}
+				<div class="id-kss-modifier__wrapper">
+					<div class="id-kss-modifier-heading id-kss-docs-heading id-kss-style">
+						Example{{#if modifiers}}s{{/if}}
+
+						{{#if source.filename}}
+							<span class="id-kss-source id-kss-style">
+								Source: <code>{{source.filename}}, line {{source.line}}</code>
+								{{#if @root.options.gitURLCSSDEV}}
+									<a href="{{@root.options.gitURLCSSDEV}}{{source.filename}}#L{{source.line}}">
+										View Source
+									</a>
+								{{/if}}
+							</span>
+						{{/if}}
+					</div>
+
+
+
+
+						{{#if @root.options.themes}}
+							{{>example-tabs-header}}
+							{{>example-loop-tabs}}
+							</div><!--./id-kss-example-tabs -->
+						{{else}}
+
+							{{>example-base modifiers=modifiers example=example template-override=template-override}}
+
+							{{>example-modifiers modifiers=modifiers markup=markup template-override=template-override}}
+						{{/if}}
+
+				</div>
+
+				{{#if markup}}
+					<details class="id-kss-markup id-kss-style" open="">
+						<summary class="id-kss-docs-heading">
+							{{#if markupFile }}
+								Markup <code>{{markupFile}}</code>
+							{{else}}
+								Markup
+							{{/if}}
+						</summary>
+						<pre class="hljs"><code class="language-handlebars">{{{hljs markup 'handlebars'}}}</code></pre>
+					</details>
+				{{/if}}
+			{{/if}}
+
+		</{{#if @first}}div{{else}}section{{/if}}>
+		{{/unless}}
+	{{/each}}

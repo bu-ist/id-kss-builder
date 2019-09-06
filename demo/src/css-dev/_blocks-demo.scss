@@ -1,0 +1,141 @@
+// Sample Block
+//
+// This is a Sample Block, you can use this as a base line for writing up the static markup and styles for a new block.
+// And this here `.my-class-name` is a code sample.
+//
+// Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Aenean eu leo quam.
+// ```
+// .id-kss-colors {
+//     display: grid;
+//     height: 100%;
+//     grid-template-columns: 1fr 1fr 1fr 1fr;
+//     grid-template-rows: 1fr 1fr 1fr;
+//     grid-gap: 1px 1px;
+//     grid-template-areas: ". . . ." ". . . ." ". . . .";
+//     margin: 0 -10px;
+//     padding: 0;
+//     grid-auto-rows: 1fr;
+//
+// 	li {
+// 		list-style-type: none;
+//     	float: left;
+//     	padding: 10px;
+// 	}
+// 	.id-kss-color {
+//     	width: 200px;
+//     	height:100%;
+//     	border: 1px solid #d8d8d8;
+// 	}
+// 	.id-kss-color-figure {
+//     	display: block;
+//     	width: 100%;
+//     	height: 100px;
+// 	}
+// 	.id-kss-color-caption {
+//     	padding: 15px;
+// 	}
+// ```
+// Pellentesque ornare sem lacinia quam venenatis vestibulum.
+// Donec ullamcorper nulla non metus auctor fringilla.
+//
+//
+// Status: In-Progress
+//
+// Template-override: iframetemplate-override
+//
+// Markup: block-sample.hbs
+//
+// .block-sample-variant1 - Example of a Layout Variation
+// .is-style-layoutBig - layout big
+// .bostonia-block-sample - Example of Default with Bostonia Styling
+// .research-block-sample - Example of Default with Research Styling
+// .butoday-block-sample.has-light-background - Example of Light Background with BU Today Styling
+// .bostonia-block-sample.has-light-background - Example of Light Background with Bostonia Styling
+// .research-block-sample.has-light-background - Example of Light Background with Research Styling
+// .butoday-block-sample.has-dark-background - Example of Dark Background with BU Today Styling
+// .bostonia-block-sample.has-dark-background - Example of Dark Background with Bostonia Styling
+// .research-block-sample.has-dark-background - Example of Dark Background with Research Styling
+// .butoday-block-sample.has-primary-background - Example of Primary Background with BU Today Styling
+// .bostonia-block-sample.has-primary-background - Example of Primary Background with Bostonia Styling
+// .research-block-sample.has-primary-background - Example of Primary Background with Research Styling
+//
+// Styleguide Blocks.Global.Sample
+
+
+// Test Block
+//
+// This is a Sample Block, you can use this as a base line for writing up the static markup and styles for a new block.
+//
+//
+// Status: In-Progress
+//
+// Markup: block-sample.hbs
+//
+// .block-sample-variant1 - Example of a Layout Variation
+// .is-style-layoutBig - layout big
+// .bostonia-block-sample - Example of Default with Bostonia Styling
+// .research-block-sample - Example of Default with Research Styling
+// .butoday-block-sample.has-light-background - Example of Light Background with BU Today Styling
+// .bostonia-block-sample.has-light-background - Example of Light Background with Bostonia Styling
+// .research-block-sample.has-light-background - Example of Light Background with Research Styling
+// .butoday-block-sample.has-dark-background - Example of Dark Background with BU Today Styling
+// .bostonia-block-sample.has-dark-background - Example of Dark Background with Bostonia Styling
+// .research-block-sample.has-dark-background - Example of Dark Background with Research Styling
+// .butoday-block-sample.has-primary-background - Example of Primary Background with BU Today Styling
+// .bostonia-block-sample.has-primary-background - Example of Primary Background with Bostonia Styling
+// .research-block-sample.has-primary-background - Example of Primary Background with Research Styling
+//
+// Styleguide Blocks.Global.Test Block
+
+
+
+// Fun Block
+//
+// This is a Fun Block, you can use this as a base line for writing up the static markup and styles for a new block.
+//
+//
+// Status: In-Progress
+//
+// Markup: block-sample.hbs
+//
+// .block-sample-variant1 - Example of a Layout Variation
+// .is-style-layoutBig - layout big
+// .bostonia-block-sample - Example of Default with Bostonia Styling
+// .research-block-sample - Example of Default with Research Styling
+// .butoday-block-sample.has-light-background - Example of Light Background with BU Today Styling
+// .bostonia-block-sample.has-light-background - Example of Light Background with Bostonia Styling
+// .research-block-sample.has-light-background - Example of Light Background with Research Styling
+// .butoday-block-sample.has-dark-background - Example of Dark Background with BU Today Styling
+// .bostonia-block-sample.has-dark-background - Example of Dark Background with Bostonia Styling
+// .research-block-sample.has-dark-background - Example of Dark Background with Research Styling
+// .butoday-block-sample.has-primary-background - Example of Primary Background with BU Today Styling
+// .bostonia-block-sample.has-primary-background - Example of Primary Background with Bostonia Styling
+// .research-block-sample.has-primary-background - Example of Primary Background with Research Styling
+//
+// Styleguide Blocks.Editorial.Fun Block
+
+
+// Orphan Block
+//
+// This is an item not nested in a 2nd level section
+//
+//
+// Status: In-Progress
+//
+// Markup: block-sample.hbs
+//
+// .block-sample-variant1 - Example of a Layout Variation
+// .is-style-layoutBig - layout big
+// .bostonia-block-sample - Example of Default with Bostonia Styling
+// .research-block-sample - Example of Default with Research Styling
+// .butoday-block-sample.has-light-background - Example of Light Background with BU Today Styling
+// .bostonia-block-sample.has-light-background - Example of Light Background with Bostonia Styling
+// .research-block-sample.has-light-background - Example of Light Background with Research Styling
+// .butoday-block-sample.has-dark-background - Example of Dark Background with BU Today Styling
+// .bostonia-block-sample.has-dark-background - Example of Dark Background with Bostonia Styling
+// .research-block-sample.has-dark-background - Example of Dark Background with Research Styling
+// .butoday-block-sample.has-primary-background - Example of Primary Background with BU Today Styling
+// .bostonia-block-sample.has-primary-background - Example of Primary Background with Bostonia Styling
+// .research-block-sample.has-primary-background - Example of Primary Background with Research Styling
+//
+// Styleguide Blocks.Orphan Block
