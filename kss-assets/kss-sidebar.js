@@ -63,5 +63,4 @@ $('body').on('click', '.id-kss-section-toggle', function(e) {
   e.preventDefault();
   $('.active').removeClass('active');
   $('.section-' + $(this).data('section')).addClass('active');
-  $(this).toggleClass('active');
 });
