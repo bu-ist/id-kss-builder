@@ -53,9 +53,8 @@ jQuery.ajax({
    type:'GET',
    success: function(data){
        $('#id-kss-sidebar').html($(data).find('#id-homepage-nav').html());
+
+       var currentSection = $('#id-kss-current-section').text();
+      $('.section-' + currentSection).addClass('active');
    }
 });
-
-var currentSection = $('#id-kss-current-section').text();
-
-$('.section-' + currentSection).addClass('active');
