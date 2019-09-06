@@ -61,6 +61,16 @@
 	{{/each}}
 	{{/if}}
 
+	{{#if template.isItem}}
+
+		{{!
+			Display each section, in order.
+
+			The "root" element comes first in this loop, and can be detected using
+			the "#if @first" block as seen below.
+		}}
+		{{>builder-item }}
+	{{/if}}
 
 {{/if}}
 </article>
