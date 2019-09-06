@@ -54,7 +54,7 @@ jQuery.ajax({
    success: function(data){
        $('#id-kss-sidebar').html($(data).find('#id-homepage-nav').html());
 
-       var currentSection = $('#id-kss-current-section').text();
+       var currentSection = $('#id-kss-current-section').text().toLowerCase();
       $('.section-' + currentSection).addClass('active');
    }
 });
