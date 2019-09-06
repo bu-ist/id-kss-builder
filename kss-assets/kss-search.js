@@ -34,6 +34,12 @@
 		searchField.addEventListener('change', function(event) {
 			console.log(event.target.value);
 			self.mark( event.target.value );
+
+			if ( '' !== event.target.value ) {
+				$('.id-kss-nav-menu').addClass( 'search-on' );
+			} else {
+				$('.id-kss-nav-menu').removeClass( 'search-on' );
+			}
 		});
 
 		searchButton.addEventListener('click', function(event) {
