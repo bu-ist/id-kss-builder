@@ -6,7 +6,7 @@
 	var KssSearch = function (config) {
 		this.inputID = config.inputID || 'kss-search-field';
 		this.searchButtonID = config.searchButtonID || 'kss-search-button';
-		this.searchAreaClass= config.searchAreaClass || ".id-kss-nav-menu";
+		this.searchAreaClass= config.searchAreaClass || "id-kss-nav-menu";
 		this.init();
 	};
 
@@ -34,7 +34,7 @@
 		};
 
 		markInstance = new Mark( this.searchAreaClass );
-		listInstance = new List( this.searchAreaClass, options );
+		listInstance = new List( 'id-kss-nav', options );
 
 
 		// setup an event listener on the search field
