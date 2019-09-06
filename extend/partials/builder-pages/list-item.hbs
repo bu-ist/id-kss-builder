@@ -1,8 +1,8 @@
 <li class="id-kss-nav-menu-item">
 
 	<a
-		class="id-kss-nav-menu-link {{#ifEquals depth '1'}}id-kss-nav-menu-parent{{else}}id-kss-nav-menu-child{{/ifEquals}} {{#if children}}id-kss-nav-menu-has-children{{/if}}"
-		href="{{#ifEquals depth '1'}}section-{{referenceURI}}.html#kssref-{{referenceURI}}{{else}}{{#ifEquals depth '2'}}{{#if children}}section-{{sectionreferenceURI}}.html#kssref-{{referenceURI}}{{else }}item-{{referenceURI}}.html{{/if}}{{else}}item-{{referenceURI}}.html{{/ifEquals}}{{/ifEquals}} section-{{sectionreferenceURI}}">
+		class="id-kss-nav-menu-link {{#ifEquals depth '1'}}id-kss-nav-menu-parent{{else}}id-kss-nav-menu-child{{/ifEquals}} {{#if children}}id-kss-nav-menu-has-children{{/if}} section-{{sectionreferenceURI}}"
+		href="{{#ifEquals depth '1'}}section-{{referenceURI}}.html#kssref-{{referenceURI}}{{else}}{{#ifEquals depth '2'}}{{#if children}}section-{{sectionreferenceURI}}.html#kssref-{{referenceURI}}{{else }}item-{{referenceURI}}.html{{/if}}{{else}}item-{{referenceURI}}.html{{/ifEquals}}{{/ifEquals}}">
 			{{#if status}}
 				<span class="id-kss-status id-kss-status-{{{slug status}}}">
 					{{status}}
