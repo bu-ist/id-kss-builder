@@ -18,7 +18,7 @@
 		<div id="id-kss-search"></div>
 	</div>
 	</div>
-	{{#unless @root.template.isHomepage}}
+	{{#if @root.template.isItem}}
 	<div id="id-kss-toolbar">
 		<div id="id-kss-breakpoints-control" class="id-kss-breakpoints-control"></div>
 		<div class="id-kss-sidebar-control">
@@ -26,5 +26,5 @@
 			<input type="checkbox" name="sidebar" checked>
 		</div>
 	</div>
-	{{/unless}}
+	{{/if}}
 </header>
