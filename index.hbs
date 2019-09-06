@@ -43,24 +43,6 @@
 
 	{{else}}
 
-	{{#if template.isSection}}
-		{{#each sections}}
-
-		{{!
-			Only output this item if it is not set as hidden
-			this is useful so we can hide titles for sub categories or things we don't
-			want visible yet
-		}}
-		{{#ifEquals depth '1'}}
-			{{>builder-section-item }}
-		{{else}}
-			{{#ifEquals depth '2'}}
-				{{>builder-section-item }}
-			{{/ifEquals}}
-		{{/ifEquals}}
-	{{/each}}
-	{{/if}}
-
 	{{#if template.isItem}}
 
 		{{!
