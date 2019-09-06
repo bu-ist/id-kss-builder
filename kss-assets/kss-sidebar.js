@@ -59,7 +59,8 @@ jQuery.ajax({
    }
 });
 
-$('.id-kss-section-toggle').click(function() {
+$('.id-kss-section-toggle').click(function(e) {
+  e.preventDefault();
   $('.active').removeClass('active');
   $('.section-' + $(this).data('section')).addClass('active');
 });
