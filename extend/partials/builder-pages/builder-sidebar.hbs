@@ -1,0 +1,11 @@
+{{#unless @root.template.isHomepage}}
+<div class="id-kss-sidebar id-kss-style">
+	<nav class="id-kss-nav" aria-label="Style Guide">
+		<ul class="id-kss-nav-menu">
+			{{#each (nestedMenu menu)}}
+				{{> list-item }}
+			{{/each}}
+		</ul>
+	</nav>
+</div>
+{{/unless}}
