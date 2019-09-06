@@ -48,16 +48,10 @@
 
 })(window, document);
 
-function loadDoc() {
-  var xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-    document.getElementById("id-kss-sidebar").innerHTML =
-    this.responseText;
-    }
-  };
-  xhttp.open("GET", "index.html#id-homepage-nav", true);
-  xhttp.send();
-}
-
-loadDoc();
+$.ajax({
+   url: 'index.html',
+   type:'GET',
+   success: function(data){
+       $('#id-kss-sidebar').html($(data).find('#id-homepage-nav').html());
+   }
+});
