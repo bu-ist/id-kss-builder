@@ -34,7 +34,7 @@
 		};
 
 		markInstance = new Mark( this.searchAreaClass );
-		listInstance = new List( 'id-kss-nav', options );
+		listInstance = new List( 'id-kss-sidebar', options );
 
 
 		// setup an event listener on the search field
