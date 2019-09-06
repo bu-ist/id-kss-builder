@@ -6,7 +6,7 @@
 	var KssSearch = function (config) {
 		this.inputID = config.inputID || 'kss-search-field';
 		this.searchButtonID = config.searchButtonID || 'kss-search-button';
-		this.searchAreaClass= config.searchAreaClass || ".id-homepage-nav";
+		this.searchAreaClass= config.searchAreaClass || ".id-kss-nav-menu";
 		this.init();
 	};
 
