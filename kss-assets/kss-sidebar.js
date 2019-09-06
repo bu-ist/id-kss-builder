@@ -55,3 +55,7 @@ jQuery.ajax({
        $('#id-kss-sidebar').html($(data).find('#id-homepage-nav').html());
    }
 });
+
+var currentSection = $('#id-kss-current-section').text();
+
+$('.section-' + currentSection).addClass('active');
