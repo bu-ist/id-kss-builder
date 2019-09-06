@@ -10,7 +10,7 @@
 		this.init();
 	};
 
-	var markInstance;
+	var markInstance, listInstance;
 
 	// Initialize
 	KssSearch.prototype.init = function () {
