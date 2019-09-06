@@ -48,7 +48,7 @@
 
 })(window, document);
 
-$.ajax({
+jQuery.ajax({
    url: 'index.html',
    type:'GET',
    success: function(data){
