@@ -43,18 +43,24 @@
 
 	{{else}}
 
-
-
-	{{#if template.isItem}}
+	{{#if template.isSection}}
+		{{#each sections}}
 
 		{{!
-			Display each section, in order.
-
-			The "root" element comes first in this loop, and can be detected using
-			the "#if @first" block as seen below.
+			Only output this item if it is not set as hidden
+			this is useful so we can hide titles for sub categories or things we don't
+			want visible yet
 		}}
-		{{>builder-item }}
+		{{#ifEquals depth '1'}}
+			{{>builder-section-item }}
+		{{else}}
+			{{#ifEquals depth '2'}}
+				{{>builder-section-item }}
+			{{/ifEquals}}
+		{{/ifEquals}}
+	{{/each}}
 	{{/if}}
+
 
 {{/if}}
 </article>
