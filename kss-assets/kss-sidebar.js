@@ -58,3 +58,8 @@ jQuery.ajax({
       $('.section-' + currentSection).addClass('active');
    }
 });
+
+$('.id-kss-section-toggle').click(function() {
+  $('.active').removeClass('active');
+  $('.section-' + $(this).data('section')).addClass('active');
+});

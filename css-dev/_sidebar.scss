@@ -81,3 +81,10 @@
 	margin-bottom: 5px;
 }
 
+.id-kss-nav-menu-parent + .id-kss-nav-menu-child-section {
+	display: none;
+}
+
+.active + .id-kss-nav-menu-child-section {
+	display: block;
+}
