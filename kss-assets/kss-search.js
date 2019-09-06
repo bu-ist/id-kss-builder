@@ -23,7 +23,18 @@
 			return false;
 		}
 
+		var options = {
+		  fuzzySearch: {
+			    searchClass: searchField,
+			    location: 0,
+			    distance: 100,
+			    threshold: 0.4,
+			    multiSearch: true
+			  }
+		};
+
 		markInstance = new Mark( this.searchAreaClass );
+		listInstance = new List( this.searchAreaClass, options );
 
 
 		// setup an event listener on the search field
