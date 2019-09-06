@@ -30,16 +30,16 @@
 		searchField.addEventListener('input', function(event) {
 			console.log(event.target.value);
 			self.mark( event.target.value );
-		});
-		searchField.addEventListener('change', function(event) {
-			console.log(event.target.value);
-			self.mark( event.target.value );
 
 			if ( '' !== event.target.value ) {
 				$('.id-kss-nav-menu').addClass( 'search-on' );
 			} else {
 				$('.id-kss-nav-menu').removeClass( 'search-on' );
 			}
+		});
+		searchField.addEventListener('change', function(event) {
+			console.log(event.target.value);
+			self.mark( event.target.value );
 		});
 
 		searchButton.addEventListener('click', function(event) {

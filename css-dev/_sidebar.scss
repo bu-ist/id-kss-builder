@@ -88,3 +88,8 @@
 .active + .id-kss-nav-menu-child-section {
 	display: block;
 }
+
+.search-on .id-kss-nav-menu-child-section,
+#id-homepage-nav .id-kss-nav-menu-child-section {
+    display: block;
+}

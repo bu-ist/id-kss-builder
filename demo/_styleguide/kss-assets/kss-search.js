@@ -6,7 +6,7 @@
 	var KssSearch = function (config) {
 		this.inputID = config.inputID || 'kss-search-field';
 		this.searchButtonID = config.searchButtonID || 'kss-search-button';
-		this.searchAreaClass= config.searchAreaClass || ".id-homepage-nav";
+		this.searchAreaClass= config.searchAreaClass || ".id-kss-nav-menu";
 		this.init();
 	};
 
@@ -30,6 +30,12 @@
 		searchField.addEventListener('input', function(event) {
 			console.log(event.target.value);
 			self.mark( event.target.value );
+
+			if ( '' !== event.target.value ) {
+				$('.id-kss-nav-menu').addClass( 'search-on' );
+			} else {
+				$('.id-kss-nav-menu').removeClass( 'search-on' );
+			}
 		});
 		searchField.addEventListener('change', function(event) {
 			console.log(event.target.value);
