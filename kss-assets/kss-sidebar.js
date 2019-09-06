@@ -59,7 +59,7 @@ jQuery.ajax({
    }
 });
 
-$('.id-kss-section-toggle').click(function(e) {
+$('body').on('click', '.id-kss-section-toggle', function(e) {
   e.preventDefault();
   $('.active').removeClass('active');
   $('.section-' + $(this).data('section')).addClass('active');
