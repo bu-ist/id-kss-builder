@@ -24,13 +24,8 @@
 		}
 
 		var options = {
-		  fuzzySearch: {
-			    searchClass: searchField,
-			    location: 0,
-			    distance: 100,
-			    threshold: 0.4,
-			    multiSearch: true
-			  }
+			listClass: 'id-kss-nav-menu-child-section',
+			searchClass: 'id-kss-search-field'
 		};
 
 		markInstance = new Mark( this.searchAreaClass );
