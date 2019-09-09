@@ -25,7 +25,10 @@
 
 		var options = {
 			listClass: 'id-kss-nav-menu-child-section',
-			searchClass: 'id-kss-search-field'
+			searchClass: 'id-kss-search-field',
+			valueNames: [
+				'id-kss-nav-name'
+			]
 		};
 
 		markInstance = new Mark( this.searchAreaClass );
