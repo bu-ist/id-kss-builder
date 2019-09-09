@@ -6,11 +6,11 @@
 	var KssSearch = function (config) {
 		this.inputID = config.inputID || 'kss-search-field';
 		this.searchButtonID = config.searchButtonID || 'kss-search-button';
-		this.searchAreaClass= config.searchAreaClass || "id-kss-nav-menu";
+		this.searchAreaClass= config.searchAreaClass || ".id-kss-nav-menu";
 		this.init();
 	};
 
-	var markInstance, listInstance;
+	var markInstance;
 
 	// Initialize
 	KssSearch.prototype.init = function () {
@@ -23,17 +23,7 @@
 			return false;
 		}
 
-		var options = {
-			listClass: 'id-kss-nav-menu-child-section',
-			searchClass: 'id-kss-search-field',
-			valueNames: [
-				'id-kss-nav-name'
-			]
-		};
-
 		markInstance = new Mark( this.searchAreaClass );
-		listInstance = new List( 'id-kss-sidebar', options );
-		listInstance = new List( 'id-homepage-nav', options );
 
 
 		// setup an event listener on the search field
