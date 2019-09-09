@@ -22,7 +22,7 @@
 	@extend %clearfix;
 }
 
-.id-homepage-nav .id-kss-nav-menu > .id-kss-nav-menu-item {
+.id-homepage-nav .id-kss-nav-menu-depth-1 {
 	border-bottom:1px solid $color-grayscale-d;
 	margin-bottom:$margin;
 	padding:0;
@@ -78,6 +78,10 @@
 		.id-kss-nav-menu-depth-2 {
 			break-inside: avoid;
 			width: auto;
+		}
+
+		.id-kss-nav-menu-depth-1 {
+			border: none;
 		}
 	}
 }
