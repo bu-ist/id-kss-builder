@@ -54,7 +54,7 @@
 
 		markInstance.unmark({
 			done: function() {
-				$( '.id-kss-nav-menu-item, .id-kss-nav-menu-depth-1' ).show();
+				$( '.id-kss-nav-menu-item, .id-kss-section-toggle' ).show();
 				if ( text ) {
 					markInstance.mark( text );
 					$( '.id-kss-section-toggle' ).hide();
