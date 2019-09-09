@@ -69,3 +69,15 @@
 .screen-reader-text {
 	@extend %visually-hidden;
 }
+
+.id-kss-homepage {
+	.search-on {
+		display: flex;
+		flex-wrap: wrap;
+
+		.id-kss-nav-menu > .id-kss-nav-menu-item > .id-kss-nav-menu-child-section > .id-kss-nav-menu-item {
+			width: auto;
+			min-width: 20%;
+		}
+	}
+}
