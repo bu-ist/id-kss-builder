@@ -54,12 +54,15 @@
 
 		markInstance.unmark({
 			done: function() {
-				$( '.id-kss-nav-menu-item, .id-kss-section-toggle' ).show();
+				//$( '.id-kss-nav-menu-item, .id-kss-section-toggle' ).show();
+				$( '#search-results' ).replaceWith( '<li class="empty">No results found.</li>' );
+
 				if ( text ) {
 					markInstance.mark( text );
-					$( '.id-kss-section-toggle' ).hide();
-					$( '.id-kss-nav-menu-depth-2' ).has( 'mark' );
-					$( '.id-kss-nav-menu-depth-2' ).not( ":has(mark)" ).hide();
+					// $( '.id-kss-section-toggle' ).hide();
+					// $( '.id-kss-nav-menu-depth-2' ).has( 'mark' );
+					// $( '.id-kss-nav-menu-depth-2' ).not( ":has(mark)" ).hide();
+					$( '.id-kss-nav-menu-depth-2' ).has( 'mark' ).appendTo( '#search-results' );
 				}
 			}
 		});
