@@ -75,7 +75,7 @@
 		column-count: 5;
 		padding: 0;
 
-		.id-kss-nav-menu > .id-kss-nav-menu-item > .id-kss-nav-menu-child-section > .id-kss-nav-menu-item {
+		& > .id-kss-nav-menu-item > .id-kss-nav-menu-child-section > .id-kss-nav-menu-item {
 			break-inside: avoid;
 			width: auto;
 		}
