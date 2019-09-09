@@ -29,7 +29,7 @@
 	padding-bottom:$margin;
 }
 
-.id-homepage-nav .id-kss-nav-menu > .id-kss-nav-menu-item > .id-kss-nav-menu-child-section > .id-kss-nav-menu-item {
+.id-homepage-nav .id-kss-nav-menu-depth-2 {
 
 	@include breakpoint( $toggle-desktop-layout ) {
 		float:left;
@@ -75,7 +75,7 @@
 		column-count: 5;
 		padding: 0;
 
-		& > .id-kss-nav-menu-item > .id-kss-nav-menu-child-section > .id-kss-nav-menu-item {
+		.id-kss-nav-menu-depth-2 {
 			break-inside: avoid;
 			width: auto;
 		}
