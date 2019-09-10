@@ -59,11 +59,9 @@ jQuery.ajax({
    }
 });
 
-$('body').on('click', '.id-kss-nav-menu-depth-2, .id-kss-nav-menu-depth-1', function(e) {
-  e.preventDefault();
+$('body').on('click', '.id-kss-section-toggle', function(e) {
+  e.stopPropagation();
   $(this).toggleClass('active');
 });
 
-$( document ).ready( function() {
-    $( 'a[href*="' + window.location.pathname + '"]' ).attr( 'href' ).parents( '.id-kss-nav-menu-depth-1' ).addClass( 'active' );
-} );
+$( 'a[href*="' + window.location.pathname.substring(1) + '"]' ).parents( '.id-kss-nav-menu-depth-1' ).addClass( 'active' );
