@@ -59,14 +59,11 @@ jQuery.ajax({
    }
 });
 
-$('body').on('click', '.id-kss-nav-toggle', function(e) {
+$('body').on('click', '.id-kss-nav-menu-depth-2, .id-kss-nav-menu-depth-1', function(e) {
   e.preventDefault();
-  $('.active').removeClass('active');
-  $('.section-' + $(this).data('section')).addClass('active');
+  $(this).toggleClass('active');
 });
 
-$('body').on('click', '.id-kss-section-toggle', function(e) {
-  e.preventDefault();
-  $('.id-kss-nav-toggle.active').removeClass('active');
-  $('.section-' + $(this).data('section')).toggleClass('active');
-});
+$( document ).ready( function() {
+    $( 'a[href*="' + window.location.pathname + '"]' ).attr( 'href' ).parents( '.id-kss-nav-menu-depth-1' ).addClass( 'active' );
+} );
