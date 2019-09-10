@@ -6,16 +6,7 @@
 		</a>
 	</h1>
 	<div class="id-kss-header-wrapper">
-		<nav class="id-kss-main-nav">
-			{{#each menu}}
-				{{#if isActive}}
-					<a href="section-{{referenceURI}}.html" class="id-kss-main-nav-link active id-kss-nav-toggle section-{{referenceURI}}" data-section="{{referenceURI}}">{{header}}</a>
-				{{else}}
-					<a href="section-{{referenceURI}}.html" class="id-kss-main-nav-link id-kss-nav-toggle section-{{referenceURI}}" data-section="{{referenceURI}}">{{header}}</a>
-				{{/if}}
-			{{/each}}
-		</nav>
-		<div id="id-kss-search"></div>
+		{{> search}}
 	</div>
 	</div>
 	{{#unless @root.template.isHomepage}}
