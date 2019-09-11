@@ -66,3 +66,9 @@ $id-kss-colors-background: #29436f;
 .id-kss-search {
 	margin-left: $margin;
 }
+
+#id-kss-toolbar {
+	color: #fff;
+	display: flex;
+	justify-content: end;
+}
