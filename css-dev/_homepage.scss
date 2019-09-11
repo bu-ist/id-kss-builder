@@ -1,68 +1,84 @@
 .id-kss-homepage {
-
 	@include breakpoint( $toggle-desktop-layout ) {
 		margin: 0 auto;
-		max-width:1200px;
-		padding-top:100px;
+		max-width: 1200px;
 	}
+}
 
+.id-kss-toc-title {
+	display: inline-block;
+	font-size: 20px;
+}
+
+.id-kss-toc {
+	background: #29436f;
+	border-radius: 2px;
+	color: $color-grayscale-f;
+	display: inline-block;
+	font-size: 14px;
+	margin: 0 5px;
+	padding: 2px 13px;
+	text-decoration: none;
+
+	&:active,
+	&:visited,
+	&:hover {
+		color: $color-grayscale-f;
+	}
 }
 
 .id-homepage-content {
-	margin:0 20% 50px 20%;
+	margin: 0 20% 50px 20%;
 }
 
+.id-homepage-nav {
+	.id-kss-nav-menu-parent {
+		@extend %font-size-2;
+		margin-bottom: $margin;
+	}
 
-.id-homepage-nav .id-kss-nav-menu-parent {
-	@extend %font-size-2;
-	margin-bottom:$margin;
-}
+	.id-kss-nav-menu-child-section {
+		@extend %clearfix;
+	}
 
-.id-homepage-nav .id-kss-nav-menu-child-section {
-	@extend %clearfix;
-}
+	.id-kss-nav-menu-depth-1 {
+		border-bottom: 1px solid $color-grayscale-d;
+		margin-bottom: $margin;
+		padding: 0;
+		padding-bottom: $margin;
+	}
 
-.id-homepage-nav .id-kss-nav-menu-depth-1 {
-	border-bottom:1px solid $color-grayscale-d;
-	margin-bottom:$margin;
-	padding:0;
-	padding-bottom:$margin;
-}
-
-.id-homepage-nav .id-kss-nav-menu-depth-2 {
-
-	@include breakpoint( $toggle-desktop-layout ) {
-		float:left;
-		width:20%;
+	.id-kss-nav-menu-depth-2 {
+		@include breakpoint( $toggle-desktop-layout ) {
+			float: left;
+			width: 20%;
+		}
 	}
 }
 
 .id-kss-search {
 	fieldset {
-		border:none;
-		margin:0;
-		padding:0;
-		position:relative;
+		border: none;
+		margin: 0;
+		padding: 0;
+		position: relative;
 	}
+
 	.id-kss-search-field {
-		background:$color-grayscale-e;
-		border:none;
-		padding:10px 50px 10px 15px;
-		width:100%;
+		background: $color-grayscale-e;
+		border: none;
+		padding: 10px 50px 10px 15px;
+		width: 100%;
 	}
+
 	.id-kss-search-button {
-		border:none;
-		bottom:0;
-		background:none;
-		position:absolute;
-		right:0;
-		top:0;
-		//@extend %hide-text;
 		@extend %icon-search;
-
-		&::before {
-
-		}
+		background: none;
+		border: none;
+		bottom: 0;
+		position: absolute;
+		right: 0;
+		top: 0;
 	}
 }
 
