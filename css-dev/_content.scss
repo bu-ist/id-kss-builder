@@ -57,11 +57,12 @@ h2.id-kss-title .id-kss-title-name {
 
 
 .id-kss-title-section {
-	color:$color-grayscale-8;
-	display:block;
-	font-size:0.45em;
-	position:relative;
-	top:10px;
+	color: $color-grayscale-8;
+	display: block;
+	font-size: 0.45em;
+	margin-bottom: $margin;
+	position: relative;
+	top: 10px;
 }
 
 
@@ -110,7 +111,6 @@ h2.id-kss-title .id-kss-title-name {
 }
 
 .id-kss-open-github-issue {
-
 	.button {
 		@extend %icon-compose;
 	}
