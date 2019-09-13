@@ -2,7 +2,7 @@
 	border-bottom: 1px solid $color-grayscale-d;
 	display:none;
 	padding: $padding;
-	padding-top: $padding + 50px;
+	padding-top: $padding + 40px;
 
 	@include breakpoint( $toggle-desktop-layout ) {
 		@include box-shadow( 0px 0px 30px 0px rgba( 0, 0, 0, 0.15 ) );
@@ -42,7 +42,33 @@
 
 	.id-kss-section-toggle {
 		padding: 15px $padding;
-		background: gray;
+		border-top: 1px solid #d5d5f2;
+
+		&:hover {
+			cursor: pointer;
+		}
+
+		&::after {
+			content: '+';
+		}
+
+		&.active::after {
+			content: '-';
+		}
+
+		.id-kss-section-toggle {
+			background: #f2f5fb;
+			font-size: 0.9em;
+			margin-bottom: 0;
+
+			&::after {
+				display: none;
+			}
+
+			& + ul {
+				background: #f2f5fb;
+			}
+		}
 	}
 }
 
@@ -57,7 +83,6 @@
 	margin-bottom:$padding;
 }
 .id-kss-sidebar .id-kss-nav-menu-child-section {
-	border-bottom:1px solid $color-grayscale-d;
 	margin-left:-$padding;
 	margin-right:-$padding;
 	padding:$padding;
