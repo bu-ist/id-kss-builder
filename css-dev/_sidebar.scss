@@ -29,9 +29,21 @@
 }
 
 .id-kss-nav-menu {
-	margin-left:-$padding;
-	margin-right:-$padding;
-	padding:$padding;
+	margin-left: -$padding;
+	margin-right: -$padding;
+	//padding: $padding;
+}
+
+.id-kss-sidebar {
+	.id-kss-nav-menu-link {
+		margin-bottom: 0;
+		padding: 5px $padding;
+	}
+
+	.id-kss-section-toggle {
+		padding: 15px $padding;
+		background: gray;
+	}
 }
 
 .id-kss-nav-menu > .id-kss-nav-menu-item {
