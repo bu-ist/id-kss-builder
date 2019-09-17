@@ -54,11 +54,11 @@
 
 		markInstance.unmark({
 			done: function() {
-				$( '.id-kss-nav-menu-item, .id-kss-section-toggle, .id-kss-nav-menu-depth-2, .id-kss-nav-menu-depth-1' ).show();
+				$( '#id-homepage-content, .id-kss-nav-menu-item, .id-kss-section-toggle, .id-kss-nav-menu-depth-2, .id-kss-nav-menu-depth-1' ).show();
 				if ( text ) {
 					markInstance.mark( text, {
 						done: function () {
-							$( '.id-kss-section-toggle' ).hide();
+							$( '#id-homepage-content, .id-kss-section-toggle' ).hide();
 							$( '.id-kss-nav-menu-depth-2' ).has( 'mark' ).find( '.id-kss-section-toggle' ).show();
 							$( '.id-kss-nav-menu-depth-2, .id-kss-nav-menu-depth-1' ).not( ":has(mark)" ).hide();
 						}
