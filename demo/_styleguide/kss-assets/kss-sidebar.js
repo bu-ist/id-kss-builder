@@ -54,8 +54,7 @@ jQuery.ajax({
    success: function(data){
        $('#id-kss-sidebar').html($(data).find('#id-homepage-nav').html());
 
-       var currentSection = $('#id-kss-current-section').text().toLowerCase();
-      $('.section-' + currentSection).addClass('active');
+      $( 'a[href*="' + window.location.pathname.substring(1) + '"]' ).parents( '.id-kss-nav-menu-depth-1' ).children( '.id-kss-section-toggle' ).addClass( 'active' );
    }
 });
 
@@ -63,5 +62,3 @@ $('body').on('click', '.id-kss-section-toggle', function(e) {
   e.stopPropagation();
   $(this).toggleClass('active');
 });
-
-$( 'a[href*="' + window.location.pathname.substring(1) + '"]' ).parents( '.id-kss-nav-menu-depth-1' ).addClass( 'active' );
