@@ -1,6 +1,8 @@
 .id-kss-sidebar {
+	background: #25344b;
 	border-bottom: 1px solid $color-grayscale-d;
-	display:none;
+	display: none;
+	font-size: 16px;
 	padding: $padding;
 	padding-top: $padding + 40px;
 
@@ -9,7 +11,8 @@
 		position: fixed;
 		width: $sidebar-width;
 		height: 100%;
-		overflow: auto;
+		overflow-x: hidden;
+		overflow-y: auto;
 		border-bottom: 0;
 
 		.id-kss-sidebar-open & {
@@ -36,24 +39,34 @@
 
 .id-kss-sidebar {
 	.id-kss-nav-menu-link {
+		font-size: 0.9em;
 		margin-bottom: 0;
 		padding: 5px $padding;
 	}
 
 	.id-kss-section-toggle {
-		padding: 15px $padding;
-		border-top: 1px solid #d5d5f2;
+		padding: 5px $padding;
+		position: relative;
 
 		&:hover {
 			cursor: pointer;
 		}
 
 		&::after {
-			content: '+';
+			//content: '+';
+			//float: right;
 		}
 
 		&.active::after {
-			content: '-';
+			//content: '-';
+			content: '';
+			display: block;
+			width: 15px;
+			height: 15px;
+			position: absolute;
+			background: #3b5069;
+			bottom: -4px;
+			transform: rotate(45deg);
 		}
 
 		.id-kss-section-toggle {
@@ -80,13 +93,19 @@
 	}
 }
 .id-kss-nav-menu-child-section {
-	margin-bottom:$padding;
+	//margin-bottom:$padding;
 }
 .id-kss-sidebar .id-kss-nav-menu-child-section {
 	margin-left:-$padding;
 	margin-right:-$padding;
-	padding:$padding;
+	padding: 10px $padding;
 	padding-top:0;
+}
+
+.id-kss-sidebar {
+	mark {
+		background: #fdee94;
+	}
 }
 
 .id-kss-nav-menu-link {
@@ -99,6 +118,14 @@
 	&:visited {
 		color: #285ebd;
 	}
+
+	.id-kss-sidebar & {
+		color: #f6feff;
+
+		&:visited {
+			color: #f6feff;
+		}
+	}
 }
 
 .id-kss-nav-menu-parent,
@@ -110,6 +137,10 @@
 
 	&:visited {
 		color: $color-grayscale-0;
+	}
+
+	.id-kss-sidebar & {
+		color: #b8c4d6;
 	}
 }
 
@@ -129,4 +160,46 @@
 .search-on .id-kss-nav-menu-child-section,
 #id-homepage-nav .id-kss-nav-menu-child-section {
     display: block;
+}
+
+.id-kss-nav {
+	.id-kss-section-toggle,
+	.id-kss-nav-menu-child-section {
+		//background: #2b3d57;
+	}
+
+	.id-kss-section-toggle.active {
+		background-color: #3b5069;
+		color: #f6feff;
+
+		+ .id-kss-nav-menu-child-section {
+			background: linear-gradient( to bottom, darken( #2b3d57, 5% ), #2b3d57 );
+
+			.id-kss-nav-name {
+				color: #f6feff;
+			}
+		}
+	}
+}
+
+.id-kss-sidebar .id-kss-nav-menu-depth-1 {
+	> .id-kss-section-toggle {
+		border-top: 1px solid #3b5069;
+		padding: 15px $padding;
+	}
+
+	> .id-kss-nav-menu-child-section {
+		//background: #25344b;
+		padding: $padding-small $padding;
+	}
+}
+
+.id-kss-nav-menu-depth-2 {
+	.id-kss-section-toggle {
+		font-size: 0.9em;
+
+		&::after {
+			display: none;
+		}
+	}
 }

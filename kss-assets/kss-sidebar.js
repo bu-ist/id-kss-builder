@@ -58,6 +58,8 @@ jQuery.ajax({
    }
 });
 
+$('.id-kss-sidebar').css('padding-top', $('.id-kss-header').height());
+
 $('body').on('click', '.id-kss-section-toggle', function(e) {
   e.stopPropagation();
   $(this).toggleClass('active');
