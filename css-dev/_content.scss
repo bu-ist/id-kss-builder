@@ -18,19 +18,9 @@
 }
 
 .id-kss-component-content {
-	margin-bottom:50px;
-
-	@include breakpoint( $toggle-desktop-layout ) {
-		//margin-left:auto;
-		//margin-right:auto;
-		width:80%;
-	}
-	@include breakpoint( $md ) {
-		width:70%;
-	}
-	@include breakpoint( $lg ) {
-		width:60%;
-	}
+	margin-bottom: 50px;
+	width: 100%;
+	max-width: 60ch;
 }
 
 .id-kss-title-block {
@@ -47,7 +37,9 @@ h1.id-kss-title .id-kss-title-name {
 }
 
 h2.id-kss-title .id-kss-title-name {
-	font-size:1.5em;
+	display: block;
+	font-size: 1.25em;
+	margin-bottom: 15px;
 }
 
 .id-kss-title-subheader .id-kss-title-name {

@@ -54,7 +54,7 @@ jQuery.ajax({
    success: function(data){
        $('#id-kss-sidebar').html($(data).find('#id-homepage-nav').html());
 
-      $( 'a[href*="' + window.location.pathname.substring(1) + '"]' ).parents( '.id-kss-nav-menu-depth-1' ).children( '.id-kss-section-toggle' ).addClass( 'active' );
+      $( 'a[href*="' + window.location.pathname.substring(1) + '"]' ).addClass('id-kss-side-nav-active').parents( '.id-kss-nav-menu-depth-1' ).children( '.id-kss-section-toggle' ).addClass( 'active' );
    }
 });
 
