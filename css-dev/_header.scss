@@ -1,4 +1,4 @@
-$id-kss-colors-background: #29436f;
+$id-kss-colors-background: #25344b;
 
 .id-kss-header {
 	left: 0;
@@ -10,8 +10,9 @@ $id-kss-colors-background: #29436f;
 
 .id-kss-header-bar {
 	@include box-shadow( 0px 0px 40px 0px rgba( 0, 0, 0, 0.25 ) );
+	align-items: center;
 	background: $id-kss-colors-background;
-	background: linear-gradient( to right, darken( $id-kss-colors-background, 10% ), $id-kss-colors-background );
+	background: linear-gradient( to right, darken( $id-kss-colors-background, 5% ), $id-kss-colors-background );
 	display: flex;
 	padding: $padding-small $padding;
 	width: 100%;
@@ -22,6 +23,8 @@ $id-kss-colors-background: #29436f;
 	color: $color-grayscale-f;
 	font-family: $font-family-sans-serif;
 	margin-bottom: 0;
+	max-width: $sidebar-width - $padding;
+	padding-right: $padding;
 
 	a {
 		color: inherit;
@@ -60,4 +63,16 @@ $id-kss-colors-background: #29436f;
 			width: 30px;
 		}
 	}
+}
+
+.id-kss-search {
+	//margin-left: $margin;
+	max-width: 650px;
+}
+
+#id-kss-toolbar {
+	color: darken($color-grayscale-9, 30%);
+	display: flex;
+	justify-content: end;
+	margin-left: $margin;
 }

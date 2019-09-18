@@ -1,7 +1,7 @@
-<li class="id-kss-nav-menu-item {{slug reference }}">
-
-	<a
-		class="id-kss-nav-menu-link {{#ifEquals depth '1'}}id-kss-nav-menu-parent{{else}}id-kss-nav-menu-child{{/ifEquals}} {{#if children}}id-kss-nav-menu-has-children{{/if}}"
+<li id="kssref-{{referenceURI}}" class="id-kss-nav-menu-item id-kss-nav-menu-depth-{{depth}}">
+	<{{#ifEquals depth '3'}}a{{else}}span{{/ifEquals}}
+		class="id-kss-nav-menu-link {{#ifEquals depth '1'}}id-kss-nav-menu-parent{{else}}id-kss-nav-menu-child{{/ifEquals}} {{#if children}}id-kss-nav-menu-has-children{{/if}} {{#ifEquals depth '1'}}section-{{referenceURI}}{{/ifEquals}} {{#ifEquals depth '3'}}{{else}} id-kss-section-toggle{{/ifEquals}}"
+		{{#ifEquals depth '1'}}data-section="{{referenceURI}}"{{/ifEquals}}
 		href="{{#ifEquals depth '1'}}section-{{referenceURI}}.html#kssref-{{referenceURI}}{{else}}{{#ifEquals depth '2'}}{{#if children}}section-{{sectionreferenceURI}}.html#kssref-{{referenceURI}}{{else }}item-{{referenceURI}}.html{{/if}}{{else}}item-{{referenceURI}}.html{{/ifEquals}}{{/ifEquals}}">
 			{{#if status}}
 				<span class="id-kss-status id-kss-status-{{{slug status}}}">
@@ -11,7 +11,7 @@
 			<span class="id-kss-nav-name">
 				{{splitTitle reference depth }}
 			</span>
-		</a>
+		</{{#ifEquals depth '3'}}a{{else}}span{{/ifEquals}}>
 	{{#if children}}
 		<ul class="id-kss-nav-menu-child-section">
 			{{> list}}

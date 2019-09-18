@@ -5,8 +5,8 @@
 
 	.id-kss-sidebar-open & {
 		@include breakpoint( $toggle-desktop-layout ) {
-			padding-left: $sidebar-width + 3%;
-			padding-top: $padding + 80px;
+			padding-left: $sidebar-width + $padding-large;
+			padding-top:$padding + 80px;
 		}
 	}
 }
@@ -19,18 +19,8 @@
 
 .id-kss-component-content {
 	margin-bottom: 50px;
-
-	@include breakpoint( $toggle-desktop-layout ) {
-		width: 80%;
-	}
-
-	@include breakpoint( $md ) {
-		width: 70%;
-	}
-
-	@include breakpoint( $lg ) {
-		width: 60%;
-	}
+	width: 100%;
+	max-width: 60ch;
 }
 
 .id-kss-title-block {
@@ -58,12 +48,19 @@
 	}
 }
 
+h2.id-kss-title .id-kss-title-name {
+	display: block;
+	font-size: 1.25em;
+	margin-bottom: 15px;
+}
+
 .id-kss-title-section {
-	color:$color-grayscale-8;
-	display:block;
-	font-size:0.45em;
-	position:relative;
-	top:10px;
+	color: $color-grayscale-8;
+	display: block;
+	font-size: 0.45em;
+	margin-bottom: 5px;
+	position: relative;
+	top: 10px;
 }
 
 
@@ -154,26 +151,6 @@
 	}
 }
 
-#id-kss-toolbar {
-	@include box-shadow(0px 0px 3px 0px rgba(0, 0, 0, 0.24), 0 0 30px 0 rgba(0,0,0,0.15));
-	background: #fff;
-	display: flex;
-	justify-content: end;
-	margin-bottom: $margin;
-	padding: 10px 25px;
-	position: fixed;
-	width:100%;
-	z-index:1000;
-
-	 @include breakpoint( $toggle-desktop-layout ) {
-		@include border-radius(25px);
-		@include box-shadow(0px 0px 3px 0px rgba(0, 0, 0, 0.24), 0 0 30px 0 rgba(0,0,0,0.15));
-		margin-top: $margin;
-		right: 30px;
-		width:auto;
-	}
-}
-
 .id-kss-modifier__wrapper {
 	margin-top:50px;
 	padding-bottom:$margin;
@@ -208,11 +185,11 @@ iframe {
 	display: flex;
 	font-weight: 700;
 	align-items: center;
-	margin-left: -$margin;
-	margin-right: -$margin;
+	//margin-left: -$margin;
+	//margin-right: -$margin;
 	border-bottom: 1px solid $color-grayscale-d;
 	border-top: 1px solid $color-grayscale-d;
-	padding: $padding-small/2 $padding;
+	padding: $padding-small/2 0;
 	margin-bottom: $margin*2;
 }
 

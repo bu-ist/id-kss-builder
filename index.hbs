@@ -13,7 +13,7 @@
 
 
 </head>
-<body id="id-kss-node">
+<body id="id-kss-node" class="{{#if template.isSection}}template-section{{/if}}">
 <script type="text/javascript">
 	//load the theme stylesheet as a variable to be used
 	//by iframe.js to add stylesheets to each iframe example
@@ -44,24 +44,6 @@
 
 	{{else}}
 
-	{{#if template.isSection}}
-		{{#each sections}}
-
-		{{!
-			Only output this item if it is not set as hidden
-			this is useful so we can hide titles for sub categories or things we don't
-			want visible yet
-		}}
-		{{#ifEquals depth '1'}}
-			{{>builder-section-item }}
-		{{else}}
-			{{#ifEquals depth '2'}}
-				{{>builder-section-item }}
-			{{/ifEquals}}
-		{{/ifEquals}}
-	{{/each}}
-	{{/if}}
-
 	{{#if template.isItem}}
 
 		{{!
@@ -83,8 +65,8 @@
 <script src="kss-assets/kss-guides.js"></script>
 <script src="kss-assets/kss-markup.js"></script>
 <script src="kss-assets/kss-breakpoints.js"></script>
-<script src="kss-assets/kss-sidebar.js"></script>
 <script src="kss-assets/jquery.js"></script>
+<script src="kss-assets/kss-sidebar.js"></script>
 <script src="kss-assets/jquery-resizable.js"></script>
 <script src="kss-assets/iframe.js"></script>
 <script src="kss-assets/mark.min.js"></script>
@@ -116,7 +98,7 @@
 	var kssSearch = new KssSearch({
 		inputID: 'kss-search-field',
 		searchButtonID: 'kss-search-button',
-    	searchAreaClass: '.id-homepage-nav'
+    	searchAreaClass: '.id-kss-nav-menu'
 	});
 
 </script>
