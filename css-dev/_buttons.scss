@@ -1,0 +1,31 @@
+.button {
+	background-color: $color-grayscale-e;
+	border:1px solid $color-grayscale-b;
+	border-radius: 5px;
+	color: $color-grayscale-5;
+	display: inline-block;
+	line-height: normal;
+	padding: 3px 7px;
+	text-align: center;
+	text-decoration: none;
+	vertical-align: baseline;
+
+	&:hover {
+		@include linear-gradient( transparent, rgba( $color-grayscale-0, 0.10 ) );
+	}
+
+	&:active {
+		@include box-shadow(
+			0 0 0 1px rgba( $color-grayscale-0, 0.15 ) inset,
+			0 0 6px rgba( $color-grayscale-0, 0.20 ) inset
+		);
+	}
+
+	&:visited {
+		color: $color-grayscale-5;
+	}
+}
+
+.button-small {
+	font-size:0.65em;
+}

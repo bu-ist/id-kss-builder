@@ -17,6 +17,8 @@
  */
 
 const path = require('path');
+const handlebarsWax = require('handlebars-wax');
+const fs = require('fs');
 
 // We want to extend kss-node's Handlebars builder so we can add options that
 // are used in our templates.
@@ -57,9 +59,58 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
         multiple: false,
         describe: 'Title of the style guide',
         default: 'KSS Style Guide'
+      },
+      colorPrimary: {
+        group: 'Builder Colors:',
+        string: true,
+        multiple: false,
+        describe: 'Primary Color for this Styleguide'
+      },
+      colorSecondary: {
+        group: 'Builder Colors:',
+        string: true,
+        multiple: false,
+        describe: 'Secondary Color for this Styleguide'
+      },
+      gitURL: {
+        group: 'Builder Git',
+        string: true,
+        multiple: false,
+        describe: 'A url to the git repo'
+      },
+      gitURLCSSDEV: {
+        group: 'Builder Git',
+        string: true,
+        multiple: false,
+        describe: 'A url to the git repo css-dev folder'
+      },
+      exampleStylesheetURL: {
+        group: 'Example Stylesheet',
+        string: true,
+        multiple: false,
+        describe: 'A url to a stylesheet to include in the example iframmes'
+      },
+      themes: {
+        group: 'Themes',
+        string: false,
+        multiple: true,
+        describe: 'Setup Themes within a styleguide'
+      },
+      partialsDir: {
+        group: 'Partials',
+        string: true,
+        multiple: false,
+        describe: 'Path to look for hbs partials in'
+      },
+      debug: {
+        group: 'Debug Options',
+        string: false,
+        multiple: false,
+        describe: 'If set to "true", debug output of kss data will be printed on each page and stored as a js var'
       }
     });
   }
+
 
   /**
    * Allow the builder to preform pre-build tasks or modify the KssStyleGuide
@@ -85,6 +136,7 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
     // Since it returns a Promise, we do our prep work in a then().
     return super.prepare(styleGuide).then(styleGuide => {
       // Load this builder's extra Handlebars helpers.
+
 
       // Allow a builder user to override the {{section [reference]}} helper
       // with the --extend setting. Since a user's handlebars helpers are
@@ -130,6 +182,52 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
         });
       }
 
+
+
+      //
+      //
+      // Look for partials in directories
+      //
+      var partialsDir = this.options.extend;
+      partialsDir.push( __dirname + '/extend/partials' );
+
+      //add the directory supplied in gruntfile.js from child theme for instance
+      //this should be a base directory like 'css-dev' that we want to search for
+      //.hbs partial files
+      if ( this.options.partialsDir ) {
+        partialsDir.push( process.cwd() + '/' + this.options.partialsDir );
+      }
+
+      //the Wax module requires the file extension and **/* pattern to be
+      //added to the end of each path so lets loop through the array
+      //and add it to each directory path
+      for(var i=0;i<partialsDir.length;i++){
+          partialsDir[i] = partialsDir[i]+"/**/*.hbs";
+      }
+
+
+      var wax = handlebarsWax(this.Handlebars, { bustCache: true })
+          // Partials
+          .partials(partialsDir, {
+              parsePartialName: function(options, file) {
+                  // options.handlebars
+                  // file.cwd
+                  // file.base
+                  // file.path
+                  // file.exports
+
+                  //instead of using a long partial name that
+                  //incorporates the file path, lets set it to
+                  //just the filename
+                  var filename = file.path.replace(/^.*[\\\/]/, '')
+                  filename = filename.split('.')[0];//get filename without extension
+                  return filename;
+              }
+          });
+
+
+
+
       return Promise.resolve(styleGuide);
     });
   }
@@ -140,6 +238,37 @@ class KssBuilderHandlebars extends KssBuilderBaseHandlebars {
 
     return super.prepareExtend(templateEngine);
   }
+
+    /***************************************************************************************
+
+  Added Sept 17, 2018:
+
+  Add in custom properties so they don't
+  have to be defined in the custom child
+  theme gruntfile that this builder and template
+  supports.
+
+  Git-Source: url to github
+  Status: Current, Planned, Deprecated, Front-End Ready, Back-end Ready, Tested
+
+  ***************************************************************************************/
+
+
+  normalizeOptions(keys) {
+    if (this.options.custom) {
+      this.options.custom = Array.from(new Set(this.options.custom.concat([
+        'status',
+        'hidden',
+        'git-source',
+        'is-subheader',
+        'is-header',
+        'template-override'
+      ])))
+    }
+
+    return super.normalizeOptions(keys)
+  }
+
 }
 
 module.exports = KssBuilderHandlebars;

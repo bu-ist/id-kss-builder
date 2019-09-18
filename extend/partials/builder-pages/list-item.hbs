@@ -1,0 +1,21 @@
+<li class="id-kss-nav-menu-item">
+
+	<a
+		class="id-kss-nav-menu-link {{#ifEquals depth '1'}}id-kss-nav-menu-parent{{else}}id-kss-nav-menu-child{{/ifEquals}} {{#if children}}id-kss-nav-menu-has-children{{/if}}"
+		href="{{#ifEquals depth '1'}}section-{{referenceURI}}.html#kssref-{{referenceURI}}{{else}}{{#ifEquals depth '2'}}{{#if children}}section-{{sectionreferenceURI}}.html#kssref-{{referenceURI}}{{else }}item-{{referenceURI}}.html{{/if}}{{else}}item-{{referenceURI}}.html{{/ifEquals}}{{/ifEquals}}">
+			{{#if status}}
+				<span class="id-kss-status id-kss-status-{{{slug status}}}">
+					{{status}}
+				</span>
+			{{/if}}
+			<span class="id-kss-nav-name">
+				{{splitTitle reference depth }}
+			</span>
+		</a>
+	{{#if children}}
+		<ul class="id-kss-nav-menu-child-section">
+			{{> list}}
+		</ul>
+	{{/if}}
+</li>
+
