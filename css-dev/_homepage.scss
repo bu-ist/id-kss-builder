@@ -97,8 +97,11 @@
 
 		.id-kss-nav-menu-depth-2 {
 			break-inside: avoid;
-			width: auto;
+			display: inline-block;
 			margin-left: $margin;
+			margin-bottom: $margin;
+			overflow: hidden;
+			width: auto;
 		}
 
 		.id-kss-nav-menu-depth-1 {

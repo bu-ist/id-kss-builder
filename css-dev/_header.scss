@@ -67,10 +67,11 @@ $id-kss-colors-background: #25344b;
 
 .id-kss-search {
 	//margin-left: $margin;
+	max-width: 650px;
 }
 
 #id-kss-toolbar {
-	color: #fff;
+	color: darken($color-grayscale-9, 30%);
 	display: flex;
 	justify-content: end;
 	margin-left: $margin;
