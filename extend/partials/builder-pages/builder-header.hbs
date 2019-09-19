@@ -6,25 +6,16 @@
 		</a>
 	</h1>
 	<div class="id-kss-header-wrapper">
-		<nav class="id-kss-main-nav">
-			{{#each menu}}
-				{{#if isActive}}
-					<a href="section-{{referenceURI}}.html" class="id-kss-main-nav-link active">{{header}}</a>
-				{{else}}
-					<a href="section-{{referenceURI}}.html" class="id-kss-main-nav-link">{{header}}</a>
-				{{/if}}
-			{{/each}}
-		</nav>
-		<div id="id-kss-search"></div>
-	</div>
+		{{> search}}
 	</div>
 	{{#unless @root.template.isHomepage}}
-	<div id="id-kss-toolbar">
-		<div id="id-kss-breakpoints-control" class="id-kss-breakpoints-control"></div>
-		<div class="id-kss-sidebar-control">
-			<span class="id-kss-toolbar-label">Sidebar</span>
-			<input type="checkbox" name="sidebar" checked>
+		<div id="id-kss-toolbar">
+			<div id="id-kss-breakpoints-control" class="id-kss-breakpoints-control"></div>
+			<div class="id-kss-sidebar-control">
+				<span class="id-kss-toolbar-label">Sidebar</span>
+				<input type="checkbox" name="sidebar" checked>
+			</div>
 		</div>
-	</div>
 	{{/unless}}
+	</div>
 </header>

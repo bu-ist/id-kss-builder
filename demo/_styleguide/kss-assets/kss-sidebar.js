@@ -47,3 +47,20 @@
   window.KssSidebar = KssSidebar;
 
 })(window, document);
+
+jQuery.ajax({
+   url: 'index.html',
+   type:'GET',
+   success: function(data){
+       $('#id-kss-sidebar').html($(data).find('#id-homepage-nav').html());
+
+      $( 'a[href*="' + window.location.pathname.substring(1) + '"]' ).addClass('id-kss-side-nav-active').parents( '.id-kss-nav-menu-depth-1' ).children( '.id-kss-section-toggle' ).addClass( 'active' );
+   }
+});
+
+$('.id-kss-sidebar').css('padding-top', $('.id-kss-header').height());
+
+$('body').on('click', '.id-kss-section-toggle', function(e) {
+  e.stopPropagation();
+  $(this).toggleClass('active');
+});

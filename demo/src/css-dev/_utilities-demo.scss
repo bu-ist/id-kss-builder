@@ -1,0 +1,31 @@
+// Parameters Example
+//
+// Documents a mixin with parameters.
+//
+// ```scss
+// .example {
+// 	@include default-params-example( #fff );
+// }
+// ```
+//
+// Compatible in IE6+, Firefox 2+, Safari 4+.
+//
+// $start = #000 - The color hex at the top.
+//
+// Status: In Progress
+//
+// Author: Ashley Kolodziej
+//
+// Since: 1.0.0
+//
+// Type: Mixin
+//
+// Access: Private
+//
+// Accessibility: AA
+//
+// Styleguide Utilities.Mixins.Parameters Example
+
+@mixin default-params-example( $start: #000 ) {
+  background: $start;
+}
