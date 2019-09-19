@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 1.1.0
 
 - Significant user interface updates and performance improvements for large styleguides
 - Performance improvement: removes section pages
