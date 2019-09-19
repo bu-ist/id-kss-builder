@@ -24,9 +24,12 @@ module.exports = function(grunt) {
 			},
 			kss: {
 				files: [
-					'/demo/src/**/*.hbs'
+					'demo/src/**/*.hbs',
+					'extend/partials/*.hbs',
+					'extend/partials/**/*.hbs',
+					'extend/*.js'
 				],
-				tasks: [ 'styles' ],
+				tasks: [ 'build' ],
 				options: {
 					spawn: false
 				}
@@ -70,7 +73,7 @@ module.exports = function(grunt) {
 				debug: true,
 				extend: 'demo/src/extend',
 				gitURL: 'https://github.com/bu-ist/id-kss-builder/',
-				gitURLCSSDEV: 'https://github.com/bu-ist/id-kss-builder/tree/master/src',
+				gitURLCSSDEV: 'https://github.com/bu-ist/id-kss-builder/tree/develop/demo/src/',
 				exampleStylesheetURL: 'https://www.bu.edu/wp-content/themes/responsive-framework-2-x/style.min.css',
 				themes: [
 					{ name: 'BU Today', slug: 'bu-today', classes: 'publication-butoday', hideclass: ['bostonia', 'research'] },

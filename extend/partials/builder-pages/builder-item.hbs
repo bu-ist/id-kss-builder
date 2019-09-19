@@ -14,16 +14,35 @@
 						{{#if is-subheader}}
 						<span class="id-kss-title-section">{{splitTitle reference 1}}</span>
 						{{else}}
-						<span class="id-kss-title-section">{{splitTitle reference 2}}</span>
+						<span class="id-kss-title-section">{{splitTitle reference 1}} &#xbb; {{splitTitle reference 2}}</span>
 						{{/if}}
 
 						<span class="id-kss-title-name">{{header}}<a class="id-kss-title__permalink" href="#kssref-{{referenceURI}}">Link</a></span>
 					</h{{#ifEquals depth '1' }}1{{else}}2{{/ifEquals}}>
 					{{#if status}}
-						<span class="id-kss-status id-kss-status-{{{slug status}}}">
-							{{status}}
+						<span class="id-kss-status id-kss-status-{{{slug status}}}">{{status}}</span>
+					{{/if}}
+					{{#if author}}
+						<span class="id-kss-author id-kss-author-{{{slug author}}}">{{author}}</span>
+					{{/if}}
+					{{#if since}}
+						<span class="id-kss-since id-kss-since-{{{slug since}}}">
+							Since:
+							{{#if @root.options.gitURL}}
+								<a href="{{@root.options.gitURL}}/releases/tag/{{since}}">{{since}}</a>
+							{{else}}
+								{{since}}
+							{{/if}}
 						</span>
 					{{/if}}
+					{{#if accessibility}}
+						<a href="https://www.w3.org/TR/WCAG20-TECHS/G183.html" title="Meets WCAG 2.0 {{accessibility}} standards for color contrast" class="id-kss-accessibility id-kss-accessibility-{{{slug accessibility}}}">{{accessibility}}</a>
+					{{/if}}
+					{{#ifEquals access 'Private' }}
+						<span title="This {{#if type}}{{toLowerCase type}} {{/if}}is only intended for internal use and may change at any time." class="id-kss-access id-kss-access-{{{slug access}}}">{{access}}</a>
+					{{else}}
+						{{! do nothing}}
+					{{/ifEquals}}
 
 					{{#if is-header}}
 						{{! do nothing}}
@@ -142,6 +161,17 @@
 						</summary>
 						<pre class="hljs"><code class="language-handlebars">{{{hljs markup 'handlebars'}}}</code></pre>
 					</details>
+				{{/if}}
+			{{else}}
+				{{#if source.filename}}
+					<span class="id-kss-source id-kss-style">
+						Source: <code>{{source.filename}}, line {{source.line}}</code>
+						{{#if @root.options.gitURLCSSDEV}}
+							<a href="{{@root.options.gitURLCSSDEV}}{{source.filename}}#L{{source.line}}">
+								View Source
+							</a>
+						{{/if}}
+					</span>
 				{{/if}}
 			{{/if}}
 

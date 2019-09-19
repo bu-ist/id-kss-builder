@@ -14,7 +14,7 @@ $color-code-bg: transparent;
 @import 'vs2015';
 
 $toggle-desktop-layout: $sm;
-$sidebar-width: 20%;
+$sidebar-width: 275px;
 
 .id-kss-fullscreen-mode {
 	.id-kss-sidebar,
@@ -32,6 +32,7 @@ $sidebar-width: 20%;
 @import 'status';
 @import 'tools';
 @import 'content';
+@import 'section';
 
 // ------------------------------------------------------------------------------
 //   Variables - Colors, Fonts, etc.
