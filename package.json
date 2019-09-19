@@ -1,6 +1,6 @@
 {
   "name": "id-kss-builder",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "The default builder for Boston University Interactive Design frontend documentation.",
   "repository": "https://github.com/bu-ist/id-kss-builder/",
   "contributors": [
