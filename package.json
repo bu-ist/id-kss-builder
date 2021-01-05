@@ -16,7 +16,7 @@
     "grunt-kss": "^5.0.1",
     "grunt-sass": "^2.0.0",
     "highlight.js": "^9.15.8",
-    "responsive-foundation": "git@github.com:bu-ist/responsive-foundation.git#develop",
+    "responsive-foundation": "git@github.com:bu-ist/responsive-foundation.git#3.2.0",
     "slugg": "^1.2.1"
   },
   "dependencies": {
